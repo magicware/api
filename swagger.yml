@@ -36,9 +36,6 @@ paths:
               name: Price correction model
               description: >-
                 Price correction with it's type how it behave and it's variant unique key.<br /><br />
-                correctionType:<br />
-                &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
-                &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.<br /><br />
                 To remove the price correction, just simply set the price correction amount to a zero.
               required: true
               schema:
@@ -68,7 +65,10 @@ definitions:
         description: The value of a price correction
       correctionType:
         type: string
-        description: Type of correction amount and how it's gonna behave with price
+        description: >-
+          Type of correction amount and how it's gonna behave with price<br /><br />
+          &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
+          &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.
         enum:
           - correctionAmount
           - newPrice
