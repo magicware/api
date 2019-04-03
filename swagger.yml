@@ -3,7 +3,9 @@ info:
     title: Price corrections
     version: 1.0.0
     description: >-
-        Allows to re-price product variants or adjust their end price.
+        Allows to re-price product variants or adjust their end price.<br /><br />
+        The price correction affects all product variant prices across the system. Including exports.
+        
 host: inviaen.iscontent.cz
 basePath: /v1
 schemes:
@@ -25,7 +27,6 @@ paths:
           summary: Update correction amount or update new price
           consumes:
             - application/json
-            - application/xml
           produces:
             - application/json
           security:
@@ -33,7 +34,12 @@ paths:
           parameters:
             - in: body
               name: Price correction model
-              description: Price correction with it's type and it's variant unique key
+              description: >-
+                Price correction with it's type how it behave and it's variant unique key.<br /><br />
+                correctionType:<br />
+                &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
+                &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.<br /><br />
+                To remove the price correction, just simply set the price correction amount to a zero.
               required: true
               schema:
                 $ref: '#/definitions/priceCorrection'
@@ -59,42 +65,53 @@ definitions:
       amount:
         type: number
         format: double
+        description: The value of a price correction
       correctionType:
         type: string
-        description: type of correction amount and how it's gonna behave with price
+        description: Type of correction amount and how it's gonna behave with price
         enum:
           - correctionAmount
           - newPrice
       dateFrom:
         type: string
         format: date-time
+        description: Date From
       nights:
         type: integer
         format: int32
+        description: Count of nights
       departureTransportFacilityId:
         type: integer
         format: int32
+        description: ID of a depature transport facility
       departureStationId:
         type: integer
         format: int32
+        description: ID of a departure station
       returnArrivalStationId:
         type: integer
         format: int32
+        description: ID of an arrival station
       productId:
         type: integer
         format: int32
+        description: ID of a product
       priceListCategoryCbId:
         type: integer
         format: int32
+        description: Codebook ID of a price list category
       boardTypeCbId:
         type: integer
         format: int32
+        description: Codebook ID of a board type
       saleGroupId:
         type: integer
         format: int32
+        description: ID of a sale group
       facilityUnitPlanId:
         type: integer
         format: int32
+        description: ID of a facility unit plan
 securityDefinitions:
   Bearer:
     type: apiKey
