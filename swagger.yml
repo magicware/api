@@ -24,7 +24,7 @@ paths:
         put:
           tags:
             - Price
-          summary: Update correction amount or update new price
+          summary: Update the price correction amount or change how should the price correction apply on the price
           consumes:
             - application/json
           produces:
