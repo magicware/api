@@ -1,119 +1,285 @@
-swagger: '2.0'
+openapi: "3.0.2"
 info:
-    title: Price corrections
+    title: MagicWare API
     version: 1.0.0
     description: >-
-        Allows to re-price product variants or adjust their end price.<br /><br />
-        The price correction affects all product variant prices across the system. Including exports.
-        
-host: inviaen.iscontent.cz
-basePath: /v1
-schemes:
-    -    https
-externalDocs:
-    url: 'http://magicdoc/OpenKM/'
-    description: More information here.
-tags:
-    -    name: Price
-         description: for changes of prices
-         externalDocs:
-             url: 'http://magicdoc/OpenKM/'
-             description: Find out more about this topic
+      Informations about general MagicWare API.<br /><br />
+      #INSTANCEURL# - replace base URL with is>tour or is>content instance URL
 paths:
-    /products/priceCorrections:
-        put:
-          tags:
-            - Price
-          summary: Update the price correction amount or change how should the price correction apply on the price
-          consumes:
-            - application/json
-          produces:
-            - application/json
-          security:
-            - Bearer: []
-          parameters:
-            - in: body
-              name: Price correction model
-              description: >-
-                Price correction with it's type how it behave and it's variant unique key.<br /><br />
-                To remove the price correction, just simply set the price correction amount to a zero.
-              required: true
-              schema:
-                $ref: '#/definitions/priceCorrection'
-          responses:
-            '200':
-              description: successful operation
-              schema:
-                $ref: '#/definitions/priceCorrection'
-            '401':
-              description: Authorization token is missing or invalid
-
-definitions:
-  priceCorrection:
-    type: object
-    required:
-      - amount
-      - correctionType
-      - dateFrom
-      - nights
-      - productId
-      - facilityUnitPlanId
-    properties:
-      amount:
-        type: number
-        format: double
-        description: The value of a price correction
-      correctionType:
-        type: string
+  /products/priceCorrections:
+    put:
+      tags:
+        - Product
+      summary: '(#INSTANCEURL# is>content). Allows to re-price product variants or adjust their end price.'
+      description: >-
+        The price correction currently affects adjusted product variant prices only in exports.
+      security:
+       - ApiKeyAuth: []     
+      requestBody:
+        required: true
         description: >-
-          Type of correction amount and how it's gonna behave with price<br /><br />
-          &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
-          &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.
-        enum:
-          - correctionAmount
-          - newPrice
-      dateFrom:
-        type: string
-        format: date-time
-        description: Date From
-      nights:
-        type: integer
-        format: int32
-        description: Count of nights
-      departureTransportFacilityId:
-        type: integer
-        format: int32
-        description: ID of a depature transport facility
-      departureStationId:
-        type: integer
-        format: int32
-        description: ID of a departure station
-      returnArrivalStationId:
-        type: integer
-        format: int32
-        description: ID of an arrival station
-      productId:
-        type: integer
-        format: int32
-        description: ID of a product
-      priceListCategoryCbId:
-        type: integer
-        format: int32
-        description: Codebook ID of a price list category
-      boardTypeCbId:
-        type: integer
-        format: int32
-        description: Codebook ID of a board type
-      saleGroupId:
-        type: integer
-        format: int32
-        description: ID of a sale group
-      facilityUnitPlanId:
-        type: integer
-        format: int32
-        description: ID of a facility unit plan
-securityDefinitions:
-  Bearer:
-    type: apiKey
-    name: Authorization
-    in: header
+            Price correction with it's type how it behave and it's variant unique key.<br /><br />
+            To remove the price correction, just simply set the price correction amount to a zero.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/priceCorrection'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/priceCorrection'
+        '401':
+          description: Authorization token is missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/401NotAuthorized'
+  /reservations/businessCases:
+    post:
+      tags:
+        - Business case
+      summary: '(#INSTANCEURL# is>content). Allows to create a new business case.'
+      description: >-
+        Creates new business case. Returns extra ID and Number of created business case
+      security:
+       - ApiKeyAuth: []
+      requestBody:
+        description: >-
+          Price correction with it's type how it behave and it's variant unique key.<br /><br />
+          To remove the price correction, just simply set the price correction amount to a zero.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/businessCase~1request'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/businessCase~1response'
+        '401':
+          description: Authorization token is missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/401NotAuthorized'
+  /reservations/businessCases/bcCustomInfo:
+    put:
+      tags:
+        - Business case
+      summary: '(#INSTANCEURL# is>content). Allows to actualize additional data of a business case.'
+      description: >-
+        Requires existing business case.
+      security:
+       - ApiKeyAuth: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bcCustomInfo'
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/businessCase~1response'
+        '401':
+          description: Authorization token is missing or invalid
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/responses/401NotAuthorized'
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: apikey
+  schemas:
+    priceCorrection:
+      type: object
+      required:
+        - amount
+        - correctionType
+        - dateFrom
+        - nights
+        - productId
+        - facilityUnitPlanId
+      properties:
+        amount:
+          type: number
+          format: double
+          description: The value of a price correction
+        correctionType:
+          type: string
+          description: >-
+            Type of correction amount and how it's gonna behave with price<br /><br />
+            &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
+            &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.
+          enum:
+            - correctionAmount
+            - newPrice
+        dateFrom:
+          type: string
+          format: date
+          description: Date From
+        nights:
+          type: integer
+          format: int32
+          description: Count of nights
+        departureTransportFacilityId:
+          type: integer
+          format: int32
+          description: ID of a depature transport facility
+          nullable: true
+        departureStationId:
+          type: integer
+          format: int32
+          description: ID of a departure station
+          nullable: true
+        returnArrivalStationId:
+          type: integer
+          format: int32
+          description: ID of an arrival station
+          nullable: true
+        productId:
+          type: integer
+          format: int32
+          description: ID of a product
+        priceListCategoryCbId:
+          type: integer
+          format: int32
+          description: Codebook ID of a price list category
+          nullable: true
+        boardTypeCbId:
+          type: integer
+          format: int32
+          description: Codebook ID of a board type
+          nullable: true
+        saleGroupId:
+          type: integer
+          format: int32
+          description: ID of a sale group
+          nullable: true
+        facilityUnitPlanId:
+          type: integer
+          format: int32
+          description: ID of a facility unit plan
+    businessCase/request:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Project name
+          nullable: true
+        customerId:
+          type: integer
+          format: int32
+          description: ID of a customer.
+          nullable: true
+    businessCase/response:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: ID of new business case
+        number:
+          type: number
+          format: double
+          description: Number of new business case
+        name:
+          type: string
+          description: Project name
+          nullable: true
+        customerId:
+          type: integer
+          format: int32
+          description: ID of a customer.
+          nullable: true
+    bcCustomInfo:
+      type: object
+      required:
+        - businessCaseId
+      properties:
+        businessCaseId:
+          type: integer
+          format: int32
+          description: ID of the business case that additional data are for
+        destinationId:
+          type: integer
+          format: int32
+          description: ID of a destination
+          nullable: true
+        productTypeId:
+          type: integer
+          format: int32
+          description: ID of a product type
+          nullable: true
+        accommodationCategoryCbId:
+          type: integer
+          format: int32
+          description: ID of an accommodation
+          nullable: true
+        boardTypeCbId:
+          type: integer
+          format: int32
+          description: ID of a board
+          nullable: true
+        transportTypeCbID:
+          type: integer
+          format: int32
+          description: ID of a board
+          nullable: true
+        term:
+          $ref: '#/components/schemas/bcCustomInfo~1Term'
+        accommodationTerm:
+          $ref: '#/components/schemas/bcCustomInfo~1AccommodationTerm'
+        hotelName:
+          type: string
+          description: Name of a hotel
+        roomKind:
+          type: string
+          description: Kind of a room
+        departurePlace:
+          type: string
+          description: Departure place
+        services:
+          type: string
+          description: Additional services
+    bcCustomInfo/Term:
+      description: Term of accomodation
+      type: object
+      properties:
+        dateFrom:
+          type: string
+          format: date
+          description: Date from
+          nullable: true
+        dateTo:
+          type: string
+          format: date
+          description: Date to
+          nullable: true
+    bcCustomInfo/AccommodationTerm:
+      description: Start and end of the trip
+      type: object
+      properties:
+        dateFrom:
+          type: string
+          format: date
+          description: Date from
+          nullable: true
+        dateTo:
+          type: string
+          format: date
+          description: Date to
+          nullable: true
+  responses:
+    401NotAuthorized:
+      description: Authorization token is missing or invalid
