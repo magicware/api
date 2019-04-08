@@ -222,7 +222,6 @@ components:
           format: int32
           description: ID of a cost center.
           nullable: true
-    businessCase/response:
     bcCustomInfo:
       type: object
       required:
