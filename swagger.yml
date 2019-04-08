@@ -10,8 +10,9 @@ paths:
     put:
       tags:
         - Product
-      summary: '(#INSTANCEURL# is>content). Allows to re-price product variants or adjust their end price.'
+      summary: 'Allows to re-price product variants or adjust their end price.'
       description: >-
+        #INSTANCEURL# is>content<br /><br />
         The price correction currently affects adjusted product variant prices only in exports.
       security:
        - ApiKeyAuth: []     
@@ -41,8 +42,9 @@ paths:
     post:
       tags:
         - Business case
-      summary: '(#INSTANCEURL# is>content). Allows to create a new business case.'
+      summary: 'Allows to create a new business case.'
       description: >-
+        #INSTANCEURL# is>content<br /><br />
         Creates new business case. Returns extra ID and Number of created business case
       security:
        - ApiKeyAuth: []
@@ -71,8 +73,9 @@ paths:
     put:
       tags:
         - Business case
-      summary: '(#INSTANCEURL# is>content). Allows to actualize additional data of a business case.'
+      summary: 'Allows to actualize additional data of a business case.'
       description: >-
+        #INSTANCEURL# is>content<br /><br />
         Requires existing business case.
       security:
        - ApiKeyAuth: []
