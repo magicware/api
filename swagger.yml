@@ -1,102 +1,128 @@
-openapi: "3.0.2"
+openapi: '3.0.2'
 info:
     title: MagicWare API
     version: 1.0.0
     description: >-
-      Informations about general MagicWare API.<br /><br />
-      #INSTANCEURL# - replace base URL with is>tour or is>content instance URL
+        Informations about general MagicWare API.<br /><br />
+        #INSTANCEURL# - replace base URL with is>tour or is>content instance URL
+externalDocs:
+    url: 'http://www.magicware.cz'
+    description: More information here.
+tags:
+    -    name: Product
+         description: Everything about products
+         externalDocs:
+             url: 'http://magicdoc/OpenKM/'
+             description: Find out more about this topic
+    -    name: Business case
+         description: Everything about business cases
+         externalDocs:
+             url: 'http://magicdoc/OpenKM/'
+             description: Find out more about this topic
 paths:
-  /products/priceCorrections:
-    put:
-      tags:
-        - Product
-      summary: 'Allows to re-price product variants or adjust their end price.'
-      description: >-
-        #INSTANCEURL# is>content<br /><br />
-        The price correction currently affects adjusted product variant prices only in exports.
-      security:
-       - ApiKeyAuth: []     
-      requestBody:
-        required: true
-        description: >-
-            Price correction with it's type how it behave and it's variant unique key.<br /><br />
-            To remove the price correction, just simply set the price correction amount to a zero.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/priceCorrection'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/priceCorrection'
-        '401':
-          description: Authorization token is missing or invalid
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/401NotAuthorized'
-  /reservations/businessCases:
-    post:
-      tags:
-        - Business case
-      summary: 'Allows to create a new business case.'
-      description: >-
-        #INSTANCEURL# is>content<br /><br />
-        Creates new business case. Returns extra ID and Number of created business case
-      security:
-       - ApiKeyAuth: []
-      requestBody:
-        description: >-
-          Price correction with it's type how it behave and it's variant unique key.<br /><br />
-          To remove the price correction, just simply set the price correction amount to a zero.
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/businessCase~1request'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/businessCase~1response'
-        '401':
-          description: Authorization token is missing or invalid
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/401NotAuthorized'
-  /reservations/businessCases/bcCustomInfo:
-    put:
-      tags:
-        - Business case
-      summary: 'Allows to actualize additional data of a business case.'
-      description: >-
-        #INSTANCEURL# is>content<br /><br />
-        Requires existing business case.
-      security:
-       - ApiKeyAuth: []
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/bcCustomInfo'
-      responses:
-        '200':
-          description: successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/businessCase~1response'
-        '401':
-          description: Authorization token is missing or invalid
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/responses/401NotAuthorized'
+    /products/priceCorrections:
+        put:
+            description: >-
+                #INSTANCEURL# is>content<br /><br />
+                The price correction currently affects adjusted product variant prices only in exports.
+            tags:
+                -    Product
+            summary: 'Allows to re-price product variants or adjust their end price.'
+            security:
+                -    ApiKeyAuth: []
+            requestBody:
+                required: True
+                description: >-
+                    Price correction with it's type how it behave and it's variant unique key.<br /><br />
+                    To remove the price correction, just simply set the price correction amount to a zero.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/priceCorrection'
+            responses:
+                '200':
+                    description: >-
+                        Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/priceCorrection'
+                '401':
+                    description: >-
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
+    /reservations/businessCases:
+        post:
+            description: >-
+                #INSTANCEURL# is>content<br /><br />
+                Creates new business case. Returns extra ID and Number of created business case.
+            tags:
+                -    Business case
+            summary: 'Allows to create a new business case.'
+            security:
+                -    ApiKeyAuth: []
+            requestBody:
+                required: True
+                description: >-
+                    Defines the business case.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/businessCase~1request'
+            responses:
+                '200':
+                    description: >-
+                        Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/businessCase~1response'
+                '401':
+                    description: >-
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
+    /reservations/businessCases/bcCustomInfo:
+        put:
+            description: >-
+                #INSTANCEURL# is>content<br /><br />
+                Requires existing business case.
+            tags:
+                -    Business case
+            summary: 'Allows to actualize additional data of a business case.'
+            security:
+                -    ApiKeyAuth: []
+            requestBody:
+                required: True
+                description: >-
+                    Defines additional data for a business case.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/bcCustomInfo'
+            responses:
+                '200':
+                    description: >-
+                        Successful operation
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/bcCustomInfo'
+                '401':
+                    description: >-
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
+                                
+                                
+                                
 components:
   securitySchemes:
     ApiKeyAuth:
