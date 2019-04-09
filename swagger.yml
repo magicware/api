@@ -2,9 +2,39 @@ openapi: '3.0.2'
 info:
     title: MagicWare API
     version: 1.0.0
-    description: >-
+    description: |
         Informations about general MagicWare API.<br /><br />
-        #INSTANCEURL# - replace base URL with is>tour or is>content instance URL
+        # Getting Started
+        ## Security
+        ### HTTPS
+        All api calls and callbacks require HTTPS. Your service will need a valid SSL certificate and be accesible via the standard SSL port (port 443).
+        ## Making an API request
+        ```POST https://magicware.iscontent.cz/api/v1/reservations/businessCases HTTP/1.1```
+        ```json
+        {
+          Accept: text/json
+          X-API-Authentication-Token: e00a713d-ad81-4b4f-8801-31b34842f640
+          Content-Type: application/json; charset=utf-8
+          Content-Length: 1000
+        }
+        ```
+    x-logo:
+      url: "https://avatars1.githubusercontent.com/u/8859303"
+servers:
+  - url: https://{instanceName}.{instanceUrl}.com/api/{apiVers}
+    description: API server URL format
+    variables:
+      instanceName:
+        default: magicware
+        description: Actual instance of M2G
+      instanceUrl:
+        enum:
+          - 'istour'
+          - 'iscontent'
+        default: 'iscontent'
+        description: Actual instance of M2G
+      apiVers:
+        default: v1
 externalDocs:
     url: 'http://www.magicware.cz'
     description: More information here.
@@ -23,7 +53,7 @@ paths:
     /products/priceCorrections:
         put:
             description: >-
-                #INSTANCEURL# is>content<br /><br />
+                #instanceUrl# is>content<br /><br />
                 The price correction currently affects adjusted product variant prices only in exports.
             tags:
                 -    Product
@@ -41,8 +71,7 @@ paths:
                             $ref: '#/components/schemas/priceCorrection'
             responses:
                 '200':
-                    description: >-
-                        Successful operation
+                    description: OK
                     content:
                         application/json:
                             schema:
@@ -57,7 +86,7 @@ paths:
     /reservations/businessCases:
         post:
             description: >-
-                #INSTANCEURL# is>content<br /><br />
+                #instanceUrl# is>content<br /><br />
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
                 -    Business case
@@ -74,8 +103,7 @@ paths:
                             $ref: '#/components/schemas/businessCase~1request'
             responses:
                 '200':
-                    description: >-
-                        Successful operation
+                    description: OK
                     content:
                         application/json:
                             schema:
@@ -90,7 +118,7 @@ paths:
     /reservations/businessCases/bcCustomInfo:
         put:
             description: >-
-                #INSTANCEURL# is>content<br /><br />
+                #instanceUrl# is>content<br /><br />
                 Requires existing business case.
             tags:
                 -    Business case
@@ -107,8 +135,7 @@ paths:
                             $ref: '#/components/schemas/bcCustomInfo'
             responses:
                 '200':
-                    description: >-
-                        Successful operation
+                    description: OK
                     content:
                         application/json:
                             schema:
@@ -120,15 +147,14 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
-                                
-                                
-                                
+                                      
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
-      name: apikey
+      name: X-API-Authentication-Token
+      description: "<p>All api calls require an Authorization Key which will be provided by M2G api login request.<p><p>The key needs to be provided in the header as follows: </p><p><b>X-API-Authentication-Token: {Your-Key-Here}</b></p>The key is not case sensitive."
   schemas:
     priceCorrection:
       type: object
@@ -332,3 +358,4 @@ components:
   responses:
     401NotAuthorized:
       description: Authorization token is missing or invalid
+
