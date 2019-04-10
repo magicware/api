@@ -1,7 +1,7 @@
 openapi: '3.0.2'
 info:
     title: MagicWare API
-    version: 1.0.0
+    version: v1
     description:    |
         Informations about general MagicWare API.
         # Getting Started
