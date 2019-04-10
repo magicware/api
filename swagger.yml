@@ -2,8 +2,8 @@ openapi: '3.0.2'
 info:
     title: MagicWare API
     version: 1.0.0
-    description: |
-        Informations about general MagicWare API.<br /><br />
+    description:    |
+        Informations about general MagicWare API.
         # Getting Started
         ## Security
         ### HTTPS
@@ -12,32 +12,29 @@ info:
         ```POST https://magicware.iscontent.cz/api/v1/reservations/businessCases HTTP/1.1```
         ```json
         {
-          Accept: text/json
-          X-API-Authentication-Token: e00a713d-ad81-4b4f-8801-31b34842f640
-          Content-Type: application/json; charset=utf-8
-          Content-Length: 1000
+            Accept: text/json
+            X-API-Authentication-Token: e00a713d-ad81-4b4f-8801-31b34842f640
+            Content-Type: application/json; charset=utf-8
+            Content-Length: 1000
         }
         ```
     x-logo:
-      url: "https://avatars1.githubusercontent.com/u/8859303"
-servers:
-  - url: https://{instanceName}.{instanceUrl}.com/api/{apiVers}
-    description: API server URL format
-    variables:
-      instanceName:
-        default: magicware
-        description: Actual instance of M2G
-      instanceUrl:
-        enum:
-          - 'istour'
-          - 'iscontent'
-        default: 'iscontent'
-        description: Actual instance of M2G
-      apiVers:
-        default: v1
+        url: "https://avatars1.githubusercontent.com/u/8859303"
 externalDocs:
     url: 'http://www.magicware.cz'
     description: More information here.
+servers:
+    -    url: https://{instanceName}.{instanceUrl}.com/api/{apiVers}
+         description: API server URL format
+         variables:
+             instanceName:
+                 default: 'magicware'
+                 description: Actual instance of M2G
+             instanceUrl:
+                 default: '#instanceUrl#'
+                 description: Actual instance of M2G
+             apiVers:
+                 default: 'v1'
 tags:
     -    name: Product
          description: Everything about products
@@ -52,9 +49,25 @@ tags:
 paths:
     /products/priceCorrections:
         put:
-            description: >-
-                #instanceUrl# is>content<br /><br />
+            description:    |
+                #instanceUrl#: is>content
+                
                 The price correction currently affects adjusted product variant prices only in exports.
+            responses:
+                '200':
+                    description:    |
+                        OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/priceCorrection'
+                '401':
+                    description:    |
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
             tags:
                 -    Product
             summary: 'Allows to re-price product variants or adjust their end price.'
@@ -62,31 +75,18 @@ paths:
                 -    ApiKeyAuth: []
             requestBody:
                 required: True
-                description: >-
-                    Price correction with it's type how it behave and it's variant unique key.<br /><br />
+                description:    |
+                    Price correction with it's type how it behave and it's variant unique key.
                     To remove the price correction, just simply set the price correction amount to a zero.
                 content:
                     application/json:
                         schema:
                             $ref: '#/components/schemas/priceCorrection'
-            responses:
-                '200':
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/priceCorrection'
-                '401':
-                    description: >-
-                        Authorization token is missing or invalid
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/responses/401NotAuthorized'
     /reservations/businessCases:
         post:
-            description: >-
-                #instanceUrl# is>content<br /><br />
+            description:    |
+                #instanceUrl#: is>content
+                
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
                 -    Business case
@@ -95,7 +95,7 @@ paths:
                 -    ApiKeyAuth: []
             requestBody:
                 required: True
-                description: >-
+                description:    |
                     Defines the business case.
                 content:
                     application/json:
@@ -103,13 +103,14 @@ paths:
                             $ref: '#/components/schemas/businessCase~1request'
             responses:
                 '200':
-                    description: OK
+                    description:    |
+                        OK
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/businessCase~1response'
                 '401':
-                    description: >-
+                    description:    |
                         Authorization token is missing or invalid
                     content:
                         application/json:
@@ -117,8 +118,9 @@ paths:
                                 $ref: '#/components/responses/401NotAuthorized'
     /reservations/businessCases/bcCustomInfo:
         put:
-            description: >-
-                #instanceUrl# is>content<br /><br />
+            description:    |
+                #instanceUrl#: is>content
+                
                 Requires existing business case.
             tags:
                 -    Business case
@@ -127,7 +129,7 @@ paths:
                 -    ApiKeyAuth: []
             requestBody:
                 required: True
-                description: >-
+                description:    |
                     Defines additional data for a business case.
                 content:
                     application/json:
@@ -135,18 +137,20 @@ paths:
                             $ref: '#/components/schemas/bcCustomInfo'
             responses:
                 '200':
-                    description: OK
+                    description:    |
+                        OK
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/bcCustomInfo'
                 '401':
-                    description: >-
+                    description:    |
                         Authorization token is missing or invalid
                     content:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
+
                                       
 components:
   securitySchemes:
@@ -172,10 +176,10 @@ components:
           description: The value of a price correction
         correctionType:
           type: string
-          description: >-
-            Type of correction amount and how it's gonna behave with price<br /><br />
-            &nbsp;&nbsp;&nbsp; - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
-            &nbsp;&nbsp;&nbsp; - "newPrice": apply price correction on the price as switching the price with the price correction amount.
+          description: |
+            Type of correction amount and how it's gonna behave with price
+              - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
+              - "newPrice": apply price correction on the price as switching the price with the price correction amount.
           enum:
             - correctionAmount
             - newPrice
