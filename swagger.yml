@@ -5,6 +5,9 @@ info:
     description:    |
         Informations about general MagicWare API.
         # Getting Started
+        ## Swagger UI
+        Our API docs are also available via swagger UI, see
+        https://magicware.github.io/api/swagger-ui
         ## Security
         ### HTTPS
         All api calls and callbacks require HTTPS. Your service will need a valid SSL certificate and be accesible via the standard SSL port (port 443).
@@ -53,6 +56,20 @@ paths:
                 #instanceUrl#: is>content
                 
                 The price correction currently affects adjusted product variant prices only in exports.
+            tags:
+                -    Product
+            summary: 'Allows to re-price product variants or adjust their end price.'
+            security:
+                -    ApiKeyAuth: []
+            requestBody:
+                required: True
+                description:    |
+                    Price correction with it's type how it behave and it's variant unique key.
+                    To remove the price correction, just simply set the price correction amount to a zero.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/priceCorrection'
             responses:
                 '200':
                     description:    |
@@ -68,20 +85,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
-            tags:
-                -    Product
-            summary: 'Allows to re-price product variants or adjust their end price.'
-            security:
-                -    ApiKeyAuth: []
-            requestBody:
-                required: True
-                description:    |
-                    Price correction with it's type how it behave and it's variant unique key.
-                    To remove the price correction, just simply set the price correction amount to a zero.
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/priceCorrection'
     /reservations/businessCases:
         post:
             description:    |
