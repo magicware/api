@@ -1,9 +1,9 @@
 openapi: '3.0.2'
 info:
-    title: MagicWare API
+    title: M2G API documentation
     version: v1
     description:    |
-        Informations about general MagicWare API.
+        Informations about avaiable M2G API.
         # Getting Started
         ## Swagger UI
         Our API docs are also available via swagger UI, see
@@ -41,19 +41,13 @@ servers:
 tags:
     -    name: Product
          description: Everything about products
-         externalDocs:
-             url: 'http://magicdoc/OpenKM/'
-             description: Find out more about this topic
     -    name: Business case
          description: Everything about business cases
-         externalDocs:
-             url: 'http://magicdoc/OpenKM/'
-             description: Find out more about this topic
 paths:
     /products/priceCorrections:
         put:
             description:    |
-                #instanceUrl#: is>content
+                #instanceUrl#: is>content<br /><br />
                 
                 The price correction currently affects adjusted product variant prices only in exports.
             tags:
@@ -88,7 +82,7 @@ paths:
     /reservations/businessCases:
         post:
             description:    |
-                #instanceUrl#: is>content
+                #instanceUrl#: is>content<br /><br />
                 
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
@@ -122,7 +116,7 @@ paths:
     /reservations/businessCases/bcCustomInfo:
         put:
             description:    |
-                #instanceUrl#: is>content
+                #instanceUrl#: is>content<br /><br />
                 
                 Requires existing business case.
             tags:
@@ -153,8 +147,42 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
+    /reservations/businessCases/priceItems:
+        put:
+            description:    |
+                #instanceUrl#: is>content<br /><br />
+                
+                Requires existing business case.
+            summary: 'Allows to create, modify or release the price items connected to a business case.'
+            tags:
+                -    Business case
+            security:
+                -    ApiKeyAuth: []
+            requestBody:
+                required: True
+                description:    |
+                    Defines additional data for a business case.
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/priceItems'
+            responses:
+                '200':
+                    description:    |
+                        OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/priceItems'
+                '401':
+                    description:    |
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
 
-                                      
+
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -362,7 +390,72 @@ components:
           format: date
           description: Date to
           nullable: true
+    priceItems:
+      required:
+        - arrayOfPriceItem
+      type: object
+      properties:
+        priceItems:
+          type: array
+          items: 
+            $ref: '#/components/schemas/priceItem'
+    priceItem:
+      required:
+        - businessCaseId
+        - commitmentModeId
+        - amount
+        - currencyId
+        - operation
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          nullable: true
+          description:  |
+            ID of a price item. 
+            Can be null or empty if the property 'operation' is 'save'
+        businessCaseId:
+          type: integer
+          format: int32
+          description: ID of a business case
+        priceListItemId:
+          type: integer
+          format: int32
+          nullable: true
+          description: ID of a price list item
+        commitmentModeId:
+          type: integer
+          format: int32
+          description: ID of a commitment mode
+        name:
+          type: string
+          description: Name of a price item
+          nullable: true
+        amount:
+          type: number
+          format: double
+          description: The value of a price item amount
+        currencyId:
+          type: integer
+          format: int32
+        accountingId:
+          type: integer
+          format: int32
+          nullable: true
+          description: ID of an accounting
+        operation:
+          type: string
+          description: |
+            The operation with a price item, that you intend to do
+              - "save": 
+                  If the property 'id' is 'null' or empty, then the new price item will be created.
+                  Otherwise if the property 'id' has a value, then an update of an existing price item will be proceed.
+              - "release": 
+                  The price item of a set property 'id' will be realesed (not cancelled)
+          enum:
+            - save
+            - release
   responses:
     401NotAuthorized:
       description: Authorization token is missing or invalid
-
