@@ -6,8 +6,7 @@ info:
         Informations about avaiable M2G API.
         # Getting Started
         ## Swagger UI
-        Our API docs are also available via swagger UI, see
-        https://magicware.github.io/api/swagger-ui
+        Our API docs are also available via [Swagger UI](https://magicware.github.io/api/swagger-ui)
         ## Security
         ### HTTPS
         All api calls and callbacks require HTTPS. Your service will need a valid SSL certificate and be accesible via the standard SSL port (port 443).
