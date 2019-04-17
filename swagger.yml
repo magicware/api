@@ -51,7 +51,7 @@ paths:
                 The price correction currently affects adjusted product variant prices only in exports.
             tags:
                 -    Product
-            summary: 'Allows to re-price product variants or adjust their end price.'
+            summary: 'Re-price product variants or adjust their end price.'
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -86,7 +86,7 @@ paths:
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
                 -    Business case
-            summary: 'Allows to create a new business case.'
+            summary: 'Create a new business case.'
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -112,7 +112,7 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
-    /reservations/businessCases/bcCustomInfo:
+    /reservations/businessCases/customInfo:
         put:
             description:    |
                 #instanceUrl#: is>content<br /><br />
@@ -120,7 +120,7 @@ paths:
                 Requires existing business case.
             tags:
                 -    Business case
-            summary: 'Allows to actualize additional data of a business case.'
+            summary: 'Actualize additional data of a business case.'
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -152,7 +152,7 @@ paths:
                 #instanceUrl#: is>content<br /><br />
                 
                 Requires existing business case.
-            summary: 'Allows to create, modify or release the price items connected to a business case.'
+            summary: 'Create, modify or release the price items.'
             tags:
                 -    Business case
             security:
