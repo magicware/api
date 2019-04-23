@@ -214,12 +214,7 @@ paths:
                      required: True
                      schema:
                          type: string
-            requestBody:
-                required: True
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/bcInvoice~1request'
+                         enum: [proforma]
             responses:
                 '200':
                     description:    |
@@ -235,6 +230,8 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
+
+
 
 
 components:
@@ -528,7 +525,9 @@ components:
           description: Required if no 'businessCaseId' is provided. ID or Number of the business case is required
           nullable: true
         type:
-          type: string
+          type: string          
+          enum:
+            - proforma
           description: |
             Defines a type of the required invoices
             - "proforma":
@@ -541,8 +540,8 @@ components:
         invoices:
           type: array
           items: 
-            $ref: '#/components/schemas/bcInvoice~1response~1arrayOfBcInvoices'
-    bcInvoice/response/arrayOfBcInvoices:
+            $ref: '#/components/schemas/bcInvoice~1response~1bcInvoice'
+    bcInvoice/response/bcInvoice:
       type: object
       properties:
         variableSymbol:
