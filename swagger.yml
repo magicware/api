@@ -51,7 +51,7 @@ paths:
                 The price correction currently affects adjusted product variant prices only in exports.
             tags:
                 -    Product
-            summary: 'Re-price product variants or adjust their end price.'
+            summary: "Re-price product variants or adjust their end price."
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -86,7 +86,7 @@ paths:
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
                 -    Business case
-            summary: 'Create a new business case.'
+            summary: "Create a new business case."
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -120,7 +120,7 @@ paths:
                 Requires existing business case.
             tags:
                 -    Business case
-            summary: 'Actualize additional data of a business case.'
+            summary: "Actualize additional data of a business case."
             security:
                 -    ApiKeyAuth: []
             requestBody:
@@ -152,7 +152,7 @@ paths:
                 #instanceUrl#: is>content<br /><br />
                 
                 Requires existing business case.
-            summary: 'Create, modify or release the price items.'
+            summary: "Create, modify or release the price items."
             tags:
                 -    Business case
             security:
@@ -173,6 +173,61 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/priceItems'
+                '401':
+                    description:    |
+                        Authorization token is missing or invalid
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/responses/401NotAuthorized'
+    /reservations/businesscases/invoices:
+        get:
+            description:    |
+                #instanceUrl#: is>content<br /><br />
+                
+                Requires existing business case.<br /><br />
+                
+                Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
+            summary: "Get business case's proforma invoices."
+            tags:
+                -    Business case
+            security:
+                -    ApiKeyAuth: []
+            parameters:
+                -    in: query
+                     name: businessCaseId
+                     description: Required if no 'businessCaseNumber' is provided. ID or Number of the business case is required.
+                     required: True
+                     schema:
+                         type: integer
+                         format: int32
+                -    in: query
+                     name: businessCaseNumber
+                     description: Required if no 'businessCaseId' is provided. ID or Number of the business case is required.
+                     required: True
+                     schema:
+                         type: integer
+                         format: int64
+                -    in: query
+                     name: type
+                     description: Defines a type of the required invoices.
+                     required: True
+                     schema:
+                         type: string
+            requestBody:
+                required: True
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/bcInvoice~1request'
+            responses:
+                '200':
+                    description:    |
+                        OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/bcInvoice~1response'
                 '401':
                     description:    |
                         Authorization token is missing or invalid
@@ -289,8 +344,8 @@ components:
           format: int32
           description: ID of new business case
         number:
-          type: number
-          format: double
+          type: integer
+          format: int64
           description: Number of new business case
         name:
           type: string
@@ -455,6 +510,52 @@ components:
           enum:
             - save
             - release
+    bcInvoice/request:
+      type: object
+      required:
+        - businessCaseId
+        - businessCaseNumber
+        - type
+      properties:
+        businessCaseId:
+          type: integer
+          format: int32
+          description: Required if no 'businessCaseNumber' is provided. ID or Number of the business case is required
+          nullable: true
+        businessCaseNumber:
+          type: integer
+          format: int64
+          description: Required if no 'businessCaseId' is provided. ID or Number of the business case is required
+          nullable: true
+        type:
+          type: string
+          description: |
+            Defines a type of the required invoices
+            - "proforma":
+                Gets the proforma type invoices
+    bcInvoice/response:
+      required:
+        - arrayOfBcInvoices
+      type: object
+      properties:
+        invoices:
+          type: array
+          items: 
+            $ref: '#/components/schemas/bcInvoice~1response~1arrayOfBcInvoices'
+    bcInvoice/response/arrayOfBcInvoices:
+      type: object
+      properties:
+        variableSymbol:
+          type: integer
+          format: int64
+          nullable: true
+        value:
+          type: number
+          format: double
+        fileId:
+          type: integer
+          format: int32
+          nullable: true
   responses:
     401NotAuthorized:
       description: Authorization token is missing or invalid
