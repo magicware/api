@@ -248,7 +248,14 @@ components:
       type: apiKey
       in: header
       name: X-API-Authentication-Token
-      description: "<p>All api calls require an Authorization Key which will be provided by M2G api login request.<p><p>The key needs to be provided in the header as follows: </p><p><b>X-API-Authentication-Token: `{Your-Key-Here}`</b></p>The key is not case sensitive."
+      description: |
+        "All api calls require an Authorization Key which will be provided by M2G api login request.
+
+        The key needs to be provided in the header as follows:
+
+        * **X-API-Authentication-Token: `{Your-Key-Here}`**
+        
+        The key is not case sensitive."<br /> <br />
   schemas:
     priceCorrection:
       type: object
