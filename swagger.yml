@@ -1,3 +1,6 @@
+################################################################################
+#                                  Header                                      #
+################################################################################
 openapi: '3.0.2'
 info:
     title: M2G API documentation
@@ -42,12 +45,15 @@ tags:
          description: Everything about products
     -    name: Business case
          description: Everything about business cases
+################################################################################
+#                                  Paths                                       #
+################################################################################
 paths:
     /products/priceCorrections:
         put:
             description:    |
-                #instanceUrl#: is>content<br /><br />
-                
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
                 The price correction currently affects adjusted product variant prices only in exports.
             tags:
                 -    Product
@@ -81,8 +87,8 @@ paths:
     /reservations/businessCases:
         post:
             description:    |
-                #instanceUrl#: is>content<br /><br />
-                
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
                 Creates new business case. Returns extra ID and Number of created business case.
             tags:
                 -    Business case
@@ -115,8 +121,8 @@ paths:
     /reservations/businessCases/customInfo:
         put:
             description:    |
-                #instanceUrl#: is>content<br /><br />
-                
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
                 Requires existing business case.
             tags:
                 -    Business case
@@ -149,8 +155,8 @@ paths:
     /reservations/businessCases/priceItems:
         put:
             description:    |
-                #instanceUrl#: is>content<br /><br />
-                
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
                 Requires existing business case.
             summary: "Create, modify or release the price items."
             tags:
@@ -183,8 +189,8 @@ paths:
     /reservations/businesscases/invoices:
         get:
             description:    |
-                #instanceUrl#: is>content<br /><br />
-                
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
                 Requires existing business case.<br /><br />
                 
                 Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
@@ -233,14 +239,16 @@ paths:
 
 
 
-
+################################################################################
+#                                 Components                                   #
+################################################################################
 components:
   securitySchemes:
     ApiKeyAuth:
       type: apiKey
       in: header
       name: X-API-Authentication-Token
-      description: "<p>All api calls require an Authorization Key which will be provided by M2G api login request.<p><p>The key needs to be provided in the header as follows: </p><p><b>X-API-Authentication-Token: {Your-Key-Here}</b></p>The key is not case sensitive."
+      description: "<p>All api calls require an Authorization Key which will be provided by M2G api login request.<p><p>The key needs to be provided in the header as follows: </p><p><b>X-API-Authentication-Token: `{Your-Key-Here}`</b></p>The key is not case sensitive."
   schemas:
     priceCorrection:
       type: object
@@ -260,8 +268,8 @@ components:
           type: string
           description: |
             Type of correction amount and how it's gonna behave with price
-              - "correctionAmount": apply price correction on the price as adding the amount to the price.<br />
-              - "newPrice": apply price correction on the price as switching the price with the price correction amount.
+              - `correctionAmount`: apply price correction on the price as adding the amount to the price.<br />
+              - `newPrice`: apply price correction on the price as switching the price with the price correction amount.
           enum:
             - correctionAmount
             - newPrice
