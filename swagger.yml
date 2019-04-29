@@ -1,6 +1,7 @@
 ################################################################################
 #                                  Header                                      #
 ################################################################################
+openapi: '3.0.2'
 info:
     title: M2G API documentation
     version: v1
@@ -24,7 +25,6 @@ info:
         ```
     x-logo:
         url: "https://avatars1.githubusercontent.com/u/8859303"
-openapi: '3.0.2'
 externalDocs:
     url: 'http://www.magicware.cz'
     description: More informations about this feature at www.magicware.cz
@@ -237,7 +237,7 @@ paths:
                             schema:
                                 $ref: '#/components/responses/401NotAuthorized'
 ################################################################################
-#                                 Components                                   #
+#                                Components                                    #
 ################################################################################
 components:
   securitySchemes:
