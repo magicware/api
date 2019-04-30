@@ -241,7 +241,9 @@ paths:
                 Requires an existing business case.<br /><br />
                 
                 Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
-            summary: "Get business case's proforma invoices."
+                
+                User requesting this action has to be an organization owner of the business case.
+            summary: "Get invoices attached to a business case."
             tags:
                 -    Business case
             security:
@@ -294,7 +296,9 @@ paths:
                 Requires an existing business case and printeable invoice document.<br /><br />
                 
                 Gets a document file of an invoice.
-            summary: "Get business case's proforma invoices."
+                
+                User requesting this action has to be an organization owner of the business case.
+            summary: "Get a printeable invoice file attached to a business case."
             tags:
                 -    Business case
             security:
