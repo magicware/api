@@ -400,7 +400,7 @@ components:
         errorId:
           type: integer
           format: int32
-          description: Internal system ID of the error
+          description: Internal system ID of the error
         timestamp:
           type: integer
           format: int64
