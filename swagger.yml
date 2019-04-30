@@ -429,6 +429,7 @@ components:
           format: uuid
           description: Authorization token. If the value of property `authenticationToken` is 'null', login was not successful
           nullable: true
+          example: e00a713d-ad81-4b4f-8801-31b34842f640
     priceCorrection:
       type: object
       required:
