@@ -385,7 +385,31 @@ components:
           Request URL was not found. Check the URL of the request or allow the API URL route via M2G API configuration
     500InternalServerError:
       description:    |
-          Request ended with fatal error. Check the `message` property for more information
+          Request has ended with fatal error. Check the `message` property for more detail information about the occured error<br /> <br />
+
+          # Possible errors:
+            <table>
+              <tr>
+                <th>Error (errorId)</th>
+                <th>Description</th> 
+              </tr>
+              <tr>
+                <td style="text-align:center">-1</td>
+                <td>Error with unspecified error ID</td> 
+              </tr>
+              <tr>
+                <td style="text-align:center">1003</td>
+                <td>Business case provided by identifier has not been found</td> 
+              </tr>
+              <tr>
+                <td style="text-align:center">1035</td>
+                <td>Identifiers provided in api request query of a business case are not in valid state</td> 
+              </tr>
+              <tr>
+                <td style="text-align:center">1036</td>
+                <td>File does not exists</td> 
+              </tr>
+            </table>
       content:
         application/json:
           schema:
@@ -396,7 +420,7 @@ components:
             timestamp:
               636921892188151049,
             message:
-              "Requested file has not been found."
+              "The request timeout expired. Please try again."
   schemas:
     Error:
       type: object
