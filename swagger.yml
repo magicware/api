@@ -41,6 +41,8 @@ servers:
              apiVers:
                  default: 'v1'
 tags:
+    -    name: Authentication
+         description: Everything about authentication
     -    name: Product
          description: Everything about products
     -    name: Business case
@@ -49,6 +51,41 @@ tags:
 #                                  Paths                                       #
 ################################################################################
 paths:
+    /administration/user/login:
+        post:
+            description:    |
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
+                Login and obtain the ApiKeyAuth (apiKey) authentication token.
+                
+                If the value of property `authenticationToken` is 'null', login was not successful
+                
+                **Authentication token is automatically set into request header**.
+            tags:
+                -    Authentication
+            summary: "Login and authorize"
+            requestBody:
+                required: True
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/loginAuthorization'
+            responses:
+                '200':
+                    description:    |
+                        OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/loginAuthorizationToken'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
     /products/priceCorrections:
         put:
             description:    |
@@ -77,13 +114,16 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/priceCorrection'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
                 '401':
-                    description:    |
-                        Authorization token is missing or invalid
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/responses/401NotAuthorized'
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
     /reservations/businessCases:
         post:
             description:    |
@@ -111,19 +151,22 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/businessCase~1response'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
                 '401':
-                    description:    |
-                        Authorization token is missing or invalid
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/responses/401NotAuthorized'
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
     /reservations/businessCases/customInfo:
         put:
             description:    |
                 ### **#instanceUrl#**: `is>content`<br /><br />
                 ---
-                Requires existing business case.
+                Requires an existing business case.
             tags:
                 -    Business case
             summary: "Actualize additional data of a business case."
@@ -145,19 +188,22 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/bcCustomInfo'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
                 '401':
-                    description:    |
-                        Authorization token is missing or invalid
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/responses/401NotAuthorized'
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
     /reservations/businessCases/priceItems:
         put:
             description:    |
                 ### **#instanceUrl#**: `is>content`<br /><br />
                 ---
-                Requires existing business case.
+                Requires an existing business case.
             summary: "Create, modify or release the price items."
             tags:
                 -    Business case
@@ -165,8 +211,6 @@ paths:
                 -    ApiKeyAuth: []
             requestBody:
                 required: True
-                description:    |
-                    Defines additional data for a business case.
                 content:
                     application/json:
                         schema:
@@ -179,19 +223,22 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/priceItems'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
                 '401':
-                    description:    |
-                        Authorization token is missing or invalid
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/responses/401NotAuthorized'
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
     /reservations/businesscases/invoices:
         get:
             description:    |
                 ### **#instanceUrl#**: `is>content`<br /><br />
                 ---
-                Requires existing business case.<br /><br />
+                Requires an existing business case.<br /><br />
                 
                 Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
             summary: "Get business case's proforma invoices."
@@ -202,14 +249,14 @@ paths:
             parameters:
                 -    in: query
                      name: businessCaseId
-                     description: Required if no 'businessCaseNumber' is provided. ID or Number of the business case is required.
+                     description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
                      required: True
                      schema:
                          type: integer
                          format: int32
                 -    in: query
                      name: businessCaseNumber
-                     description: Required if no 'businessCaseId' is provided. ID or Number of the business case is required.
+                     description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
                      required: True
                      schema:
                          type: integer
@@ -229,16 +276,82 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/bcInvoice~1response'
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
                 '401':
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
+    /reservations/businesscases/invoices/contents:
+        get:
+            description:    |
+                ### **#instanceUrl#**: `is>content`<br /><br />
+                ---
+                Requires an existing business case and printeable invoice document.<br /><br />
+                
+                Gets a document file of an invoice.
+            summary: "Get business case's proforma invoices."
+            tags:
+                -    Business case
+            security:
+                -    ApiKeyAuth: []
+            parameters:
+                -    in: query
+                     name: businessCaseId
+                     description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+                     required: True
+                     schema:
+                         type: integer
+                         format: int32
+                -    in: query
+                     name: businessCaseNumber
+                     description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+                     required: True
+                     schema:
+                         type: integer
+                         format: int64
+                -    in: query
+                     name: accountingDocId
+                     description: ID of an accounting document
+                     required: True
+                     schema:
+                         type: integer
+                         format: int32
+            responses:
+                '200':
                     description:    |
-                        Authorization token is missing or invalid
+                        OK
                     content:
-                        application/json:
+                        application/pdf:
                             schema:
-                                $ref: '#/components/responses/401NotAuthorized'
+                                type: string
+                                format: binary
+                        application/msword:
+                            schema:
+                                type: string
+                                format: binary
+                        application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+                            schema:
+                                type: string
+                                format: binary
+                '204':
+                    $ref: '#/components/responses/204NoContent'
+                '400':
+                    $ref: '#/components/responses/400BadRequest'
+                '401':
+                    $ref: '#/components/responses/401Unauthorized'
+                '404':
+                    $ref: '#/components/responses/404NotFound'
+                '500':
+                    $ref: '#/components/responses/500InternalServerError'
 ################################################################################
 #                                Components                                    #
 ################################################################################
+
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -253,7 +366,68 @@ components:
         * **X-API-Authentication-Token: `{Your-Key-Here}`**
         
         The key is not case sensitive."<br /> <br />
+  responses:
+    204NoContent:
+      description:    |
+          No content. Requested data have probably not been found, for some reason
+    400BadRequest: 
+      description:    |
+        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+    401Unauthorized:
+      description:    |
+          Authorization token is missing or invalid
+    404NotFound:
+      description:    |
+          Request URL was not found. Check the URL of the request or allow the API URL route via M2G API configuration
+    500InternalServerError:
+      description:    |
+          Request ended with fatal error. Check the `message` property for more information
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            errorId:
+              -1
+            timestamp:
+              636921892188151049,
+            message:
+              "Requested file has not been found."
   schemas:
+    Error:
+      type: object
+      properties:
+        errorId:
+          type: integer
+          format: int32
+        timestamp:
+          type: integer
+          format: int64
+          description: 'Timestamp of the event, epoch time in milliseconds.'
+        message:
+          type: string
+          description: Description of the internal server error
+          nullable: true
+    loginAuthorization:
+      type: object
+      required:
+        - login
+        - password
+      properties:
+        login:
+          type: string
+          description: User name
+        password:
+          type: string
+          description: User password
+    loginAuthorizationToken:
+      type: object
+      properties:
+        authenticationToken:
+          type: string
+          format: uuid
+          description: Authorization token. If the value of property `authenticationToken` is 'null', login was not successful
+          nullable: true
     priceCorrection:
       type: object
       required:
@@ -511,11 +685,11 @@ components:
           type: string
           description: |
             The operation with a price item, that you intend to do
-              - "save": 
-                  If the property 'id' is 'null' or empty, then the new price item will be created.
-                  Otherwise if the property 'id' has a value, then an update of an existing price item will be proceed.
-              - "release": 
-                  The price item of a set property 'id' will be realesed (not cancelled)
+              - `save`: 
+                  If the property `id` is 'null' or empty, then the new price item will be created.
+                  Otherwise if the property `id` has a value, then an update of an existing price item will be proceed.
+              - `release`: 
+                  The price item of a set property `id` will be realesed (not cancelled)
           enum:
             - save
             - release
@@ -529,12 +703,12 @@ components:
         businessCaseId:
           type: integer
           format: int32
-          description: Required if no 'businessCaseNumber' is provided. ID or Number of the business case is required
+          description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
           nullable: true
         businessCaseNumber:
           type: integer
           format: int64
-          description: Required if no 'businessCaseId' is provided. ID or Number of the business case is required
+          description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
           nullable: true
         type:
           type: string          
@@ -542,7 +716,7 @@ components:
             - proforma
           description: |
             Defines a type of the required invoices
-            - "proforma":
+            - `proforma`:
                 Gets the proforma type invoices
     bcInvoice/response:
       required:
@@ -560,13 +734,12 @@ components:
           type: integer
           format: int64
           nullable: true
+          description: Variable symbol of the invoice
         value:
           type: number
           format: double
-        fileId:
+          description: Value of the invoice
+        accountingDocId:
           type: integer
           format: int32
-          nullable: true
-  responses:
-    401NotAuthorized:
-      description: Authorization token is missing or invalid
+          description: ID of the document where invoice is stored as a printable document
