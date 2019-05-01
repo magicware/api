@@ -1,357 +1,358 @@
+---
+openapi: '3.0.2'
+tags:
+  -  name: Authentication
+     description: Everything about authentication
+  -  name: Product
+     description: Everything about products
+  -  name: Business case
+     description: Everything about business cases
 ################################################################################
 #                                  Header                                      #
 ################################################################################
-openapi: '3.0.2'
 info:
-    title: M2G API documentation
-    version: v1
-    description:    |
-        Informations about avaiable M2G API.
-        # Getting Started
-        ## Swagger UI
-        Our API docs are also available via [Swagger UI](https://magicware.github.io/api/swagger-ui)
-        ## Security
-        ### HTTPS
-        All api calls and callbacks require HTTPS. Your service will need a valid SSL certificate and be accesible via the standard SSL port (port 443).
-        ## Making an API request
-        ```POST https://magicware.iscontent.cz/api/v1/reservations/businessCases HTTP/1.1```
-        ```json
-        {
-            Accept: text/json
-            X-API-Authentication-Token: e00a713d-ad81-4b4f-8801-31b34842f640
-            Content-Type: application/json; charset=utf-8
-            Content-Length: 1000
-        }
-        ```
-    x-logo:
-        url: "https://avatars1.githubusercontent.com/u/8859303"
+  title: M2G API documentation
+  version: v1
+  description:  |
+    Informations about avaiable M2G API.
+    # Getting Started
+    ## Swagger UI
+    Our API docs are also available via [Swagger UI](https://magicware.github.io/api/swagger-ui)
+    ## Security
+    ### HTTPS
+    All api calls and callbacks require HTTPS. Your service will need a valid SSL certificate and be accesible via the standard SSL port (port 443).
+    ## Making an API request
+    ```POST https://magicware.iscontent.cz/api/v1/reservations/businessCases HTTP/1.1```
+    ```json
+    {
+        Accept: text/json
+        X-API-Authentication-Token: e00a713d-ad81-4b4f-8801-31b34842f640
+        Content-Type: application/json; charset=utf-8
+        Content-Length: 1000
+    }
+    ```
+  x-logo:
+    url: "https://avatars1.githubusercontent.com/u/8859303"
 externalDocs:
-    url: 'http://www.magicware.cz'
-    description: More informations about this feature at www.magicware.cz
+  url: 'http://www.magicware.cz'
+  description: More informations about this feature at www.magicware.cz
 servers:
-    -    url: https://{instanceName}.{instanceUrl}.com/api/{apiVers}
-         description: API server URL format
-         variables:
-             instanceName:
-                 default: 'magicware'
-                 description: Actual instance of M2G
-             instanceUrl:
-                 default: '#instanceUrl#'
-                 description: Actual instance of M2G
-             apiVers:
-                 default: 'v1'
-tags:
-    -    name: Authentication
-         description: Everything about authentication
-    -    name: Product
-         description: Everything about products
-    -    name: Business case
-         description: Everything about business cases
+  -  url: https://{instanceName}.{instanceUrl}.com/api/{apiVers}
+     description: API server URL format
+     variables:
+       instanceName:
+         default: 'magicware'
+         description: Actual instance of M2G
+       instanceUrl:
+         default: '#instanceUrl#'
+         description: Actual instance of M2G
+       apiVers:
+         default: 'v1'
 ################################################################################
 #                                  Paths                                       #
 ################################################################################
 paths:
-    /administration/user/login:
-        post:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Login and obtain the ApiKeyAuth (apiKey) authentication token.
-                
-                If the value of property `authenticationToken` is 'null', login was not successful
-                
-                **Authentication token is automatically set into request header**.
-            tags:
-                -    Authentication
-            summary: "Login and authorize"
-            requestBody:
-                required: True
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/loginAuthorization'
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/loginAuthorizationToken'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /products/priceCorrections:
-        put:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                The price correction currently affects adjusted product variant prices only in exports.
-            tags:
-                -    Product
-            summary: "Re-price product variants or adjust their end price."
-            security:
-                -    ApiKeyAuth: []
-            requestBody:
-                required: True
-                description:    |
-                    Price correction with it's type how it behave and it's variant unique key.
-                    To remove the price correction, just simply set the price correction amount to a zero.
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/priceCorrection'
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/priceCorrection'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /reservations/businessCases:
-        post:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Creates new business case. Returns extra ID and Number of created business case.
-            tags:
-                -    Business case
-            summary: "Create a new business case."
-            security:
-                -    ApiKeyAuth: []
-            requestBody:
-                required: True
-                description:    |
-                    Defines the business case.
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/businessCase~1request'
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/businessCase~1response'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /reservations/businessCases/customInfo:
-        put:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Requires an existing business case.
-            tags:
-                -    Business case
-            summary: "Actualize additional data of a business case."
-            security:
-                -    ApiKeyAuth: []
-            requestBody:
-                required: True
-                description:    |
-                    Defines additional data for a business case.
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/bcCustomInfo'
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/bcCustomInfo'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /reservations/businessCases/priceItems:
-        put:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Requires an existing business case.
-            summary: "Create, modify or release the price items."
-            tags:
-                -    Business case
-            security:
-                -    ApiKeyAuth: []
-            requestBody:
-                required: True
-                content:
-                    application/json:
-                        schema:
-                            $ref: '#/components/schemas/priceItems'
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/priceItems'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /reservations/businesscases/invoices:
-        get:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Requires an existing business case.<br /><br />
-                
-                Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
-                
-                User requesting this action has to be an organization owner of the business case.
-            summary: "Get invoices attached to a business case."
-            tags:
-                -    Business case
-            security:
-                -    ApiKeyAuth: []
-            parameters:
-                -    in: query
-                     name: businessCaseId
-                     description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-                     required: True
-                     schema:
-                         type: integer
-                         format: int32
-                -    in: query
-                     name: businessCaseNumber
-                     description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-                     required: True
-                     schema:
-                         type: integer
-                         format: int64
-                -    in: query
-                     name: type
-                     description: Defines a type of the required invoices.
-                     required: True
-                     schema:
-                         type: string
-                         enum: [proforma]
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/bcInvoice~1response'
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
-    /reservations/businesscases/invoices/contents:
-        get:
-            description:    |
-                ### **#instanceUrl#**: `is>content`<br /><br />
-                ---
-                Requires an existing business case and printeable invoice document.<br /><br />
-                
-                Gets a document file of an invoice.
-                
-                User requesting this action has to be an organization owner of the business case.
-            summary: "Get a printeable invoice file attached to a business case."
-            tags:
-                -    Business case
-            security:
-                -    ApiKeyAuth: []
-            parameters:
-                -    in: query
-                     name: businessCaseId
-                     description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-                     required: True
-                     schema:
-                         type: integer
-                         format: int32
-                -    in: query
-                     name: businessCaseNumber
-                     description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-                     required: True
-                     schema:
-                         type: integer
-                         format: int64
-                -    in: query
-                     name: accountingDocId
-                     description: ID of an accounting document
-                     required: True
-                     schema:
-                         type: integer
-                         format: int32
-            responses:
-                '200':
-                    description:    |
-                        OK
-                    content:
-                        application/pdf:
-                            schema:
-                                type: string
-                                format: binary
-                        application/msword:
-                            schema:
-                                type: string
-                                format: binary
-                        application/vnd.openxmlformats-officedocument.wordprocessingml.document:
-                            schema:
-                                type: string
-                                format: binary
-                '204':
-                    $ref: '#/components/responses/204NoContent'
-                '400':
-                    $ref: '#/components/responses/400BadRequest'
-                '401':
-                    $ref: '#/components/responses/401Unauthorized'
-                '404':
-                    $ref: '#/components/responses/404NotFound'
-                '500':
-                    $ref: '#/components/responses/500InternalServerError'
+  /administration/user/login:
+    post:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Login and obtain the ApiKeyAuth (apiKey) authentication token.
+        
+        If the value of property `authenticationToken` is 'null', login was not successful
+        
+        **Authentication token is automatically set into request header**.
+      tags:
+        -  Authentication
+      summary: "Login and authorize"
+      requestBody:
+        required: True
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/loginAuthorization'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/loginAuthorizationToken'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /products/priceCorrections:
+    put:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        The price correction currently affects adjusted product variant prices only in exports.
+      tags:
+        -  Product
+      summary: "Re-price product variants or adjust their end price."
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        description:  |
+          Price correction with it's type how it behave and it's variant unique key.
+          To remove the price correction, just simply set the price correction amount to a zero.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/priceCorrection'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/priceCorrection'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /reservations/businessCases:
+    post:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Creates new business case. Returns extra ID and Number of created business case.
+      tags:
+        -  Business case
+      summary: "Create a new business case."
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        description:  |
+          Defines the business case.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/businessCase~1request'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/businessCase~1response'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /reservations/businessCases/customInfo:
+    put:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Requires an existing business case.
+      tags:
+        -  Business case
+      summary: "Actualize additional data of a business case."
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        description:  |
+          Defines additional data for a business case.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/bcCustomInfo'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bcCustomInfo'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /reservations/businessCases/priceItems:
+    put:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Requires an existing business case.
+      summary: "Create, modify or release the price items."
+      tags:
+        -  Business case
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/priceItems'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/priceItems'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /reservations/businesscases/invoices:
+    get:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Requires an existing business case.<br /><br />
+        
+        Gets a list of the business case's proforma invoices. If no proforma invoices exists, they are created automatically by business case's payment policy.
+        
+        User requesting this action has to be an organization owner of the business case.
+      summary: "Get invoices attached to a business case."
+      tags:
+        -  Business case
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: query
+           name: businessCaseId
+           description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+           required: True
+           schema:
+             type: integer
+             format: int32
+        -  in: query
+           name: businessCaseNumber
+           description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+           required: True
+           schema:
+             type: integer
+             format: int64
+        -  in: query
+           name: type
+           description: Defines a type of the required invoices.
+           required: True
+           schema:
+             type: string
+             enum: [proforma]
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/bcInvoice~1response'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
+  /reservations/businesscases/invoices/contents:
+    get:
+      description:  |
+        ### **#instanceUrl#**: `is>content`<br /><br />
+        ---
+        Requires an existing business case and printeable invoice document.<br /><br />
+        
+        Gets a document file of an invoice.
+        
+        User requesting this action has to be an organization owner of the business case.
+      summary: "Get a printeable invoice file attached to a business case."
+      tags:
+        -  Business case
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: query
+           name: businessCaseId
+           description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+           required: True
+           schema:
+             type: integer
+             format: int32
+        -  in: query
+           name: businessCaseNumber
+           description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
+           required: True
+           schema:
+             type: integer
+             format: int64
+        -  in: query
+           name: accountingDocId
+           description: ID of an accounting document
+           required: True
+           schema:
+             type: integer
+             format: int32
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+            application/msword:
+              schema:
+                type: string
+                format: binary
+            application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+              schema:
+                type: string
+                format: binary
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
 ################################################################################
 #                                Components                                    #
 ################################################################################
