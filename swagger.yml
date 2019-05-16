@@ -1,5 +1,8 @@
 ---
 openapi: '3.0.2'
+################################################################################
+#                                  Header                                      #
+################################################################################
 tags:
   -  name: Authentication
      description: Everything about authentication
@@ -7,9 +10,6 @@ tags:
      description: Everything about products
   -  name: Business case
      description: Everything about business cases
-################################################################################
-#                                  Header                                      #
-################################################################################
 info:
   title: M2G API documentation
   version: v1
@@ -288,7 +288,12 @@ paths:
         '404':
           $ref: '#/components/responses/404NotFound'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /># Possible errors:<table><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
@@ -351,12 +356,19 @@ paths:
           $ref: '#/components/responses/401Unauthorized'
         '404':
           $ref: '#/components/responses/404NotFound'
+        '425':
+          description:  |
+            Too early - The requested file is still generating, please try again later.
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /># Possible errors:<table><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 ################################################################################
 #                                Components                                    #
 ################################################################################
-
 components:
   securitySchemes:
     ApiKeyAuth:
@@ -364,13 +376,13 @@ components:
       in: header
       name: X-API-Authentication-Token
       description: |
-        "All api calls require an Authorization Key which will be provided by M2G api login request.
+        All api calls require an Authorization Key which will be provided by M2G api login request.
 
         The key needs to be provided in the header as follows:
 
         * **X-API-Authentication-Token: `{Your-Key-Here}`**
         
-        The key is not case sensitive."<br /> <br />
+        The key is not case sensitive.<br /> <br />
   responses:
     204NoContent:
       description:    |
@@ -386,31 +398,7 @@ components:
           Request URL was not found. Check the URL of the request or allow the API URL route via M2G API configuration
     500InternalServerError:
       description:    |
-          Request has ended with fatal error. Check the `message` property for more detail information about the occured error<br /> <br />
-
-          # Possible errors:
-            <table>
-              <tr>
-                <th>Error (errorId)</th>
-                <th>Description</th> 
-              </tr>
-              <tr>
-                <td style="text-align:center">-1</td>
-                <td>Error with unspecified error ID</td> 
-              </tr>
-              <tr>
-                <td style="text-align:center">1003</td>
-                <td>Business case provided by identifier has not been found</td> 
-              </tr>
-              <tr>
-                <td style="text-align:center">1035</td>
-                <td>Identifiers provided in api request query of a business case are not in valid state</td> 
-              </tr>
-              <tr>
-                <td style="text-align:center">1036</td>
-                <td>File does not exists</td> 
-              </tr>
-            </table>
+          Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response
       content:
         application/json:
           schema:
@@ -421,7 +409,7 @@ components:
             timestamp:
               636921892188151049,
             message:
-              "The request timeout expired. Please try again."
+              'The request timeout has expired. Please try again.'
   schemas:
     Error:
       type: object
