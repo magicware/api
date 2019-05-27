@@ -90,7 +90,7 @@ paths:
   /products/priceCorrections:
     put:
       description:  |
-        **API-IDENTIFIER**: `Products.Prices.PriceCorrections.AdjustPriceVariant`<br />#### **URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Products.Prices.PriceCorrections.AdjustPriceVariant`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         The price correction currently affects adjusted product variant prices only in exports.
       tags:
