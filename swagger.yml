@@ -44,7 +44,7 @@ servers:
          default: 'magicware'
          description: Actual instance of M2G
        instanceUrl:
-         default: '#instanceUrl#'
+         default: '{instanceUrl}'
          description: Actual instance of M2G
        apiVers:
          default: 'v1'
@@ -55,7 +55,7 @@ paths:
   /administration/user/login:
     post:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Administration.Users.Login`<br /><br />
         ---
         Login and obtain the ApiKeyAuth (apiKey) authentication token.
         
@@ -90,7 +90,7 @@ paths:
   /products/priceCorrections:
     put:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Products.Prices.PriceCorrections.AdjustPriceVariant`<br /><br />
         ---
         The price correction currently affects adjusted product variant prices only in exports.
       tags:
@@ -126,9 +126,45 @@ paths:
         '500':
           $ref: '#/components/responses/500InternalServerError'
   /reservations/businessCases:
+    get:
+      description:  |
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases`<br /><br />
+        ---
+        Get an informations about a business case.
+      tags:
+        -  Business case
+      summary: "Informations about a business case."
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: query
+           name: number
+           description: Number of the business case.
+           required: True
+           schema:
+             type: integer
+             format: int64
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/7f0ec1ef-1a09-0117-5f92-357281bd26ca'
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
     post:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases.New`<br /><br />
         ---
         Creates new business case. Returns extra ID and Number of created business case.
       tags:
@@ -165,7 +201,7 @@ paths:
   /reservations/businessCases/customInfo:
     put:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases.BcCustomInfo.Actualize`<br /><br />
         ---
         Requires an existing business case.
       tags:
@@ -202,7 +238,7 @@ paths:
   /reservations/businessCases/priceItems:
     put:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases.PriceItems.Actualize`<br /><br />
         ---
         Requires an existing business case.
       summary: "Create, modify or release the price items."
@@ -237,7 +273,7 @@ paths:
   /reservations/businesscases/invoices:
     get:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases.Invoices.Get`<br /><br />
         ---
         Requires an existing business case.<br /><br />
         
@@ -289,7 +325,7 @@ paths:
           $ref: '#/components/responses/404NotFound'
         '500':
           description:  |
-            Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /># Possible errors:<table><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
           content:
             application/json:
               schema:
@@ -297,7 +333,7 @@ paths:
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
-        ### **#instanceUrl#**: `is>content`<br /><br />
+        ## **{instanceUrl}**: `is>content`<br />**{api-identifier}**: `Reservations.BusinessCases.Invoices.Content.Get`<br /><br />
         ---
         Requires an existing business case and printeable invoice document.<br /><br />
         
@@ -361,7 +397,7 @@ paths:
             Too early - The requested file is still generating, please try again later.
         '500':
           description:  |
-            Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /># Possible errors:<table><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
           content:
             application/json:
               schema:
@@ -371,18 +407,18 @@ paths:
 ################################################################################
 components:
   securitySchemes:
-    ApiKeyAuth:
-      type: apiKey
-      in: header
-      name: X-API-Authentication-Token
-      description: |
-        All api calls require an Authorization Key which will be provided by M2G api login request.
-
-        The key needs to be provided in the header as follows:
-
-        * **X-API-Authentication-Token: `{Your-Key-Here}`**
-        
-        The key is not case sensitive.<br /> <br />
+     ApiKeyAuth:
+       type: apiKey
+       in: header
+       name: X-API-Authentication-Token
+       description: |
+         All api calls require an Authorization Key which will be provided by M2G api login request.
+     
+         The key needs to be provided in the header as follows:
+     
+         * **X-API-Authentication-Token: `{Your-Key-Here}`**
+         
+         The key is not case sensitive.<br /> <br />
   responses:
     204NoContent:
       description:    |
@@ -395,10 +431,10 @@ components:
           Authorization token is missing or invalid
     404NotFound:
       description:    |
-          Request URL was not found. Check the URL of the request or allow the API URL route via M2G API configuration
+          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
     500InternalServerError:
       description:    |
-          Internal server error - request has ended with fatal error. Check the `message` property for more detail information about the occured error in the response
+          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response
       content:
         application/json:
           schema:
@@ -412,20 +448,20 @@ components:
               'The request timeout has expired. Please try again.'
   schemas:
     Error:
-      type: object
-      properties:
-        errorId:
-          type: integer
-          format: int32
-          description: Internal system ID of the error
-        timestamp:
-          type: integer
-          format: int64
-          description: Timestamp of the event, epoch time in milliseconds
-        message:
-          type: string
-          description: Description of the internal server error
-          nullable: true
+       type: object
+       properties:
+         errorId:
+           type: integer
+           format: int32
+           description: Internal system ID of the error
+         timestamp:
+           type: integer
+           format: int64
+           description: Timestamp of the event, epoch time in milliseconds
+         message:
+           type: string
+           description: Description of the internal server error
+           nullable: true
     loginAuthorization:
       type: object
       required:
@@ -516,6 +552,12 @@ components:
           type: integer
           format: int32
           description: ID of a facility unit plan
+    7f0ec1ef-1a09-0117-5f92-357281bd26ca:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
     businessCase/request:
       type: object
       properties:
@@ -712,31 +754,6 @@ components:
           enum:
             - save
             - release
-    bcInvoice/request:
-      type: object
-      required:
-        - businessCaseId
-        - businessCaseNumber
-        - type
-      properties:
-        businessCaseId:
-          type: integer
-          format: int32
-          description: Required if no `businessCaseNumber` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-          nullable: true
-        businessCaseNumber:
-          type: integer
-          format: int64
-          description: Required if no `businessCaseId` is provided. ID or Number of the business case is required. **Cannot be used both in one request**.
-          nullable: true
-        type:
-          type: string          
-          enum:
-            - proforma
-          description: |
-            Defines a type of the required invoices
-            - `proforma`:
-                Gets the proforma type invoices
     bcInvoice/response:
       required:
         - arrayOfBcInvoices
