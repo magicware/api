@@ -37,7 +37,7 @@ externalDocs:
   url: 'http://www.magicware.cz'
   description: More informations about this feature at www.magicware.cz
 servers:
-  -  url: https://{INSTANCE-NAME}.{URL-INSTANCE-ENVIRONMENT}.com/api/{URL-VERSION}
+  -  url: 'https://{URL-INSTANCE-NAME}.{URL-INSTANCE-ENVIRONMENT}.com/api/{URL-VERSION}'
      description: API server URL format
      variables:
        URL-INSTANCE-NAME:
