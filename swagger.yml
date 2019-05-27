@@ -487,7 +487,6 @@ components:
       type: object
       required:
         - amount
-        - correctionType
         - dateFrom
         - nights
         - productId
@@ -497,15 +496,6 @@ components:
           type: number
           format: double
           description: The value of a price correction
-        correctionType:
-          type: string
-          description: |
-            Type of correction amount and how it's gonna behave with price
-              - `correctionAmount`: apply price correction on the price as adding the amount to the price.<br />
-              - `newPrice`: apply price correction on the price as switching the price with the price correction amount.
-          enum:
-            - correctionAmount
-            - newPrice
         dateFrom:
           type: string
           format: date
