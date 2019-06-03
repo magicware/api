@@ -37,17 +37,17 @@ externalDocs:
   url: 'http://www.magicware.cz'
   description: More informations about this feature at www.magicware.cz
 servers:
-  -  url: 'https://{URL-INSTANCE-NAME}.{URL-INSTANCE-ENVIRONMENT}.com/api/{URL-VERSION}'
+  -  url: 'https://{URLINSTANCENAME}.{URLINSTANCEENVIRONMENT}.com/api/{URLVERSION}'
      description: API server URL format
      variables:
-       URL-INSTANCE-NAME:
-         default: 'magicware'
+       URLINSTANCENAME:
+         default: 'URL-INSTANCE-NAME'
          description: Part of an url to the instance of the M2G system
-       URL-INSTANCE-ENVIRONMENT:
-         default: 'iscontent'
+       URLINSTANCEENVIRONMENT:
+         default: 'URL-ENVIRONMENT'
          description: Part of an url to the instance of the M2G system
-       URL-VERSION:
-         default: 'v1'
+       URLVERSION:
+         default: 'URL-VERSION'
 ################################################################################
 #                                  Paths                                       #
 ################################################################################
@@ -55,7 +55,7 @@ paths:
   /administration/user/login:
     post:
       description:  |
-        #### **API-IDENTIFIER**: `Administration.Users.Login`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Administration.Users.Login`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Login and obtain the ApiKeyAuth (apiKey) authentication token.
         
@@ -90,7 +90,7 @@ paths:
   /products/priceCorrections:
     put:
       description:  |
-        #### **API-IDENTIFIER**: `Products.Prices.PriceCorrections.AdjustPriceVariant`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Products.Prices.PriceCorrections.AdjustPriceVariant`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         The price correction currently affects adjusted product variant prices only in exports.
       tags:
@@ -128,7 +128,7 @@ paths:
   /reservations/businessCases:
     get:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Get an informations about a business case.
       tags:
@@ -164,7 +164,7 @@ paths:
           $ref: '#/components/responses/500InternalServerError'
     post:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Creates new business case. Returns extra ID and Number of created business case.
       tags:
@@ -201,7 +201,7 @@ paths:
   /reservations/businessCases/customInfo:
     put:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases.BcCustomInfo.Actualize`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.BcCustomInfo.Actualize`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Requires an existing business case.
       tags:
@@ -238,7 +238,7 @@ paths:
   /reservations/businessCases/priceItems:
     put:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases.PriceItems.Actualize`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.PriceItems.Actualize`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Requires an existing business case.
       summary: "Create, modify or release the price items."
@@ -273,7 +273,7 @@ paths:
   /reservations/businesscases/invoices:
     get:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases.Invoices.Get`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.Invoices.Get`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Requires an existing business case.<br /><br />
         
@@ -333,7 +333,7 @@ paths:
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases.Invoices.Content.Get`<br />**URL-INSTANCE-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.Invoices.Content.Get`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
         ---
         Requires an existing business case and printeable invoice document.<br /><br />
         
@@ -570,6 +570,11 @@ components:
           format: int32
           description: ID of a cost center.
           nullable: true
+        ownerId:
+          type: integer
+          format: int32
+          description: ID of an owner.
+          nullable: true
     businessCase/response:
       type: object
       properties:
@@ -599,6 +604,11 @@ components:
           type: integer
           format: int32
           description: ID of a cost center.
+          nullable: true
+        ownerId:
+          type: integer
+          format: int32
+          description: ID of an owner.
           nullable: true
     bcCustomInfo:
       type: object
@@ -638,6 +648,11 @@ components:
           $ref: '#/components/schemas/bcCustomInfo~1Term'
         accommodationTerm:
           $ref: '#/components/schemas/bcCustomInfo~1AccommodationTerm'
+        personCount:
+          type: integer
+          format: int32
+          description: Count of a persons.
+          nullable: true
         hotelName:
           type: string
           description: Name of a hotel
