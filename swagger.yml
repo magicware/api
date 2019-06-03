@@ -41,13 +41,13 @@ servers:
      description: API server URL format
      variables:
        URLINSTANCENAME:
-         default: 'URL-INSTANCE-NAME'
+         default: 'magicware'
          description: Part of an url to the instance of the M2G system
        URLINSTANCEENVIRONMENT:
-         default: 'URL-ENVIRONMENT'
+         default: 'iscontent'
          description: Part of an url to the instance of the M2G system
        URLVERSION:
-         default: 'URL-VERSION'
+         default: 'v1'
 ################################################################################
 #                                  Paths                                       #
 ################################################################################
