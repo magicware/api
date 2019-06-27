@@ -79,8 +79,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/loginAuthorizationToken'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '404':
@@ -115,8 +113,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/priceCorrection'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -126,42 +122,6 @@ paths:
         '500':
           $ref: '#/components/responses/500InternalServerError'
   /reservations/businessCases:
-    get:
-      description:  |
-        #### **API-IDENTIFIER**: `Reservations.BusinessCases`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
-        ---
-        Get an informations about a business case.
-      tags:
-        -  Business case
-      summary: "Informations about a business case."
-      security:
-        -  ApiKeyAuth: []
-      parameters:
-        -  in: query
-           name: number
-           description: Number of the business case.
-           required: True
-           schema:
-             type: integer
-             format: int64
-      responses:
-        '200':
-          description:  |
-            OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/7f0ec1ef-1a09-0117-5f92-357281bd26ca'
-        '204':
-          $ref: '#/components/responses/204NoContent'
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '404':
-          $ref: '#/components/responses/404NotFound'
-        '500':
-          $ref: '#/components/responses/500InternalServerError'
     post:
       description:  |
         #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
@@ -188,8 +148,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/businessCase~1response'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -225,8 +183,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/bcCustomInfo'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -260,8 +216,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/priceItems'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -315,8 +269,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/bcInvoice~1response'
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -325,7 +277,7 @@ paths:
           $ref: '#/components/responses/404NotFound'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
           content:
             application/json:
               schema:
@@ -384,8 +336,6 @@ paths:
               schema:
                 type: string
                 format: binary
-        '204':
-          $ref: '#/components/responses/204NoContent'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -397,7 +347,45 @@ paths:
             Too early - The requested file is still generating, please try again later.
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /reservations/businesscases/persons:
+    put:
+      description:  |
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases.Persons`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+        ---
+        Allows to modify a passengers of a business case.<br />
+        ID of the booking is now an optional parameter. Keep in mind, the passengers modified outside the booking process will not be automatically associated with the booking process.
+        
+        User requesting this action has to be an organization owner of the business case.
+      summary: "Modify a passengers of a business case"
+      tags:
+        -  Business case
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        description:  |
+          Defines the passangers.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/627c8156-399a-483c-bff5-f6037e60d5a9'
+      responses:
+        '204':
+          $ref: '#/components/responses/204NoContent'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1015</td><td>Booking ID is not specified</td></tr><tr><td style='text-align:center'>1016</td><td>Specified Booking ID doesn't exist</td></tr><tr><td style='text-align:center'>1017</td><td>Invalid persons count</td></tr><tr><td style='text-align:center'>1018</td><td>Invalid persons birth dates</td></tr><tr><td style='text-align:center'>1019</td><td>Specified country ISO code not found</td></tr><tr><td style='text-align:center'>1020</td><td>Not specified error</td></tr></table>
           content:
             application/json:
               schema:
@@ -422,19 +410,19 @@ components:
   responses:
     204NoContent:
       description:    |
-          No content. Requested data have probably not been found, for some reason
+          No content from response to work with
     400BadRequest: 
       description:    |
         Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
     401Unauthorized:
       description:    |
-          Authorization token is missing or invalid
+          Authorization token is missing or invalid. Or current user does not have the required permissions
     404NotFound:
       description:    |
           Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
     500InternalServerError:
       description:    |
-          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response
+          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
       content:
         application/json:
           schema:
@@ -542,12 +530,12 @@ components:
           type: integer
           format: int32
           description: ID of a facility unit plan
-    7f0ec1ef-1a09-0117-5f92-357281bd26ca:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
+    #7f0ec1ef-1a09-0117-5f92-357281bd26ca:
+    #  type: object
+    #  properties:
+    #    id:
+    #      type: integer
+    #      format: int32
     businessCase/request:
       type: object
       properties:
@@ -784,3 +772,134 @@ components:
           type: integer
           format: int32
           description: ID of the document where invoice is stored as a printable document
+    627c8156-399a-483c-bff5-f6037e60d5a9:
+      type: object
+      required:
+        - number
+        - customer
+        - bookings
+      properties:
+        number:
+          type: integer
+          format: int64
+          description: Number of the business case
+        customer:
+          $ref: '#/components/schemas/de00dcde-dcb3-53d0-3ad6-9b0ce088adf0'
+        bookings: 
+          type: array
+          items: 
+            $ref: '#/components/schemas/cd4fdb40-355b-5ab2-75a9-21c673222347'
+    de00dcde-dcb3-53d0-3ad6-9b0ce088adf0:
+      type: object
+      description: Contact person
+      required:
+        - firstName
+        - lastName
+      properties:
+        firstName:
+          type: string
+          description: First name
+        middleName:
+          type: string
+          description: Middle name
+          nullable: true
+        lastName:
+          type: string
+          description: Last name
+        birthDate:
+          type: string
+          format: date
+          nullable: true
+        nationality:
+          type: string
+          description: Nationality. Country ISO Code (ISO 3)
+        city:
+          type: string
+          description: City
+        street:
+          type: string
+          description: Street
+        zipCode:
+          type: string
+          description: ZIP code
+        phone:
+          type: string
+          description: Phone number
+        email:
+          type: string
+          description: Email
+        extendedPersonData:
+          $ref: '#/components/schemas/29cf9a39-633f-ca32-d8ee-fea683c102cd'
+    29cf9a39-633f-ca32-d8ee-fea683c102cd:
+      type: object
+      description: Additional data of the passenger
+      properties:
+        ageCategory:
+          type: string
+          description: |
+            The operation with a price item, that you intend to do
+              - `adult`:
+                  An age category of an adult.
+              - `child`: 
+                  An age category of a child.
+              - `infant`: 
+                  An age category of a baby.
+          enum:
+            - adult
+            - child
+            - infant
+    cd4fdb40-355b-5ab2-75a9-21c673222347:
+      type: object
+      description: Booking and it's data
+      required:
+        - passengers
+      properties:
+        bookingId:
+          type: integer
+          format: int32
+          nullable: true
+        passengers:
+          type: array
+          items: 
+            $ref: '#/components/schemas/e54be627-5b13-3d8b-7448-f75ead37106d'
+    e54be627-5b13-3d8b-7448-f75ead37106d:
+      type: object
+      description: Passenger person
+      required:
+        - firstName
+        - lastName
+      properties:
+        firstName:
+          type: string
+          description: First name
+        middleName:
+          type: string
+          description: Middle name
+          nullable: true
+        lastName:
+          type: string
+          description: Last name
+        birthDate:
+          type: string
+          format: date
+        nationality:
+          type: string
+          description: Nationality. Country ISO Code (ISO 3)
+        city:
+          type: string
+          description: City
+        street:
+          type: string
+          description: Street
+        zipCode:
+          type: string
+          description: ZIP code
+        phone:
+          type: string
+          description: Phone number
+        email:
+          type: string
+          description: Email
+        extendedPersonData:
+          $ref: '#/components/schemas/29cf9a39-633f-ca32-d8ee-fea683c102cd'
+    
