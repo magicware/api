@@ -70,7 +70,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/loginAuthorization'
+              $ref: '#/components/schemas/ff8b50c3-c4e7-8931-4403-759665238a84'
       responses:
         '200':
           description:  |
@@ -78,7 +78,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/loginAuthorizationToken'
+                $ref: '#/components/schemas/768284c8-5cef-3f11-d387-62dbe3fbd4cb'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '404':
@@ -104,7 +104,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/priceCorrection'
+              $ref: '#/components/schemas/d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
       responses:
         '200':
           description:  |
@@ -112,7 +112,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/priceCorrection'
+                $ref: '#/components/schemas/d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -122,6 +122,40 @@ paths:
         '500':
           $ref: '#/components/responses/500InternalServerError'
   /reservations/businessCases:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Reservations.BusinessCases`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
+        ---
+        Get an informations about a business case.
+      tags:
+        -  Business case
+      summary: "Informations about a business case."
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: query
+           name: number
+           description: Number of the business case.
+           required: True
+           schema:
+             type: integer
+             format: int64
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/8e88fd77-f4ed-f08c-5569-298de45ca6e9'
+        '400':
+          $ref: '#/components/responses/400BadRequest'
+        '401':
+          $ref: '#/components/responses/401Unauthorized'
+        '404':
+          $ref: '#/components/responses/404NotFound'
+        '500':
+          $ref: '#/components/responses/500InternalServerError'
     post:
       description:  |
         #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
@@ -396,90 +430,6 @@ paths:
 components:
   schemas:
     
-    loginAuthorization:
-      type: object
-      required:
-        - login
-        - password
-      properties:
-        login:
-          type: string
-          description: User name
-        password:
-          type: string
-          description: User password
-    loginAuthorizationToken:
-      type: object
-      properties:
-        authenticationToken:
-          type: string
-          format: uuid
-          description: Authorization token. If the value of property `authenticationToken` is 'null', login was not successful
-          nullable: true
-          example: e00a713d-ad81-4b4f-8801-31b34842f640
-    
-    
-    priceCorrection:
-      type: object
-      required:
-        - amount
-        - dateFrom
-        - nights
-        - productId
-        - facilityUnitPlanId
-      properties:
-        amount:
-          type: number
-          format: double
-          description: The value of a price correction
-        dateFrom:
-          type: string
-          format: date
-          description: Date From
-        nights:
-          type: integer
-          format: int32
-          description: Count of nights
-        departureTransportFacilityId:
-          type: integer
-          format: int32
-          description: ID of a depature transport facility
-          nullable: true
-        departureStationId:
-          type: integer
-          format: int32
-          description: ID of a departure station
-          nullable: true
-        returnArrivalStationId:
-          type: integer
-          format: int32
-          description: ID of an arrival station
-          nullable: true
-        productId:
-          type: integer
-          format: int32
-          description: ID of a product
-        priceListCategoryCbId:
-          type: integer
-          format: int32
-          description: Codebook ID of a price list category
-          nullable: true
-        boardTypeCbId:
-          type: integer
-          format: int32
-          description: Codebook ID of a board type
-          nullable: true
-        saleGroupId:
-          type: integer
-          format: int32
-          description: ID of a sale group
-          nullable: true
-        facilityUnitPlanId:
-          type: integer
-          format: int32
-          description: ID of a facility unit plan
-    
-    
     #7f0ec1ef-1a09-0117-5f92-357281bd26ca:
     #  type: object
     #  properties:
@@ -741,6 +691,1047 @@ components:
            description: Description of the internal server error
            nullable: true
     
+    ff8b50c3-c4e7-8931-4403-759665238a84:
+      type: object
+      properties:
+        login:
+          type: string
+          description:  |
+            User name
+        password:
+          type: string
+          description:  |
+            User password
+    768284c8-5cef-3f11-d387-62dbe3fbd4cb:
+      type: object
+      properties:
+        authenticationToken:
+          type: string
+          format: uuid
+          description:  |
+            Authorization token. If the value of property `authenticationToken` is 'null', login was not successful
+          nullable: true
+    d67b15fe-4a58-deca-f4a8-fd78cfbc09db:
+      type: object
+      required:
+        - amount
+        - dateFrom
+        - nights
+        - productId
+        - facilityUnitPlanId
+      properties:
+        amount:
+          type: number
+          format: double
+          description:  |
+            The value of a price correction
+        dateFrom:
+          type: string
+          format: date-time
+          description:  |
+            Date From
+        nights:
+          type: integer
+          format: int32
+          description:  |
+            Count of nights
+        departureTransportFacilityId:
+          type: integer
+          format: int32
+          description:  |
+            ID of a depature transport facility
+          nullable: true
+        departureStationId:
+          type: integer
+          format: int32
+          description:  |
+            ID of a departure station
+          nullable: true
+        returnArrivalStationId:
+          type: integer
+          format: int32
+          description:  |
+            ID of an arrival station
+          nullable: true
+        productId:
+          type: integer
+          format: int32
+          description:  |
+            ID of a product
+        priceListCategoryCbId:
+          type: integer
+          format: int32
+          description:  |
+            Codebook ID of a price list category
+          nullable: true
+        boardTypeCbId:
+          type: integer
+          format: int32
+          description:  |
+            Codebook ID of a board type
+          nullable: true
+        saleGroupId:
+          type: integer
+          format: int32
+          description:  |
+            ID of a sale group
+          nullable: true
+        facilityUnitPlanId:
+          type: integer
+          format: int32
+          description:  |
+            ID of a facility unit plan
+    8e88fd77-f4ed-f08c-5569-298de45ca6e9:
+      type: object
+      description:  |
+        Obecné k dokumentu:
+        
+            Typy parametrů a atributů:
+                * int: Celé číslo 4 Byty.
+                * long: Celé číslo 8 Bytů.
+                * float: Číslo s plovoucí čárkou.
+                * bool: Logická hodnota true nebo false.
+                * string: Textový řetězec nebo null.
+                * datetime: Datum s časem, datum, nebo jen čas, formát vždy uveden.
+                * null: Na vstupu - parametr je nepovinný, na výstupu - atribut nemusí být uveden nebo je null.
+                * enum: Výčtový typ, na dalším řádku následuje výpis možných hodnot.
+                * array: Jde o pole hodnot, typicky oddělených znakem ", ", nebo u vstupních parametrů
+                vícenásobným uvedením v URL.
+        
+            YAML styl dokumentace:
+                * { : Označení objektu
+                * [ { : Označení pole objektů
+                * [] : Označení pole hodnot
+                * # : Začátek komentáře
+        
+      properties:
+        businessCases:
+          type: array
+          description:  |
+            Obchodní případy
+          items:
+            $ref: '#/components/schemas/ac314140-b056-3ade-ee01-779f7c9a88cf'
+        products:
+          type: array
+          description:  |
+            Produkty
+          items:
+            $ref: '#/components/schemas/c6067df4-d3ce-ef9f-a76c-a1372390b56b'
+        facilityKinds:
+          type: array
+          description:  |
+            Druhy zařízení
+          items:
+            $ref: '#/components/schemas/573e26ab-85d7-c1a6-139d-7993e00c4f84'
+        commitmentModes:
+          type: array
+          description:  |
+            Způsoby zajištění (vazba na číselník "commitmentModes")
+          items:
+            $ref: '#/components/schemas/a998e1ae-ed07-31b3-3b1d-96a0c78bc593'
+        productTypes:
+          type: array
+          description:  |
+            Typy produktů
+          items:
+            $ref: '#/components/schemas/ab619b51-5818-673d-df5b-71e7a4d99319'
+        contactTypes:
+          type: array
+          description:  |
+            Typy kontaktů
+          items:
+            $ref: '#/components/schemas/18a60dd0-d87c-a788-f5fd-8745531d1145'
+        persons:
+          type: array
+          description:  |
+            Osoby v systému
+          items:
+            $ref: '#/components/schemas/42688ed6-9411-6760-c972-8a41f1772978'
+        priceFlags:
+          type: array
+          description:  |
+            Příznaky cen
+          items:
+            $ref: '#/components/schemas/7fc97be9-b51b-f19e-0be9-ee1e66f9e55e'
+        countries:
+          type: array
+          description:  |
+            Země
+          items:
+            $ref: '#/components/schemas/a8a54b93-2c72-20fb-47df-89189a2b6ab5'
+    ac314140-b056-3ade-ee01-779f7c9a88cf:
+      type: object
+      description:  |
+        Obchodní Případ (OP) Slouží jako složka pro evidenci prvků a stavů - sledu aktivit:  poptávka – rezervace - prodej. 
+        Bilance plateb vůči ceně služeb se provádí za každý obchodní případ samostatně.
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            Id OP
+        number:
+          type: integer
+          format: int64
+          description:  |
+            Číslo OP
+        commitmentModeId:
+          type: integer
+          format: int32
+          description:  |
+            Vazba na číselník "commitmentModes" určující stav OP (Rezervace, Prodej..)
+          nullable: true
+        currency:
+          type: string
+          description:  |
+            Kód měny OP
+        dateCreated:
+          type: string
+          format: date-time
+          description:  |
+            Datum začátku OP
+        dateFrom:
+          type: string
+          format: date-time
+          description:  |
+            Datum konce OP
+          nullable: true
+        firstExpirationDate:
+          type: string
+          format: date-time
+          description:  |
+            Nejbližší datum expirace OP
+          nullable: true
+        cancellationMode:
+          enum:
+            - notset
+            - cancelled
+            - released
+          type: string
+        owner:
+          $ref: '#/components/schemas/f829d84d-a12c-cd1e-f6e2-5bc23d611e83'
+        organizer:
+          $ref: '#/components/schemas/2efb3e98-7870-693d-4916-0769c2e8abc0'
+        customer:
+          $ref: '#/components/schemas/72362654-3722-511f-21b2-feb7c492e0e7'
+        products:
+          type: array
+          description:  |
+            Produkty OP
+          items:
+            $ref: '#/components/schemas/2b13908a-e129-1e87-70e8-9e542bc5f62d'
+        priceItems:
+          type: array
+          description:  |
+            Cenové položky OP
+          items:
+            $ref: '#/components/schemas/baa2818c-51c3-496d-fc4d-4360688dddc1'
+        capacities:
+          type: array
+          description:  |
+            Vázané kapacity
+          items:
+            $ref: '#/components/schemas/b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1'
+        priceSummary:
+          $ref: '#/components/schemas/1e0cc0df-2691-b4a4-740d-2dc2a287e4ed'
+        businessCasePersons:
+          type: array
+          description:  |
+            Osoby připojené k OP
+          items:
+            $ref: '#/components/schemas/54b4cfbc-7b50-e3a3-59b1-5767d78b266e'
+        files:
+          type: array
+          description:  |
+            Soubory připojené (vygenerované) k OP
+          items:
+            $ref: '#/components/schemas/7db6f602-3d0f-4b83-ac4b-157a0b57bb08'
+        paymentPolicies:
+          type: array
+          description:  |
+            Payment policies of the business case
+          items:
+            $ref: '#/components/schemas/77419105-3a86-90de-05c3-7e256f38f6e3'
+    f829d84d-a12c-cd1e-f6e2-5bc23d611e83:
+      type: object
+      description:  |
+        Vlastník (organizace) OP
+      properties:
+        organizationId:
+          type: integer
+          format: int32
+          description:  |
+            ID organizace vlastníka
+          nullable: true
+        organizationName:
+          type: string
+          description:  |
+            Název organizace vlastníka
+        organizationRegNumber:
+          type: string
+          description:  |
+            IČO organizace vlastníka
+        personId:
+          type: integer
+          format: int32
+          description:  |
+            ID osoby vlastníka (vazba na osobu)
+          nullable: true
+    2efb3e98-7870-693d-4916-0769c2e8abc0:
+      type: object
+      description:  |
+        Pořadatel (organizace) OP
+      properties:
+        organizationId:
+          type: integer
+          format: int32
+          description:  |
+            ID organizace pořadatele
+          nullable: true
+        organizationName:
+          type: string
+          description:  |
+            Název organizace pořadatele
+        organizationRegNumber:
+          type: string
+          description:  |
+            IČO organizace pořadatele
+    72362654-3722-511f-21b2-feb7c492e0e7:
+      type: object
+      description:  |
+        Zákazník (organizace) OP
+      properties:
+        organizationId:
+          type: integer
+          format: int32
+          description:  |
+            ID organizace zákazníka
+          nullable: true
+        organizationName:
+          type: string
+          description:  |
+            ID organizace zákazníka
+        organizationRegNumber:
+          type: string
+          description:  |
+            ID organizace zákazníka
+        personId:
+          type: integer
+          format: int32
+          description:  |
+            ID organizace zákazníka (vazba na osobu)
+          nullable: true
+    2b13908a-e129-1e87-70e8-9e542bc5f62d:
+      type: object
+      description:  |
+        Produkt představuje obal toho, co prodáváme
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID produktu
+        name:
+          type: string
+          description:  |
+            Název produktu
+        termName:
+          type: string
+          description:  |
+            Název objednaného termínu produktu
+        dateFrom:
+          type: string
+          format: date-time
+          description:  |
+            Začátek pobytu (datum od z připojeného produktu)
+          nullable: true
+        dateTo:
+          type: string
+          format: date-time
+          description:  |
+            Konec pobytu (datum do z připojeného produktu)
+          nullable: true
+    baa2818c-51c3-496d-fc4d-4360688dddc1:
+      type: object
+      description:  |
+        Cenové položky OP
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID cenové položky
+        currency:
+          type: string
+          description:  |
+            Měna cenové položky
+        isCancelled:
+          type: boolean
+          description:  |
+            Zda byla cenová položka stornována
+        name:
+          type: string
+          description:  |
+            Název cenové položky
+        unitCount:
+          type: integer
+          format: int32
+          description:  |
+            Počet jednotek
+        unitPrice:
+          type: number
+          format: double
+          description:  |
+            Jednotková cena
+          nullable: true
+        totalPrice:
+          type: number
+          format: double
+          description:  |
+            Celková cena včetně odečtených slev
+          nullable: true
+        commision:
+          type: number
+          format: double
+          description:  |
+            Celková provize na ceníkové položce
+        businessCasePersonId:
+          type: integer
+          format: int32
+          description:  |
+            ID osoby v OP, které cenová položka patří
+          nullable: true
+        priceFlagId:
+          type: integer
+          format: int32
+          description:  |
+            ID příznaku (LastMinute, ...) cen z číselníku priceFlags
+          nullable: true
+        commitmentModeId:
+          type: integer
+          format: int32
+          description:  |
+            Vazba na číselník "commitmentModes" určující stav cenové položky
+          nullable: true
+        discounts:
+          type: array
+          description:  |
+            Aplikované slevy
+          items:
+            $ref: '#/components/schemas/6c607ebb-7f33-ef5d-58a1-9e68b796fca6'
+    6c607ebb-7f33-ef5d-58a1-9e68b796fca6:
+      type: object
+      description:  |
+        Aplikované slevy
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID slevy
+          nullable: true
+        name:
+          type: string
+          description:  |
+            Název slevy
+        amount:
+          type: number
+          format: double
+          description:  |
+            Částka slevy
+    b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1:
+      type: object
+      description:  |
+        Představuje jednotky v čase vázané obchodnímu případu s nějakým způsobem zajištění
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID vázané kapacity
+        facilityType:
+          type: string
+          description:  |
+            Typ zařizení vázané kapacity
+        facilityId:
+          type: integer
+          format: int32
+          description:  |
+            ID zařízení vázané kapacity
+        facilityKindId:
+          type: integer
+          format: int32
+          description:  |
+            Druh zařízení
+          nullable: true
+        facilityName:
+          type: string
+          description:  |
+            Název zařízení
+        unitType:
+          type: string
+          description:  |
+            Název typu vzoru jednotky vázané kapacity
+        unitName:
+          type: string
+          description:  |
+            Název vzoru jednotky vázané kapacity
+        commitmentModeId:
+          type: integer
+          format: int32
+          description:  |
+            Způsob zajištění vázané kapacity (vazba na číselník "commitmentModes")
+          nullable: true
+        route:
+          $ref: '#/components/schemas/de120219-c55c-cb50-80da-baeca148b6a6'
+        personMapping:
+          type: array
+          description:  |
+            Připojené osoby
+          items:
+            $ref: '#/components/schemas/32a250db-53ce-db28-7e7a-b1d8b9e019f0'
+    de120219-c55c-cb50-80da-baeca148b6a6:
+      type: object
+      description:  |
+        Cesta
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID
+          nullable: true
+        code:
+          type: string
+          description:  |
+            Kód
+        unitType:
+          type: string
+          description:  |
+            Název typu vzoru jednotky
+        from:
+          $ref: '#/components/schemas/dadee616-6d90-1831-ea0a-af7cb8311b59'
+        to:
+          $ref: '#/components/schemas/dadee616-6d90-1831-ea0a-af7cb8311b59'
+    dadee616-6d90-1831-ea0a-af7cb8311b59:
+      type: object
+      description:  |
+        Stanice odjezdu
+      properties:
+        code:
+          type: string
+          description:  |
+            Kód stanice
+        name:
+          type: string
+          description:  |
+            Název stanice
+        time:
+          type: string
+          format: date-time
+          description:  |
+            Čas odjezdu/příjezdu
+          nullable: true
+    32a250db-53ce-db28-7e7a-b1d8b9e019f0:
+      type: object
+      description:  |
+        Připojené osoby
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID osoby OP
+        mapping:
+          enum:
+            - notset
+            - fixedplace
+            - extrabed
+            - infant
+            - nobed
+            - overbook
+          type: string
+    1e0cc0df-2691-b4a4-740d-2dc2a287e4ed:
+      type: object
+      description:  |
+        Shrnutí ceny OP
+      properties:
+        totalPrice:
+          type: number
+          format: double
+          description:  |
+            Celková cena OP
+          nullable: true
+        payments:
+          type: number
+          format: double
+          description:  |
+            Suma plateb za OP
+          nullable: true
+        commission:
+          type: number
+          format: double
+          description:  |
+            Provize za OP
+          nullable: true
+    54b4cfbc-7b50-e3a3-59b1-5767d78b266e:
+      type: object
+      description:  |
+        Osoby připojené k OP
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID osoby OP
+        order:
+          type: integer
+          format: int32
+          description:  |
+            Pořadí osoby OP
+        isContactPerson:
+          type: boolean
+          description:  |
+            Určuje zda je osoba v OP kontaktérem
+        role:
+          enum:
+            - notset
+            - active
+            - child
+            - infant
+            - inactive
+            - cancelled
+          type: string
+        person:
+          $ref: '#/components/schemas/4786e4f0-4718-2eda-0663-9fbcfd33b959'
+    4786e4f0-4718-2eda-0663-9fbcfd33b959:
+      type: object
+      description:  |
+        Vazba na konkrétní osobu
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            Id osoby v systému
+        firstName:
+          type: string
+          description:  |
+            Jméno osoby
+        middleName:
+          type: string
+          description:  |
+            Prostřední jméno osoby
+        lastname:
+          type: string
+          description:  |
+            Příjmení osoby
+        birthDate:
+          type: string
+          format: date-time
+          description:  |
+            Datum narození
+          nullable: true
+        sex:
+          enum:
+            - notset
+            - male
+            - female
+          type: string
+        contacts:
+          type: array
+          description:  |
+            Seznam kontaktních údajů
+          items:
+            $ref: '#/components/schemas/c06ef571-cc16-7a7a-e884-48067be418f3'
+        addresses:
+          type: array
+          description:  |
+            Seznam připojených adres
+          items:
+            $ref: '#/components/schemas/a425c9a5-f1b7-77e3-8487-893ae88d1e4d'
+    c06ef571-cc16-7a7a-e884-48067be418f3:
+      type: object
+      description:  |
+        Seznam kontaktních údajů
+      properties:
+        contactTypeId:
+          type: integer
+          format: int32
+          description:  |
+            ID z číselníku typu kontaktů "contactTypes"
+        value:
+          type: string
+          description:  |
+            Hodnota kontaktu - text spojení
+        isMain:
+          type: boolean
+          description:  |
+            Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
+    a425c9a5-f1b7-77e3-8487-893ae88d1e4d:
+      type: object
+      description:  |
+        Seznam připojených adres
+      properties:
+        street:
+          type: string
+          description:  |
+            Ulice
+        number:
+          type: string
+          description:  |
+            Číslo orientační
+        houseNumber:
+          type: string
+          description:  |
+            Číslo popisné
+        city:
+          type: string
+          description:  |
+            Město
+        zip:
+          type: string
+          description:  |
+            Psč
+        countryId:
+          type: integer
+          format: int32
+          description:  |
+            Id z číselníku zemí "countries"
+          nullable: true
+        flags:
+          type: array
+          items:
+            enum:
+              - notset
+              - hq
+              - invoice
+              - correspondence
+              - presentation
+            type: string
+    7db6f602-3d0f-4b83-ac4b-157a0b57bb08:
+      type: object
+      description:  |
+        Soubory připojené (vygenerované) k OP
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID souboru
+          nullable: true
+        templateId:
+          type: integer
+          format: int32
+          description:  |
+            ID šablony dokumentu použité pro generování
+          nullable: true
+        templateName:
+          type: string
+          description:  |
+            Název šablony dokumentu
+    77419105-3a86-90de-05c3-7e256f38f6e3:
+      type: object
+      description:  |
+        Payment policies of the business case
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID of the payment policy
+        date:
+          type: string
+          format: date-time
+          description:  |
+            Date
+        amount:
+          type: number
+          format: double
+          description:  |
+            Amount
+        currencyCode:
+          type: string
+          description:  |
+            Currency code
+        state:
+          type: string
+          description:  |
+            State
+        arrears:
+          type: number
+          format: double
+          description:  |
+            Arrears
+    c6067df4-d3ce-ef9f-a76c-a1372390b56b:
+      type: object
+      description:  |
+        Produkt představuje obal toho, co prodáváme
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID Produktu
+        name:
+          type: string
+          description:  |
+            Jméno Produktu
+        code:
+          type: string
+          description:  |
+            Kód produktu
+        url:
+          type: string
+          description:  |
+            Url produktu generovaná z názvu (nejedná se o kompletní url na webu)
+        productTypesId:
+          type: array
+          items:
+            type: integer
+            format: int32
+            description:  |
+              Seznam ID typů produktů
+    573e26ab-85d7-c1a6-139d-7993e00c4f84:
+      type: object
+      description:  |
+        Druhy zařízení
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID druhu zařízení
+        name:
+          type: string
+          description:  |
+            Název druhu zařízení
+    a998e1ae-ed07-31b3-3b1d-96a0c78bc593:
+      type: object
+      description:  |
+        Způsoby zajištění (vazba na číselník "commitmentModes")
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID způsobu zajištění
+        name:
+          type: string
+          description:  |
+            Název způsobu zajištění
+        code:
+          type: string
+          description:  |
+            Kód způsobu zajištění
+    ab619b51-5818-673d-df5b-71e7a4d99319:
+      type: object
+      description:  |
+        Typy produktů
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID typu produktu
+        name:
+          type: string
+          description:  |
+            Název typu produktu
+        code:
+          type: string
+          description:  |
+            Kód typu produktu
+    18a60dd0-d87c-a788-f5fd-8745531d1145:
+      type: object
+      description:  |
+        Typy kontaktů
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID typu kontaktu
+        name:
+          type: string
+          description:  |
+            Název typu kontaktu
+        code:
+          type: string
+          description:  |
+            Kód typu kontaktu
+    42688ed6-9411-6760-c972-8a41f1772978:
+      type: object
+      description:  |
+        Osoby v systému
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID osoby
+        dateCreated:
+          type: string
+          format: date-time
+          description:  |
+            Datum založení osoby v systému
+        firstName:
+          type: string
+          description:  |
+            Jméno osoby
+        lastname:
+          type: string
+          description:  |
+            Příjmení osoby
+        titles:
+          type: string
+          description:  |
+            Tituly před jménem
+        degrees:
+          type: string
+          description:  |
+            Tituly za jménem
+        personalNumber:
+          type: string
+          description:  |
+            Rodné číslo
+        birthDate:
+          type: string
+          format: date-time
+          description:  |
+            Datum narození
+          nullable: true
+        isBlacklisted:
+          type: boolean
+          description:  |
+            True je-li osoba na blacklistu, False pokud není
+        isDeleted:
+          type: boolean
+          description:  |
+            True je-li osoba v systému označená jako smazaná
+        note:
+          type: string
+          description:  |
+            Poznámka u osoby
+        sex:
+          enum:
+            - notset
+            - male
+            - female
+          type: string
+        groups:
+          type: array
+          items:
+            type: string
+            description:  |
+              Statické skupiny, ve kterých je osoba přiřazena. Dynamické skupiny se neexportují.
+        contacts:
+          type: array
+          description:  |
+            Seznam kontaktních údajů
+          items:
+            $ref: '#/components/schemas/0e19d354-1787-06a6-5384-4718d65839b3'
+        addresses:
+          type: array
+          description:  |
+            Seznam připojených adres
+          items:
+            $ref: '#/components/schemas/3cb7e51e-30a7-19b3-a235-5dbefb81f307'
+    0e19d354-1787-06a6-5384-4718d65839b3:
+      type: object
+      description:  |
+        Seznam kontaktních údajů
+      properties:
+        contactTypeId:
+          type: integer
+          format: int32
+          description:  |
+            ID z číselníku typu kontaktů "contactTypes"
+        value:
+          type: string
+          description:  |
+            Hodnota kontaktu - text spojení
+        isMain:
+          type: boolean
+          description:  |
+            Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
+    3cb7e51e-30a7-19b3-a235-5dbefb81f307:
+      type: object
+      description:  |
+        Seznam připojených adres
+      properties:
+        street:
+          type: string
+          description:  |
+            Ulice
+        number:
+          type: string
+          description:  |
+            Číslo orientační
+        houseNumber:
+          type: string
+          description:  |
+            Číslo popisné
+        city:
+          type: string
+          description:  |
+            Město
+        zip:
+          type: string
+          description:  |
+            Psč
+        countryId:
+          type: integer
+          format: int32
+          description:  |
+            Id z číselníku zemí "countries"
+          nullable: true
+        flags:
+          type: array
+          items:
+            enum:
+              - notset
+              - hq
+              - invoice
+              - correspondence
+              - presentation
+            type: string
+    7fc97be9-b51b-f19e-0be9-ee1e66f9e55e:
+      type: object
+      description:  |
+        Příznaky cen
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID příznaku
+        name:
+          type: string
+          description:  |
+            Název příznaku
+        code:
+          type: string
+          description:  |
+            Kód příznaku
+    a8a54b93-2c72-20fb-47df-89189a2b6ab5:
+      type: object
+      description:  |
+        Země
+      properties:
+        id:
+          type: integer
+          format: int32
+          description:  |
+            ID země
+        name:
+          type: string
+          description:  |
+            Název země
+        code:
+          type: string
+          description:  |
+            ISO kód země
     cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7:
       type: object
       required:
@@ -750,9 +1741,9 @@ components:
       properties:
         number:
           type: integer
+          format: int64
           description:  |
             Number of the business case
-          format: int64
         customer:
           $ref: '#/components/schemas/96612934-87a3-c7ec-3f8a-11d257bc8490'
         bookings:
@@ -771,9 +1762,9 @@ components:
       properties:
         birthDate:
           type: string
+          format: date-time
           description:  |
             Birth date
-          format: datetime
           nullable: true
         firstName:
           type: string
@@ -819,20 +1810,11 @@ components:
         Additional data of the passenger
       properties:
         ageCategory:
-          type: string
-          description:  |
-            
-            The person age category
-                - `adult`:
-                    An age category of an adult.
-                - `child`: 
-                    An age category of a child.
-                - `infant`: 
-                    An age category of a baby.
           enum:
             - adult
             - child
             - infant
+          type: string
     ded41841-b2b9-1904-8e1a-25338c65f0a7:
       type: object
       description:  |
@@ -842,9 +1824,9 @@ components:
       properties:
         bookingId:
           type: integer
+          format: int32
           description:  |
             Booking ID
-          format: int32
           nullable: true
         passengers:
           type: array
@@ -863,9 +1845,9 @@ components:
       properties:
         birthDate:
           type: string
+          format: date-time
           description:  |
             Birth date
-          format: datetime
         firstName:
           type: string
           description:  |
