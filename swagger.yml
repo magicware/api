@@ -373,7 +373,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/627c8156-399a-483c-bff5-f6037e60d5a9'
+              $ref: '#/components/schemas/cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7'
       responses:
         '204':
           $ref: '#/components/responses/204NoContent'
@@ -394,62 +394,8 @@ paths:
 #                                Components                                    #
 ################################################################################
 components:
-  securitySchemes:
-     ApiKeyAuth:
-       type: apiKey
-       in: header
-       name: X-API-Authentication-Token
-       description: |
-         All api calls require an Authorization Key which will be provided by M2G api login request.
-     
-         The key needs to be provided in the header as follows:
-     
-         * **X-API-Authentication-Token: `{Your-Key-Here}`**
-         
-         The key is not case sensitive.<br /> <br />
-  responses:
-    204NoContent:
-      description:    |
-          No content from response to work with
-    400BadRequest: 
-      description:    |
-        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    401Unauthorized:
-      description:    |
-          Authorization token is missing or invalid. Or current user does not have the required permissions
-    404NotFound:
-      description:    |
-          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
-    500InternalServerError:
-      description:    |
-          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            errorId:
-              -1
-            timestamp:
-              636921892188151049,
-            message:
-              'The request timeout has expired. Please try again.'
   schemas:
-    Error:
-       type: object
-       properties:
-         errorId:
-           type: integer
-           format: int32
-           description: Internal system ID of the error
-         timestamp:
-           type: integer
-           format: int64
-           description: Timestamp of the event, epoch time in milliseconds
-         message:
-           type: string
-           description: Description of the internal server error
-           nullable: true
+    
     loginAuthorization:
       type: object
       required:
@@ -471,6 +417,8 @@ components:
           description: Authorization token. If the value of property `authenticationToken` is 'null', login was not successful
           nullable: true
           example: e00a713d-ad81-4b4f-8801-31b34842f640
+    
+    
     priceCorrection:
       type: object
       required:
@@ -530,6 +478,8 @@ components:
           type: integer
           format: int32
           description: ID of a facility unit plan
+    
+    
     #7f0ec1ef-1a09-0117-5f92-357281bd26ca:
     #  type: object
     #  properties:
@@ -747,6 +697,8 @@ components:
           enum:
             - save
             - release
+    
+    
     bcInvoice/response:
       required:
         - arrayOfBcInvoices
@@ -772,7 +724,24 @@ components:
           type: integer
           format: int32
           description: ID of the document where invoice is stored as a printable document
-    627c8156-399a-483c-bff5-f6037e60d5a9:
+    
+    Error:
+       type: object
+       properties:
+         errorId:
+           type: integer
+           format: int32
+           description: Internal system ID of the error
+         timestamp:
+           type: integer
+           format: int64
+           description: Timestamp of the event, epoch time in milliseconds
+         message:
+           type: string
+           description: Description of the internal server error
+           nullable: true
+    
+    cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7:
       type: object
       required:
         - number
@@ -781,125 +750,197 @@ components:
       properties:
         number:
           type: integer
+          description:  |
+            Number of the business case
           format: int64
-          description: Number of the business case
         customer:
-          $ref: '#/components/schemas/de00dcde-dcb3-53d0-3ad6-9b0ce088adf0'
-        bookings: 
+          $ref: '#/components/schemas/96612934-87a3-c7ec-3f8a-11d257bc8490'
+        bookings:
           type: array
-          items: 
-            $ref: '#/components/schemas/cd4fdb40-355b-5ab2-75a9-21c673222347'
-    de00dcde-dcb3-53d0-3ad6-9b0ce088adf0:
+          description:  |
+            List of bookings
+          items:
+            $ref: '#/components/schemas/ded41841-b2b9-1904-8e1a-25338c65f0a7'
+    96612934-87a3-c7ec-3f8a-11d257bc8490:
       type: object
-      description: Contact person
+      description:  |
+        Contact person
       required:
         - firstName
         - lastName
       properties:
-        firstName:
-          type: string
-          description: First name
-        middleName:
-          type: string
-          description: Middle name
-          nullable: true
-        lastName:
-          type: string
-          description: Last name
         birthDate:
           type: string
-          format: date
+          description:  |
+            Birth date
+          format: datetime
           nullable: true
+        firstName:
+          type: string
+          description:  |
+            First name
+        middleName:
+          type: string
+          description:  |
+            Middle name
+        lastName:
+          type: string
+          description:  |
+            Last name
         nationality:
           type: string
-          description: Nationality. Country ISO Code (ISO 3)
-        city:
-          type: string
-          description: City
+          description:  |
+            Nationality. Country ISO Code (ISO 3)
         street:
           type: string
-          description: Street
+          description:  |
+            Street
+        city:
+          type: string
+          description:  |
+            City
         zipCode:
           type: string
-          description: ZIP code
+          description:  |
+            ZIP code
         phone:
           type: string
-          description: Phone number
+          description:  |
+            Phone number
         email:
           type: string
-          description: Email
+          description:  |
+            Email
         extendedPersonData:
-          $ref: '#/components/schemas/29cf9a39-633f-ca32-d8ee-fea683c102cd'
-    29cf9a39-633f-ca32-d8ee-fea683c102cd:
+          $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
+    7d3e6c0c-7044-815f-e074-932e8f18d707:
       type: object
-      description: Additional data of the passenger
+      description:  |
+        Additional data of the passenger
       properties:
         ageCategory:
           type: string
-          description: |
-            The operation with a price item, that you intend to do
-              - `adult`:
-                  An age category of an adult.
-              - `child`: 
-                  An age category of a child.
-              - `infant`: 
-                  An age category of a baby.
+          description:  |
+            
+            The person age category
+                - `adult`:
+                    An age category of an adult.
+                - `child`: 
+                    An age category of a child.
+                - `infant`: 
+                    An age category of a baby.
           enum:
             - adult
             - child
             - infant
-    cd4fdb40-355b-5ab2-75a9-21c673222347:
+    ded41841-b2b9-1904-8e1a-25338c65f0a7:
       type: object
-      description: Booking and it's data
+      description:  |
+        Booking and it's data
       required:
         - passengers
       properties:
         bookingId:
           type: integer
+          description:  |
+            Booking ID
           format: int32
           nullable: true
         passengers:
           type: array
-          items: 
-            $ref: '#/components/schemas/e54be627-5b13-3d8b-7448-f75ead37106d'
-    e54be627-5b13-3d8b-7448-f75ead37106d:
+          description:  |
+            List of passengers
+          items:
+            $ref: '#/components/schemas/bf359a36-cdc7-55af-85f5-f36f0f1cb77a'
+    bf359a36-cdc7-55af-85f5-f36f0f1cb77a:
       type: object
-      description: Passenger person
+      description:  |
+        Passenger person
       required:
+        - birthDate
         - firstName
         - lastName
       properties:
-        firstName:
-          type: string
-          description: First name
-        middleName:
-          type: string
-          description: Middle name
-          nullable: true
-        lastName:
-          type: string
-          description: Last name
         birthDate:
           type: string
-          format: date
+          description:  |
+            Birth date
+          format: datetime
+        firstName:
+          type: string
+          description:  |
+            First name
+        middleName:
+          type: string
+          description:  |
+            Middle name
+        lastName:
+          type: string
+          description:  |
+            Last name
         nationality:
           type: string
-          description: Nationality. Country ISO Code (ISO 3)
-        city:
-          type: string
-          description: City
+          description:  |
+            Nationality. Country ISO Code (ISO 3)
         street:
           type: string
-          description: Street
+          description:  |
+            Street
+        city:
+          type: string
+          description:  |
+            City
         zipCode:
           type: string
-          description: ZIP code
+          description:  |
+            ZIP code
         phone:
           type: string
-          description: Phone number
+          description:  |
+            Phone number
         email:
           type: string
-          description: Email
+          description:  |
+            Email
         extendedPersonData:
-          $ref: '#/components/schemas/29cf9a39-633f-ca32-d8ee-fea683c102cd'
-    
+          $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
+  securitySchemes:
+     ApiKeyAuth:
+       type: apiKey
+       in: header
+       name: X-API-Authentication-Token
+       description: |
+         All api calls require an Authorization Key which will be provided by M2G api login request.
+     
+         The key needs to be provided in the header as follows:
+     
+         * **X-API-Authentication-Token: `{Your-Key-Here}`**
+         
+         The key is not case sensitive.<br /> <br />
+  responses:
+    204NoContent:
+      description:    |
+          No content from response to work with
+    400BadRequest: 
+      description:    |
+        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+    401Unauthorized:
+      description:    |
+          Authorization token is missing or invalid. Or current user does not have the required permissions
+    404NotFound:
+      description:    |
+          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
+    500InternalServerError:
+      description:    |
+          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            errorId:
+              -1
+            timestamp:
+              636921892188151049,
+            message:
+              'The request timeout has expired. Please try again.'
