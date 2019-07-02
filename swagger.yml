@@ -172,7 +172,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/businessCase~1request'
+              $ref: '#/components/schemas/07337efc-3d93-c656-ce2d-1aa035ca1a88'
       responses:
         '200':
           description:  |
@@ -180,7 +180,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/businessCase~1response'
+                $ref: '#/components/schemas/c766f661-ffe1-4b25-1ce5-c06587a06431'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -207,7 +207,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/bcCustomInfo'
+              $ref: '#/components/schemas/30d5338c-b92e-da36-a340-b1cc2b62a69a'
       responses:
         '200':
           description:  |
@@ -215,7 +215,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/bcCustomInfo'
+                $ref: '#/components/schemas/30d5338c-b92e-da36-a340-b1cc2b62a69a'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -240,7 +240,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/priceItems'
+              $ref: '#/components/schemas/fd5476d4-23e1-7020-c241-b11cf9f0575e'
       responses:
         '200':
           description:  |
@@ -248,7 +248,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/priceItems'
+                $ref: '#/components/schemas/b60412c5-f483-45b9-c1c6-a0c5afa7bd12'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -301,7 +301,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/bcInvoice~1response'
+                $ref: '#/components/schemas/3b26656a-2774-5526-86e8-ffdd57d7b80f'
         '400':
           $ref: '#/components/responses/400BadRequest'
         '401':
@@ -314,7 +314,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/InternalServerError~1response'
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
@@ -384,7 +384,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/InternalServerError~1response'
   /reservations/businesscases/persons:
     put:
       description:  |
@@ -422,259 +422,53 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Error'
+                $ref: '#/components/schemas/InternalServerError~1response'
 ################################################################################
 #                                Components                                    #
 ################################################################################
 components:
+  securitySchemes:
+     ApiKeyAuth:
+       type: apiKey
+       in: header
+       name: X-API-Authentication-Token
+       description: |
+         All api calls require an Authorization Key which will be provided by M2G api login request.
+     
+         The key needs to be provided in the header as follows:
+     
+         * **X-API-Authentication-Token: `{Your-Key-Here}`**
+         
+         The key is not case sensitive.<br /> <br />
+  responses:
+    204NoContent:
+      description:    |
+          No content from response to work with
+    400BadRequest: 
+      description:    |
+        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+    401Unauthorized:
+      description:    |
+          Authorization token is missing or invalid. Or current user does not have the required permissions
+    404NotFound:
+      description:    |
+          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
+    500InternalServerError:
+      description:    |
+          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/InternalServerError~1response'
+          example:
+            errorId:
+              -1
+            timestamp:
+              636921892188151049,
+            message:
+              'The request timeout has expired. Please try again.'
   schemas:
-    
-    #7f0ec1ef-1a09-0117-5f92-357281bd26ca:
-    #  type: object
-    #  properties:
-    #    id:
-    #      type: integer
-    #      format: int32
-    businessCase/request:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Project name
-          nullable: true
-        customerId:
-          type: integer
-          format: int32
-          description: ID of a customer.
-          nullable: true
-        businessCaseKindCbId:
-          type: integer
-          format: int32
-          description: ID of a business case kind.
-          nullable: true
-        costCenterId:
-          type: integer
-          format: int32
-          description: ID of a cost center.
-          nullable: true
-        ownerId:
-          type: integer
-          format: int32
-          description: ID of an owner.
-          nullable: true
-    businessCase/response:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          description: ID of new business case
-        number:
-          type: integer
-          format: int64
-          description: Number of new business case
-        name:
-          type: string
-          description: Project name
-          nullable: true
-        customerId:
-          type: integer
-          format: int32
-          description: ID of a customer.
-          nullable: true
-        businessCaseKindCbId:
-          type: integer
-          format: int32
-          description: ID of a business case kind.
-          nullable: true
-        costCenterId:
-          type: integer
-          format: int32
-          description: ID of a cost center.
-          nullable: true
-        ownerId:
-          type: integer
-          format: int32
-          description: ID of an owner.
-          nullable: true
-    bcCustomInfo:
-      type: object
-      required:
-        - businessCaseId
-      properties:
-        businessCaseId:
-          type: integer
-          format: int32
-          description: ID of the business case that additional data are for
-        destinationId:
-          type: integer
-          format: int32
-          description: ID of a destination
-          nullable: true
-        productTypeId:
-          type: integer
-          format: int32
-          description: ID of a product type
-          nullable: true
-        accommodationCategoryCbId:
-          type: integer
-          format: int32
-          description: ID of an accommodation
-          nullable: true
-        boardTypeCbId:
-          type: integer
-          format: int32
-          description: ID of a board
-          nullable: true
-        transportTypeCbID:
-          type: integer
-          format: int32
-          description: ID of a board
-          nullable: true
-        term:
-          $ref: '#/components/schemas/bcCustomInfo~1Term'
-        accommodationTerm:
-          $ref: '#/components/schemas/bcCustomInfo~1AccommodationTerm'
-        personCount:
-          type: integer
-          format: int32
-          description: Count of a persons.
-          nullable: true
-        hotelName:
-          type: string
-          description: Name of a hotel
-        roomKind:
-          type: string
-          description: Kind of a room
-        departurePlace:
-          type: string
-          description: Departure place
-        services:
-          type: string
-          description: Additional services
-    bcCustomInfo/Term:
-      description: Term of accomodation
-      type: object
-      properties:
-        dateFrom:
-          type: string
-          format: date
-          description: Date from
-          nullable: true
-        dateTo:
-          type: string
-          format: date
-          description: Date to
-          nullable: true
-    bcCustomInfo/AccommodationTerm:
-      description: Start and end of the trip
-      type: object
-      properties:
-        dateFrom:
-          type: string
-          format: date
-          description: Date from
-          nullable: true
-        dateTo:
-          type: string
-          format: date
-          description: Date to
-          nullable: true
-    priceItems:
-      required:
-        - arrayOfPriceItem
-      type: object
-      properties:
-        priceItems:
-          type: array
-          items: 
-            $ref: '#/components/schemas/priceItem'
-    priceItem:
-      required:
-        - businessCaseId
-        - commitmentModeId
-        - amount
-        - currencyId
-        - operation
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-          nullable: true
-          description:  |
-            ID of a price item. 
-            Can be null or empty if the property 'operation' is 'save'
-        businessCaseId:
-          type: integer
-          format: int32
-          description: ID of a business case
-        priceListItemId:
-          type: integer
-          format: int32
-          nullable: true
-          description: ID of a price list item
-        commitmentModeId:
-          type: integer
-          format: int32
-          description: ID of a commitment mode
-        name:
-          type: string
-          description: Name of a price item
-          nullable: true
-        amount:
-          type: number
-          format: double
-          description: The value of a price item amount
-        currencyId:
-          type: integer
-          format: int32
-        accountingId:
-          type: integer
-          format: int32
-          nullable: true
-          description: ID of an accounting
-        operation:
-          type: string
-          description: |
-            The operation with a price item, that you intend to do
-              - `save`: 
-                  If the property `id` is 'null' or empty, then the new price item will be created.
-                  Otherwise if the property `id` has a value, then an update of an existing price item will be proceed.
-              - `release`: 
-                  The price item of a set property `id` will be realesed (not cancelled)
-          enum:
-            - save
-            - release
-    
-    
-    bcInvoice/response:
-      required:
-        - arrayOfBcInvoices
-      type: object
-      properties:
-        invoices:
-          type: array
-          items: 
-            $ref: '#/components/schemas/bcInvoice~1response~1bcInvoice'
-    bcInvoice/response/bcInvoice:
-      type: object
-      properties:
-        variableSymbol:
-          type: integer
-          format: int64
-          nullable: true
-          description: Variable symbol of the invoice
-        value:
-          type: number
-          format: double
-          description: Value of the invoice
-        accountingDocId:
-          type: integer
-          format: int32
-          description: ID of the document where invoice is stored as a printable document
-    
-    Error:
+    InternalServerError/response:
        type: object
        properties:
          errorId:
@@ -815,10 +609,10 @@ components:
           items:
             $ref: '#/components/schemas/a8a54b93-2c72-20fb-47df-89189a2b6ab5'
     ac314140-b056-3ade-ee01-779f7c9a88cf:
-      type: object
       description:  |
         Obchodní Případ (OP) Slouží jako složka pro evidenci prvků a stavů - sledu aktivit:  poptávka – rezervace - prodej. 
         Bilance plateb vůči ceně služeb se provádí za každý obchodní případ samostatně.
+      type: object
       properties:
         id:
           description: Id OP
@@ -897,8 +691,8 @@ components:
           items:
             $ref: '#/components/schemas/77419105-3a86-90de-05c3-7e256f38f6e3'
     f829d84d-a12c-cd1e-f6e2-5bc23d611e83:
-      type: object
       description: Vlastník (organizace) OP
+      type: object
       properties:
         organizationId:
           description: ID organizace vlastníka
@@ -917,8 +711,8 @@ components:
           type: integer
           format: int32
     2efb3e98-7870-693d-4916-0769c2e8abc0:
-      type: object
       description: Pořadatel (organizace) OP
+      type: object
       properties:
         organizationId:
           description: ID organizace pořadatele
@@ -932,8 +726,8 @@ components:
           description: IČO organizace pořadatele
           type: string
     72362654-3722-511f-21b2-feb7c492e0e7:
-      type: object
       description: Zákazník (organizace) OP
+      type: object
       properties:
         organizationId:
           description: ID organizace zákazníka
@@ -952,8 +746,8 @@ components:
           type: integer
           format: int32
     2b13908a-e129-1e87-70e8-9e542bc5f62d:
-      type: object
       description: Produkt představuje obal toho, co prodáváme
+      type: object
       properties:
         id:
           description: ID produktu
@@ -976,8 +770,8 @@ components:
           type: string
           format: date
     baa2818c-51c3-496d-fc4d-4360688dddc1:
-      type: object
       description: Cenové položky OP
+      type: object
       properties:
         id:
           description: ID cenové položky
@@ -1031,8 +825,8 @@ components:
           items:
             $ref: '#/components/schemas/6c607ebb-7f33-ef5d-58a1-9e68b796fca6'
     6c607ebb-7f33-ef5d-58a1-9e68b796fca6:
-      type: object
       description: Aplikované slevy
+      type: object
       properties:
         id:
           description: ID slevy
@@ -1047,8 +841,8 @@ components:
           type: number
           format: double
     b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1:
-      type: object
       description: Představuje jednotky v čase vázané obchodnímu případu s nějakým způsobem zajištění
+      type: object
       properties:
         id:
           description: ID vázané kapacity
@@ -1088,8 +882,8 @@ components:
           items:
             $ref: '#/components/schemas/32a250db-53ce-db28-7e7a-b1d8b9e019f0'
     de120219-c55c-cb50-80da-baeca148b6a6:
-      type: object
       description: Cesta
+      type: object
       properties:
         id:
           description: ID
@@ -1107,8 +901,8 @@ components:
         to:
           $ref: '#/components/schemas/dadee616-6d90-1831-ea0a-af7cb8311b59'
     dadee616-6d90-1831-ea0a-af7cb8311b59:
-      type: object
       description: Stanice odjezdu
+      type: object
       properties:
         code:
           description: Kód stanice
@@ -1122,8 +916,8 @@ components:
           type: string
           format: date
     32a250db-53ce-db28-7e7a-b1d8b9e019f0:
-      type: object
       description: Připojené osoby
+      type: object
       properties:
         id:
           description: ID osoby OP
@@ -1141,8 +935,8 @@ components:
             - overbook
           type: string
     1e0cc0df-2691-b4a4-740d-2dc2a287e4ed:
-      type: object
       description: Shrnutí ceny OP
+      type: object
       properties:
         totalPrice:
           description: Celková cena OP
@@ -1160,8 +954,8 @@ components:
           type: number
           format: double
     54b4cfbc-7b50-e3a3-59b1-5767d78b266e:
-      type: object
       description: Osoby připojené k OP
+      type: object
       properties:
         id:
           description: ID osoby OP
@@ -1188,8 +982,8 @@ components:
         person:
           $ref: '#/components/schemas/4786e4f0-4718-2eda-0663-9fbcfd33b959'
     4786e4f0-4718-2eda-0663-9fbcfd33b959:
-      type: object
       description: Vazba na konkrétní osobu
+      type: object
       properties:
         id:
           description: Id osoby v systému
@@ -1228,8 +1022,8 @@ components:
           items:
             $ref: '#/components/schemas/a425c9a5-f1b7-77e3-8487-893ae88d1e4d'
     c06ef571-cc16-7a7a-e884-48067be418f3:
-      type: object
       description: Seznam kontaktních údajů
+      type: object
       properties:
         contactTypeId:
           description: ID z číselníku typu kontaktů "contactTypes"
@@ -1242,8 +1036,8 @@ components:
           description: Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
           type: boolean
     a425c9a5-f1b7-77e3-8487-893ae88d1e4d:
-      type: object
       description: Seznam připojených adres
+      type: object
       properties:
         street:
           description: Ulice
@@ -1277,8 +1071,8 @@ components:
               - presentation
             type: string
     7db6f602-3d0f-4b83-ac4b-157a0b57bb08:
-      type: object
       description: Soubory připojené (vygenerované) k OP
+      type: object
       properties:
         id:
           description: ID souboru
@@ -1294,8 +1088,8 @@ components:
           description: Název šablony dokumentu
           type: string
     77419105-3a86-90de-05c3-7e256f38f6e3:
-      type: object
       description: Payment policies of the business case
+      type: object
       properties:
         id:
           description: ID of the payment policy
@@ -1320,8 +1114,8 @@ components:
           type: number
           format: double
     c6067df4-d3ce-ef9f-a76c-a1372390b56b:
-      type: object
       description: Produkt představuje obal toho, co prodáváme
+      type: object
       properties:
         id:
           description: ID Produktu
@@ -1343,8 +1137,8 @@ components:
             type: integer
             format: int32
     573e26ab-85d7-c1a6-139d-7993e00c4f84:
-      type: object
       description: Druhy zařízení
+      type: object
       properties:
         id:
           description: ID druhu zařízení
@@ -1354,8 +1148,8 @@ components:
           description: Název druhu zařízení
           type: string
     a998e1ae-ed07-31b3-3b1d-96a0c78bc593:
-      type: object
       description: Způsoby zajištění (vazba na číselník "commitmentModes")
+      type: object
       properties:
         id:
           description: ID způsobu zajištění
@@ -1368,8 +1162,8 @@ components:
           description: Kód způsobu zajištění
           type: string
     ab619b51-5818-673d-df5b-71e7a4d99319:
-      type: object
       description: Typy produktů
+      type: object
       properties:
         id:
           description: ID typu produktu
@@ -1382,8 +1176,8 @@ components:
           description: Kód typu produktu
           type: string
     18a60dd0-d87c-a788-f5fd-8745531d1145:
-      type: object
       description: Typy kontaktů
+      type: object
       properties:
         id:
           description: ID typu kontaktu
@@ -1396,8 +1190,8 @@ components:
           description: Kód typu kontaktu
           type: string
     42688ed6-9411-6760-c972-8a41f1772978:
-      type: object
       description: Osoby v systému
+      type: object
       properties:
         id:
           description: ID osoby
@@ -1460,8 +1254,8 @@ components:
           items:
             $ref: '#/components/schemas/3cb7e51e-30a7-19b3-a235-5dbefb81f307'
     0e19d354-1787-06a6-5384-4718d65839b3:
-      type: object
       description: Seznam kontaktních údajů
+      type: object
       properties:
         contactTypeId:
           description: ID z číselníku typu kontaktů "contactTypes"
@@ -1474,8 +1268,8 @@ components:
           description: Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
           type: boolean
     3cb7e51e-30a7-19b3-a235-5dbefb81f307:
-      type: object
       description: Seznam připojených adres
+      type: object
       properties:
         street:
           description: Ulice
@@ -1509,8 +1303,8 @@ components:
               - presentation
             type: string
     7fc97be9-b51b-f19e-0be9-ee1e66f9e55e:
-      type: object
       description: Příznaky cen
+      type: object
       properties:
         id:
           description: ID příznaku
@@ -1523,8 +1317,8 @@ components:
           description: Kód příznaku
           type: string
     a8a54b93-2c72-20fb-47df-89189a2b6ab5:
-      type: object
       description: Země
+      type: object
       properties:
         id:
           description: ID země
@@ -1536,6 +1330,291 @@ components:
         code:
           description: ISO kód země
           type: string
+    07337efc-3d93-c656-ce2d-1aa035ca1a88:
+      type: object
+      properties:
+        name:
+          description: Název projektu
+          type: string
+        customerId:
+          description: ID zákazníka
+          nullable: true
+          type: integer
+          format: int32
+        businessCaseKindCbId:
+          description: ID druhu obchodního případu
+          nullable: true
+          type: integer
+          format: int32
+        costCenterId:
+          description: ID nákladového střediska
+          nullable: true
+          type: integer
+          format: int32
+        ownerId:
+          description: ID vlastníka
+          nullable: true
+          type: integer
+          format: int32
+    c766f661-ffe1-4b25-1ce5-c06587a06431:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        number:
+          type: integer
+          format: int64
+        name:
+          type: string
+        customerId:
+          nullable: true
+          type: integer
+          format: int32
+        businessCaseKindCbId:
+          nullable: true
+          type: integer
+          format: int32
+        costCenterId:
+          nullable: true
+          type: integer
+          format: int32
+        ownerId:
+          nullable: true
+          type: integer
+          format: int32
+    30d5338c-b92e-da36-a340-b1cc2b62a69a:
+      type: object
+      properties:
+        businessCaseId:
+          description: ID Obchodního případu
+          type: integer
+          format: int32
+        destinationId:
+          description: ID destinace
+          nullable: true
+          type: integer
+          format: int32
+        productTypeId:
+          description: ID typu produktu
+          nullable: true
+          type: integer
+          format: int32
+        accommodationCategoryCbId:
+          description: ID kategorie ubytování
+          nullable: true
+          type: integer
+          format: int32
+        boardTypeCbId:
+          description: ID stravy
+          nullable: true
+          type: integer
+          format: int32
+        transportTypeCbId:
+          description: ID kategorie ubytování
+          nullable: true
+          type: integer
+          format: int32
+        term:
+          $ref: '#/components/schemas/d16b344f-d3d1-955c-6721-3265fc1d6698'
+        accommodationTerm:
+          $ref: '#/components/schemas/1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3'
+        personCount:
+          description: Počet osob
+          nullable: true
+          type: integer
+          format: int32
+        hotelName:
+          description: Název hotelu
+          type: string
+        roomKind:
+          description: Druh pokoje
+          type: string
+        departurePlace:
+          description: Nástupní místo
+          type: string
+        services:
+          description: Další služby
+          type: string
+    d16b344f-d3d1-955c-6721-3265fc1d6698:
+      description: Zahájení a ukončení zájezdu
+      type: object
+      properties:
+        dateFrom:
+          description: Datum od
+          nullable: true
+          type: string
+          format: date
+        dateTo:
+          description: Datum do
+          nullable: true
+          type: string
+          format: date
+    1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3:
+      description: Termín ubytování
+      type: object
+      properties:
+        dateFrom:
+          description: Datum od
+          nullable: true
+          type: string
+          format: date
+        dateTo:
+          description: Datum do
+          nullable: true
+          type: string
+          format: date
+    fd5476d4-23e1-7020-c241-b11cf9f0575e:
+      type: object
+      properties:
+        priceItems:
+          type: array
+          description: Cenové položky
+          items:
+            $ref: '#/components/schemas/60b99674-81fd-0aac-9ef1-6d14fff68739'
+    60b99674-81fd-0aac-9ef1-6d14fff68739:
+      description: Cenové položky
+      type: object
+      properties:
+        id:
+          description: Může nabývat hodnoty "null" pokud operation "save"
+          nullable: true
+          type: integer
+          format: int32
+        businessCaseId:
+          description: ID Obchodního případu
+          type: integer
+          format: int32
+        priceListItemId:
+          description: ID ceníkové položky
+          nullable: true
+          type: integer
+          format: int32
+        commitmentModeId:
+          description: Stav cenové položky. Typ stavu by musí být výstupní
+          type: integer
+          format: int32
+        name:
+          description: Název cenové položky
+          type: string
+        amount:
+          description: Hodnota cenové položky
+          type: number
+          format: double
+        currencyId:
+          description: ID měny cenové položky
+          type: integer
+          format: int32
+        accountingId:
+          description: ID kontace
+          nullable: true
+          type: integer
+          format: int32
+        operation:
+          description:  |
+            Popis operace s cenovou položkou:
+            
+                Dostupné operace:
+                    - Save
+                    - Release
+            
+                    Save:
+                        Pokud ID cenové položky nabývá hodnoty `null` pak dojde vždy k založení nové cenové položky.
+                        Jinak vždy dojde k aktualizaci již existující cenové položky podle ID cenové položky
+                    Release:
+                        Dojde k uvolnění (nikoli stornu) cenové položky podle ID cenové položky
+          enum:
+            - save
+            - release
+          type: string
+    b60412c5-f483-45b9-c1c6-a0c5afa7bd12:
+      type: object
+      properties:
+        priceItems:
+          type: array
+          description: Cenové položky
+          items:
+            $ref: '#/components/schemas/5be9d738-3844-de9a-570b-6a2faefa9f51'
+    5be9d738-3844-de9a-570b-6a2faefa9f51:
+      description: Cenové položky
+      type: object
+      properties:
+        id:
+          description: Může nabývat hodnoty "null" pokud operation "save"
+          nullable: true
+          type: integer
+          format: int32
+        businessCaseId:
+          description: ID Obchodního případu
+          type: integer
+          format: int32
+        priceListItemId:
+          description: ID ceníkové položky
+          nullable: true
+          type: integer
+          format: int32
+        commitmentModeId:
+          description: Stav cenové položky. Typ stavu by musí být výstupní
+          type: integer
+          format: int32
+        name:
+          description: Název cenové položky
+          type: string
+        amount:
+          description: Hodnota cenové položky
+          type: number
+          format: double
+        currencyId:
+          description: ID měny cenové položky
+          type: integer
+          format: int32
+        accountingId:
+          description: ID kontace
+          nullable: true
+          type: integer
+          format: int32
+        operation:
+          description:  |
+            Popis operace s cenovou položkou:
+            
+                Dostupné operace:
+                    - Save
+                    - Release
+            
+                    Save:
+                        Pokud ID cenové položky nabývá hodnoty "null" pak dojde vždy k založení nové cenové položky.
+                        Jinak vždy dojde k aktualizaci již existující cenové položky podle ID cenové položky
+                    Release:
+                        Dojde k uvolnění (nikoli stornu) cenové položky podle ID cenové položky
+          enum:
+            - save
+            - release
+          type: string
+    3b26656a-2774-5526-86e8-ffdd57d7b80f:
+      type: object
+      properties:
+        invoices:
+          type: array
+          description: List of invoices
+          items:
+            $ref: '#/components/schemas/50b366e3-c643-ac00-259c-e6d5b4a21446'
+    50b366e3-c643-ac00-259c-e6d5b4a21446:
+      description: List of invoices
+      type: object
+      properties:
+        variableSymbol:
+          description: Variable symbol of the invoice
+          nullable: true
+          type: integer
+          format: int64
+        value:
+          description: Value of the invoice
+          type: number
+          format: double
+        accountingDocId:
+          description: ID of the document where invoice is stored as a printable document
+          type: integer
+          format: int32
     cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7:
       type: object
       required:
@@ -1555,8 +1634,8 @@ components:
           items:
             $ref: '#/components/schemas/ded41841-b2b9-1904-8e1a-25338c65f0a7'
     96612934-87a3-c7ec-3f8a-11d257bc8490:
-      type: object
       description: Contact person
+      type: object
       required:
         - firstName
         - lastName
@@ -1596,8 +1675,8 @@ components:
         extendedPersonData:
           $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
     7d3e6c0c-7044-815f-e074-932e8f18d707:
-      type: object
       description: Additional data of the passenger
+      type: object
       properties:
         ageCategory:
           description:  |
@@ -1615,8 +1694,8 @@ components:
             - infant
           type: string
     ded41841-b2b9-1904-8e1a-25338c65f0a7:
-      type: object
       description: Booking and it's data
+      type: object
       required:
         - passengers
       properties:
@@ -1631,8 +1710,8 @@ components:
           items:
             $ref: '#/components/schemas/bf359a36-cdc7-55af-85f5-f36f0f1cb77a'
     bf359a36-cdc7-55af-85f5-f36f0f1cb77a:
-      type: object
       description: Passenger person
+      type: object
       required:
         - birthDate
         - firstName
@@ -1671,43 +1750,3 @@ components:
           type: string
         extendedPersonData:
           $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
-  securitySchemes:
-     ApiKeyAuth:
-       type: apiKey
-       in: header
-       name: X-API-Authentication-Token
-       description: |
-         All api calls require an Authorization Key which will be provided by M2G api login request.
-     
-         The key needs to be provided in the header as follows:
-     
-         * **X-API-Authentication-Token: `{Your-Key-Here}`**
-         
-         The key is not case sensitive.<br /> <br />
-  responses:
-    204NoContent:
-      description:    |
-          No content from response to work with
-    400BadRequest: 
-      description:    |
-        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    401Unauthorized:
-      description:    |
-          Authorization token is missing or invalid. Or current user does not have the required permissions
-    404NotFound:
-      description:    |
-          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
-    500InternalServerError:
-      description:    |
-          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-          example:
-            errorId:
-              -1
-            timestamp:
-              636921892188151049,
-            message:
-              'The request timeout has expired. Please try again.'
