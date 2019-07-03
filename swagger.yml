@@ -79,22 +79,12 @@ paths:
               schema:
                 $ref: '#/components/schemas/768284c8-5cef-3f11-d387-62dbe3fbd4cb'
         '400':
-          description:  |
-            NOT OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '404':
-          description:  |
-            NOT OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            NOT OK
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -135,7 +125,7 @@ paths:
           $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -175,7 +165,7 @@ paths:
           $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -214,7 +204,7 @@ paths:
           $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -254,7 +244,7 @@ paths:
           $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -292,7 +282,7 @@ paths:
           $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
-            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -498,10 +488,6 @@ components:
           nullable: true
           type: string
           format: uuid
-    a0277bd3-1a59-379b-916a-9bbfbe4a1890:
-      description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    125777c6-838e-6991-85e1-65898249a1fc:
-      description: Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
     4eac893b-52fb-4cf1-5205-3fa413483ae6:
       description: Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
       type: object
@@ -1776,9 +1762,9 @@ components:
   responses:
     a0277bd3-1a59-379b-916a-9bbfbe4a1890:
       description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff:
-      description: Authorization token is missing or invalid. Or current user does not have the required permissions
     125777c6-838e-6991-85e1-65898249a1fc:
       description: Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
+    1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff:
+      description: Authorization token is missing or invalid. Or current user does not have the required permissions
     770b32c3-2c28-7edc-54a9-f0ea354a061b:
       description: No content from response to work with
