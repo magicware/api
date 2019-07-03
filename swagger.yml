@@ -79,11 +79,26 @@ paths:
               schema:
                 $ref: '#/components/schemas/768284c8-5cef-3f11-d387-62dbe3fbd4cb'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          description:  |
+            NOT OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          description:  |
+            NOT OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            NOT OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /products/priceCorrections:
     put:
       description:  |
@@ -113,13 +128,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases:
     get:
       description:  |
@@ -148,13 +168,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/8e88fd77-f4ed-f08c-5569-298de45ca6e9'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
     post:
       description:  |
         #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
@@ -182,13 +207,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/c766f661-ffe1-4b25-1ce5-c06587a06431'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases/customInfo:
     put:
       description:  |
@@ -217,13 +247,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/30d5338c-b92e-da36-a340-b1cc2b62a69a'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases/priceItems:
     put:
       description:  |
@@ -250,13 +285,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/b60412c5-f483-45b9-c1c6-a0c5afa7bd12'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
-          $ref: '#/components/responses/500InternalServerError'
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/invoices:
     get:
       description:  |
@@ -303,18 +343,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/3b26656a-2774-5526-86e8-ffdd57d7b80f'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerError~1response'
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
@@ -369,22 +409,22 @@ paths:
               schema:
                 type: string
                 format: binary
-        '400':
-          $ref: '#/components/responses/400BadRequest'
-        '401':
-          $ref: '#/components/responses/401Unauthorized'
-        '404':
-          $ref: '#/components/responses/404NotFound'
         '425':
           description:  |
             Too early - The requested file is still generating, please try again later.
+        '400':
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerError~1response'
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/persons:
     put:
       description:  |
@@ -409,20 +449,20 @@ paths:
               $ref: '#/components/schemas/cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7'
       responses:
         '204':
-          $ref: '#/components/responses/204NoContent'
+          $ref: '#/components/responses/770b32c3-2c28-7edc-54a9-f0ea354a061b'
         '400':
-          $ref: '#/components/responses/400BadRequest'
+          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/401Unauthorized'
+          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/404NotFound'
+          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1015</td><td>Booking ID is not specified</td></tr><tr><td style='text-align:center'>1016</td><td>Specified Booking ID doesn't exist</td></tr><tr><td style='text-align:center'>1017</td><td>Invalid persons count</td></tr><tr><td style='text-align:center'>1018</td><td>Invalid persons birth dates</td></tr><tr><td style='text-align:center'>1019</td><td>Specified country ISO code not found</td></tr><tr><td style='text-align:center'>1020</td><td>Not specified error</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InternalServerError~1response'
+                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
 ################################################################################
 #                                Components                                    #
 ################################################################################
@@ -440,50 +480,7 @@ components:
          * **X-API-Authentication-Token: `{Your-Key-Here}`**
          
          The key is not case sensitive.<br /> <br />
-  responses:
-    204NoContent:
-      description:    |
-          No content from response to work with
-    400BadRequest: 
-      description:    |
-        Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    401Unauthorized:
-      description:    |
-          Authorization token is missing or invalid. Or current user does not have the required permissions
-    404NotFound:
-      description:    |
-          Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
-    500InternalServerError:
-      description:    |
-          Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/InternalServerError~1response'
-          example:
-            errorId:
-              -1
-            timestamp:
-              636921892188151049,
-            message:
-              'The request timeout has expired. Please try again.'
   schemas:
-    InternalServerError/response:
-       type: object
-       properties:
-         errorId:
-           type: integer
-           format: int32
-           description: Internal system ID of the error
-         timestamp:
-           type: integer
-           format: int64
-           description: Timestamp of the event, epoch time in milliseconds
-         message:
-           type: string
-           description: Description of the internal server error
-           nullable: true
-    
     ff8b50c3-c4e7-8931-4403-759665238a84:
       type: object
       properties:
@@ -501,6 +498,25 @@ components:
           nullable: true
           type: string
           format: uuid
+    a0277bd3-1a59-379b-916a-9bbfbe4a1890:
+      description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+    125777c6-838e-6991-85e1-65898249a1fc:
+      description: Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
+    4eac893b-52fb-4cf1-5205-3fa413483ae6:
+      description: Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
+      type: object
+      properties:
+        errorId:
+          description: Internal system ID of the error
+          type: integer
+          format: int32
+        timestamp:
+          description: Timestamp of the event, epoch time in milliseconds
+          type: integer
+          format: int64
+        message:
+          description: Description of the internal server error
+          type: string
     d67b15fe-4a58-deca-f4a8-fd78cfbc09db:
       type: object
       required:
@@ -1334,25 +1350,25 @@ components:
       type: object
       properties:
         name:
-          description: Název projektu
+          description: Project name.
           type: string
         customerId:
-          description: ID zákazníka
+          description: ID of a customer.
           nullable: true
           type: integer
           format: int32
         businessCaseKindCbId:
-          description: ID druhu obchodního případu
+          description: ID of a business case kind.
           nullable: true
           type: integer
           format: int32
         costCenterId:
-          description: ID nákladového střediska
+          description: ID of a cost center.
           nullable: true
           type: integer
           format: int32
         ownerId:
-          description: ID vlastníka
+          description: ID of an owner.
           nullable: true
           type: integer
           format: int32
@@ -1360,58 +1376,67 @@ components:
       type: object
       properties:
         id:
+          description: ID of new business case
           type: integer
           format: int32
         number:
+          description: Number of new business case
           type: integer
           format: int64
         name:
+          description: Project name
           type: string
         customerId:
+          description: ID of a customer.
           nullable: true
           type: integer
           format: int32
         businessCaseKindCbId:
+          description: ID of a business case kind.
           nullable: true
           type: integer
           format: int32
         costCenterId:
+          description: ID of a cost center.
           nullable: true
           type: integer
           format: int32
         ownerId:
+          description: ID of an owner.
           nullable: true
           type: integer
           format: int32
     30d5338c-b92e-da36-a340-b1cc2b62a69a:
       type: object
+      required:
+        - businessCaseId
       properties:
         businessCaseId:
-          description: ID Obchodního případu
+          description: ID of the business case that additional data are for
           type: integer
           format: int32
         destinationId:
-          description: ID destinace
+          description: ID of a destination
           nullable: true
           type: integer
           format: int32
         productTypeId:
-          description: ID typu produktu
+          description: ID of a product type
           nullable: true
           type: integer
           format: int32
         accommodationCategoryCbId:
-          description: ID kategorie ubytování
+          description: ID of an accommodation
           nullable: true
           type: integer
           format: int32
         boardTypeCbId:
-          description: ID stravy
+          description: ID of a board
           nullable: true
           type: integer
           format: int32
         transportTypeCbId:
-          description: ID kategorie ubytování
+          description: ID of a transportation type
           nullable: true
           type: integer
           format: int32
@@ -1420,109 +1445,114 @@ components:
         accommodationTerm:
           $ref: '#/components/schemas/1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3'
         personCount:
-          description: Počet osob
+          description: Count of a persons
           nullable: true
           type: integer
           format: int32
         hotelName:
-          description: Název hotelu
+          description: Name of a hotel
           type: string
         roomKind:
-          description: Druh pokoje
+          description: Kind of a room
           type: string
         departurePlace:
-          description: Nástupní místo
+          description: Departure place
           type: string
         services:
-          description: Další služby
+          description: Additional services
           type: string
     d16b344f-d3d1-955c-6721-3265fc1d6698:
-      description: Zahájení a ukončení zájezdu
+      description: Start and end of the trip
       type: object
       properties:
         dateFrom:
-          description: Datum od
+          description: Date from
           nullable: true
           type: string
           format: date
         dateTo:
-          description: Datum do
+          description: Date to
           nullable: true
           type: string
           format: date
     1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3:
-      description: Termín ubytování
+      description: Term of the accomodation
       type: object
       properties:
         dateFrom:
-          description: Datum od
+          description: Date from
           nullable: true
           type: string
           format: date
         dateTo:
-          description: Datum do
+          description: Date to
           nullable: true
           type: string
           format: date
     fd5476d4-23e1-7020-c241-b11cf9f0575e:
       type: object
+      required:
+        - priceItems
       properties:
         priceItems:
           type: array
-          description: Cenové položky
+          description: List of price items
           items:
             $ref: '#/components/schemas/60b99674-81fd-0aac-9ef1-6d14fff68739'
     60b99674-81fd-0aac-9ef1-6d14fff68739:
-      description: Cenové položky
+      description: List of price items
       type: object
+      required:
+        - businessCaseId
+        - commitmentModeId
+        - amount
+        - currencyId
+        - operation
       properties:
         id:
-          description: Může nabývat hodnoty "null" pokud operation "save"
+          description:  |
+            ID of a price item. 
+            Can be null or empty if the property `operation` has value `save`
           nullable: true
           type: integer
           format: int32
         businessCaseId:
-          description: ID Obchodního případu
+          description: ID of a business case
           type: integer
           format: int32
         priceListItemId:
-          description: ID ceníkové položky
+          description: ID of a price list item
           nullable: true
           type: integer
           format: int32
         commitmentModeId:
-          description: Stav cenové položky. Typ stavu by musí být výstupní
+          description: ID of a commitment mode
           type: integer
           format: int32
         name:
-          description: Název cenové položky
+          description: Name of a price item
           type: string
         amount:
-          description: Hodnota cenové položky
+          description: The value of a price item amount
           type: number
           format: double
         currencyId:
-          description: ID měny cenové položky
+          description: ID of a currency
           type: integer
           format: int32
         accountingId:
-          description: ID kontace
+          description: ID of an accounting
           nullable: true
           type: integer
           format: int32
         operation:
           description:  |
-            Popis operace s cenovou položkou:
-            
-                Dostupné operace:
-                    - Save
-                    - Release
-            
-                    Save:
-                        Pokud ID cenové položky nabývá hodnoty `null` pak dojde vždy k založení nové cenové položky.
-                        Jinak vždy dojde k aktualizaci již existující cenové položky podle ID cenové položky
-                    Release:
-                        Dojde k uvolnění (nikoli stornu) cenové položky podle ID cenové položky
+            The operation with a price item, that you intend to do
+             - `save`: 
+                If the property `id` is 'null' or empty, then the new price item will be created.
+                Otherwise if the property `id` has a value, then an update of an existing price item will be proceed.
+             - `release`: 
+                The price item of a set property `id` will be realesed (not cancelled)
           enum:
             - save
             - release
@@ -1532,66 +1562,59 @@ components:
       properties:
         priceItems:
           type: array
-          description: Cenové položky
+          description: List of price items
           items:
             $ref: '#/components/schemas/5be9d738-3844-de9a-570b-6a2faefa9f51'
     5be9d738-3844-de9a-570b-6a2faefa9f51:
-      description: Cenové položky
+      description: List of price items
       type: object
       properties:
         id:
-          description: Může nabývat hodnoty "null" pokud operation "save"
+          description:  |
+            ID of a price item. 
+            May be null or empty if the property `operation` has value `save`
           nullable: true
           type: integer
           format: int32
         businessCaseId:
-          description: ID Obchodního případu
+          description: ID of a business case
           type: integer
           format: int32
         priceListItemId:
-          description: ID ceníkové položky
+          description: ID of a price list item
           nullable: true
           type: integer
           format: int32
         commitmentModeId:
-          description: Stav cenové položky. Typ stavu by musí být výstupní
+          description: ID of a commitment mode
           type: integer
           format: int32
         name:
-          description: Název cenové položky
+          description: Name of a price item
           type: string
         amount:
-          description: Hodnota cenové položky
+          description: The value of a price item amount
           type: number
           format: double
         currencyId:
-          description: ID měny cenové položky
+          description: ID of a currency
           type: integer
           format: int32
         accountingId:
-          description: ID kontace
+          description: ID of an accounting
           nullable: true
           type: integer
           format: int32
         operation:
-          description:  |
-            Popis operace s cenovou položkou:
-            
-                Dostupné operace:
-                    - Save
-                    - Release
-            
-                    Save:
-                        Pokud ID cenové položky nabývá hodnoty "null" pak dojde vždy k založení nové cenové položky.
-                        Jinak vždy dojde k aktualizaci již existující cenové položky podle ID cenové položky
-                    Release:
-                        Dojde k uvolnění (nikoli stornu) cenové položky podle ID cenové položky
+          description: The operation with a price item, that you intended to do
           enum:
             - save
             - release
           type: string
     3b26656a-2774-5526-86e8-ffdd57d7b80f:
       type: object
+      required:
+        - invoices
       properties:
         invoices:
           type: array
@@ -1750,3 +1773,12 @@ components:
           type: string
         extendedPersonData:
           $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
+  responses:
+    a0277bd3-1a59-379b-916a-9bbfbe4a1890:
+      description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+    1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff:
+      description: Authorization token is missing or invalid. Or current user does not have the required permissions
+    125777c6-838e-6991-85e1-65898249a1fc:
+      description: Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
+    770b32c3-2c28-7edc-54a9-f0ea354a061b:
+      description: No content from response to work with
