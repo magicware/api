@@ -69,7 +69,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ff8b50c3-c4e7-8931-4403-759665238a84'
+              $ref: '#/components/schemas/schema-model-ff8b50c3-c4e7-8931-4403-759665238a84'
       responses:
         '200':
           description:  |
@@ -77,18 +77,18 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/768284c8-5cef-3f11-d387-62dbe3fbd4cb'
+                $ref: '#/components/schemas/schema-model-768284c8-5cef-3f11-d387-62dbe3fbd4cb'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /products/priceCorrections:
     put:
       description:  |
@@ -108,7 +108,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
+              $ref: '#/components/schemas/schema-model-d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
       responses:
         '200':
           description:  |
@@ -116,20 +116,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
+                $ref: '#/components/schemas/schema-model-d67b15fe-4a58-deca-f4a8-fd78cfbc09db'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases:
     get:
       description:  |
@@ -156,20 +156,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/8e88fd77-f4ed-f08c-5569-298de45ca6e9'
+                $ref: '#/components/schemas/schema-model-8e88fd77-f4ed-f08c-5569-298de45ca6e9'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
     post:
       description:  |
         #### **API-IDENTIFIER**: `Reservations.BusinessCases.New`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`<br /><br />
@@ -187,7 +187,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/07337efc-3d93-c656-ce2d-1aa035ca1a88'
+              $ref: '#/components/schemas/schema-model-07337efc-3d93-c656-ce2d-1aa035ca1a88'
       responses:
         '200':
           description:  |
@@ -195,20 +195,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/c766f661-ffe1-4b25-1ce5-c06587a06431'
+                $ref: '#/components/schemas/schema-model-c766f661-ffe1-4b25-1ce5-c06587a06431'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases/customInfo:
     put:
       description:  |
@@ -227,7 +227,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/30d5338c-b92e-da36-a340-b1cc2b62a69a'
+              $ref: '#/components/schemas/schema-model-30d5338c-b92e-da36-a340-b1cc2b62a69a'
       responses:
         '200':
           description:  |
@@ -235,20 +235,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/30d5338c-b92e-da36-a340-b1cc2b62a69a'
+                $ref: '#/components/schemas/schema-model-30d5338c-b92e-da36-a340-b1cc2b62a69a'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businessCases/priceItems:
     put:
       description:  |
@@ -265,7 +265,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/fd5476d4-23e1-7020-c241-b11cf9f0575e'
+              $ref: '#/components/schemas/schema-model-fd5476d4-23e1-7020-c241-b11cf9f0575e'
       responses:
         '200':
           description:  |
@@ -273,20 +273,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/b60412c5-f483-45b9-c1c6-a0c5afa7bd12'
+                $ref: '#/components/schemas/schema-model-b60412c5-f483-45b9-c1c6-a0c5afa7bd12'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/invoices:
     get:
       description:  |
@@ -331,20 +331,20 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/3b26656a-2774-5526-86e8-ffdd57d7b80f'
+                $ref: '#/components/schemas/schema-model-3b26656a-2774-5526-86e8-ffdd57d7b80f'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/invoices/contents:
     get:
       description:  |
@@ -403,18 +403,18 @@ paths:
           description:  |
             Too early - The requested file is still generating, please try again later.
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1003</td><td>Business case provided by identifier has not been found</td></tr><tr><td style='text-align:center'>1035</td><td>Identifiers provided in api request query of a business case are not in valid state</td></tr><tr><td style='text-align:center'>1036</td><td>File does not exists - but should exist</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /reservations/businesscases/persons:
     put:
       description:  |
@@ -436,23 +436,23 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7'
+              $ref: '#/components/schemas/schema-model-cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7'
       responses:
         '204':
-          $ref: '#/components/responses/770b32c3-2c28-7edc-54a9-f0ea354a061b'
+          $ref: '#/components/responses/schema-model-770b32c3-2c28-7edc-54a9-f0ea354a061b'
         '400':
-          $ref: '#/components/responses/a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
         '401':
-          $ref: '#/components/responses/1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
         '404':
-          $ref: '#/components/responses/125777c6-838e-6991-85e1-65898249a1fc'
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1015</td><td>Booking ID is not specified</td></tr><tr><td style='text-align:center'>1016</td><td>Specified Booking ID doesn't exist</td></tr><tr><td style='text-align:center'>1017</td><td>Invalid persons count</td></tr><tr><td style='text-align:center'>1018</td><td>Invalid persons birth dates</td></tr><tr><td style='text-align:center'>1019</td><td>Specified country ISO code not found</td></tr><tr><td style='text-align:center'>1020</td><td>Not specified error</td></tr></table>
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/4eac893b-52fb-4cf1-5205-3fa413483ae6'
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
 ################################################################################
 #                                Components                                    #
 ################################################################################
@@ -471,7 +471,7 @@ components:
          
          The key is not case sensitive.<br /> <br />
   schemas:
-    ff8b50c3-c4e7-8931-4403-759665238a84:
+    schema-model-ff8b50c3-c4e7-8931-4403-759665238a84:
       type: object
       properties:
         login:
@@ -480,7 +480,7 @@ components:
         password:
           description: User password
           type: string
-    768284c8-5cef-3f11-d387-62dbe3fbd4cb:
+    schema-model-768284c8-5cef-3f11-d387-62dbe3fbd4cb:
       type: object
       properties:
         authenticationToken:
@@ -488,7 +488,7 @@ components:
           nullable: true
           type: string
           format: uuid
-    4eac893b-52fb-4cf1-5205-3fa413483ae6:
+    schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6:
       description: Internal server error - request has ended as a fatal error. Check the message property for more detail information about the occured error in the response
       type: object
       properties:
@@ -503,7 +503,7 @@ components:
         message:
           description: Description of the internal server error
           type: string
-    d67b15fe-4a58-deca-f4a8-fd78cfbc09db:
+    schema-model-d67b15fe-4a58-deca-f4a8-fd78cfbc09db:
       type: object
       required:
         - amount
@@ -562,55 +562,55 @@ components:
           description: ID of a facility unit plan
           type: integer
           format: int32
-    8e88fd77-f4ed-f08c-5569-298de45ca6e9:
+    schema-model-8e88fd77-f4ed-f08c-5569-298de45ca6e9:
       type: object
       properties:
         businessCases:
           type: array
           description: Obchodní případy
           items:
-            $ref: '#/components/schemas/ac314140-b056-3ade-ee01-779f7c9a88cf'
+            $ref: '#/components/schemas/schema-model-ac314140-b056-3ade-ee01-779f7c9a88cf'
         products:
           type: array
           description: Produkty
           items:
-            $ref: '#/components/schemas/c6067df4-d3ce-ef9f-a76c-a1372390b56b'
+            $ref: '#/components/schemas/schema-model-c6067df4-d3ce-ef9f-a76c-a1372390b56b'
         facilityKinds:
           type: array
           description: Druhy zařízení
           items:
-            $ref: '#/components/schemas/573e26ab-85d7-c1a6-139d-7993e00c4f84'
+            $ref: '#/components/schemas/schema-model-573e26ab-85d7-c1a6-139d-7993e00c4f84'
         commitmentModes:
           type: array
           description: Způsoby zajištění (vazba na číselník "commitmentModes")
           items:
-            $ref: '#/components/schemas/a998e1ae-ed07-31b3-3b1d-96a0c78bc593'
+            $ref: '#/components/schemas/schema-model-a998e1ae-ed07-31b3-3b1d-96a0c78bc593'
         productTypes:
           type: array
           description: Typy produktů
           items:
-            $ref: '#/components/schemas/ab619b51-5818-673d-df5b-71e7a4d99319'
+            $ref: '#/components/schemas/schema-model-ab619b51-5818-673d-df5b-71e7a4d99319'
         contactTypes:
           type: array
           description: Typy kontaktů
           items:
-            $ref: '#/components/schemas/18a60dd0-d87c-a788-f5fd-8745531d1145'
+            $ref: '#/components/schemas/schema-model-18a60dd0-d87c-a788-f5fd-8745531d1145'
         persons:
           type: array
           description: Osoby v systému
           items:
-            $ref: '#/components/schemas/42688ed6-9411-6760-c972-8a41f1772978'
+            $ref: '#/components/schemas/schema-model-42688ed6-9411-6760-c972-8a41f1772978'
         priceFlags:
           type: array
           description: Příznaky cen
           items:
-            $ref: '#/components/schemas/7fc97be9-b51b-f19e-0be9-ee1e66f9e55e'
+            $ref: '#/components/schemas/schema-model-7fc97be9-b51b-f19e-0be9-ee1e66f9e55e'
         countries:
           type: array
           description: Země
           items:
-            $ref: '#/components/schemas/a8a54b93-2c72-20fb-47df-89189a2b6ab5'
-    ac314140-b056-3ade-ee01-779f7c9a88cf:
+            $ref: '#/components/schemas/schema-model-a8a54b93-2c72-20fb-47df-89189a2b6ab5'
+    schema-model-ac314140-b056-3ade-ee01-779f7c9a88cf:
       description:  |
         Obchodní Případ (OP) Slouží jako složka pro evidenci prvků a stavů - sledu aktivit:  poptávka – rezervace - prodej. 
         Bilance plateb vůči ceně služeb se provádí za každý obchodní případ samostatně.
@@ -655,44 +655,44 @@ components:
             - released
           type: string
         owner:
-          $ref: '#/components/schemas/f829d84d-a12c-cd1e-f6e2-5bc23d611e83'
+          $ref: '#/components/schemas/schema-model-f829d84d-a12c-cd1e-f6e2-5bc23d611e83'
         organizer:
-          $ref: '#/components/schemas/2efb3e98-7870-693d-4916-0769c2e8abc0'
+          $ref: '#/components/schemas/schema-model-2efb3e98-7870-693d-4916-0769c2e8abc0'
         customer:
-          $ref: '#/components/schemas/72362654-3722-511f-21b2-feb7c492e0e7'
+          $ref: '#/components/schemas/schema-model-72362654-3722-511f-21b2-feb7c492e0e7'
         products:
           type: array
           description: Produkty OP
           items:
-            $ref: '#/components/schemas/2b13908a-e129-1e87-70e8-9e542bc5f62d'
+            $ref: '#/components/schemas/schema-model-2b13908a-e129-1e87-70e8-9e542bc5f62d'
         priceItems:
           type: array
           description: Cenové položky OP
           items:
-            $ref: '#/components/schemas/baa2818c-51c3-496d-fc4d-4360688dddc1'
+            $ref: '#/components/schemas/schema-model-baa2818c-51c3-496d-fc4d-4360688dddc1'
         capacities:
           type: array
           description: Vázané kapacity
           items:
-            $ref: '#/components/schemas/b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1'
+            $ref: '#/components/schemas/schema-model-b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1'
         priceSummary:
-          $ref: '#/components/schemas/1e0cc0df-2691-b4a4-740d-2dc2a287e4ed'
+          $ref: '#/components/schemas/schema-model-1e0cc0df-2691-b4a4-740d-2dc2a287e4ed'
         businessCasePersons:
           type: array
           description: Osoby připojené k OP
           items:
-            $ref: '#/components/schemas/54b4cfbc-7b50-e3a3-59b1-5767d78b266e'
+            $ref: '#/components/schemas/schema-model-54b4cfbc-7b50-e3a3-59b1-5767d78b266e'
         files:
           type: array
           description: Soubory připojené (vygenerované) k OP
           items:
-            $ref: '#/components/schemas/7db6f602-3d0f-4b83-ac4b-157a0b57bb08'
+            $ref: '#/components/schemas/schema-model-7db6f602-3d0f-4b83-ac4b-157a0b57bb08'
         paymentPolicies:
           type: array
           description: Payment policies of the business case
           items:
-            $ref: '#/components/schemas/77419105-3a86-90de-05c3-7e256f38f6e3'
-    f829d84d-a12c-cd1e-f6e2-5bc23d611e83:
+            $ref: '#/components/schemas/schema-model-77419105-3a86-90de-05c3-7e256f38f6e3'
+    schema-model-f829d84d-a12c-cd1e-f6e2-5bc23d611e83:
       description: Vlastník (organizace) OP
       type: object
       properties:
@@ -712,7 +712,7 @@ components:
           nullable: true
           type: integer
           format: int32
-    2efb3e98-7870-693d-4916-0769c2e8abc0:
+    schema-model-2efb3e98-7870-693d-4916-0769c2e8abc0:
       description: Pořadatel (organizace) OP
       type: object
       properties:
@@ -727,7 +727,7 @@ components:
         organizationRegNumber:
           description: IČO organizace pořadatele
           type: string
-    72362654-3722-511f-21b2-feb7c492e0e7:
+    schema-model-72362654-3722-511f-21b2-feb7c492e0e7:
       description: Zákazník (organizace) OP
       type: object
       properties:
@@ -747,7 +747,7 @@ components:
           nullable: true
           type: integer
           format: int32
-    2b13908a-e129-1e87-70e8-9e542bc5f62d:
+    schema-model-2b13908a-e129-1e87-70e8-9e542bc5f62d:
       description: Produkt představuje obal toho, co prodáváme
       type: object
       properties:
@@ -771,7 +771,7 @@ components:
           nullable: true
           type: string
           format: date
-    baa2818c-51c3-496d-fc4d-4360688dddc1:
+    schema-model-baa2818c-51c3-496d-fc4d-4360688dddc1:
       description: Cenové položky OP
       type: object
       properties:
@@ -825,8 +825,8 @@ components:
           type: array
           description: Aplikované slevy
           items:
-            $ref: '#/components/schemas/6c607ebb-7f33-ef5d-58a1-9e68b796fca6'
-    6c607ebb-7f33-ef5d-58a1-9e68b796fca6:
+            $ref: '#/components/schemas/schema-model-6c607ebb-7f33-ef5d-58a1-9e68b796fca6'
+    schema-model-6c607ebb-7f33-ef5d-58a1-9e68b796fca6:
       description: Aplikované slevy
       type: object
       properties:
@@ -842,7 +842,7 @@ components:
           description: Částka slevy
           type: number
           format: double
-    b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1:
+    schema-model-b6ccd8cf-e0f4-b9a6-8836-ded97bfd46b1:
       description: Představuje jednotky v čase vázané obchodnímu případu s nějakým způsobem zajištění
       type: object
       properties:
@@ -877,13 +877,13 @@ components:
           type: integer
           format: int32
         route:
-          $ref: '#/components/schemas/de120219-c55c-cb50-80da-baeca148b6a6'
+          $ref: '#/components/schemas/schema-model-de120219-c55c-cb50-80da-baeca148b6a6'
         personMapping:
           type: array
           description: Připojené osoby
           items:
-            $ref: '#/components/schemas/32a250db-53ce-db28-7e7a-b1d8b9e019f0'
-    de120219-c55c-cb50-80da-baeca148b6a6:
+            $ref: '#/components/schemas/schema-model-32a250db-53ce-db28-7e7a-b1d8b9e019f0'
+    schema-model-de120219-c55c-cb50-80da-baeca148b6a6:
       description: Cesta
       type: object
       properties:
@@ -899,10 +899,10 @@ components:
           description: Název typu vzoru jednotky
           type: string
         from:
-          $ref: '#/components/schemas/dadee616-6d90-1831-ea0a-af7cb8311b59'
+          $ref: '#/components/schemas/schema-model-dadee616-6d90-1831-ea0a-af7cb8311b59'
         to:
-          $ref: '#/components/schemas/dadee616-6d90-1831-ea0a-af7cb8311b59'
-    dadee616-6d90-1831-ea0a-af7cb8311b59:
+          $ref: '#/components/schemas/schema-model-dadee616-6d90-1831-ea0a-af7cb8311b59'
+    schema-model-dadee616-6d90-1831-ea0a-af7cb8311b59:
       description: Stanice odjezdu
       type: object
       properties:
@@ -917,7 +917,7 @@ components:
           nullable: true
           type: string
           format: date
-    32a250db-53ce-db28-7e7a-b1d8b9e019f0:
+    schema-model-32a250db-53ce-db28-7e7a-b1d8b9e019f0:
       description: Připojené osoby
       type: object
       properties:
@@ -936,7 +936,7 @@ components:
             - nobed
             - overbook
           type: string
-    1e0cc0df-2691-b4a4-740d-2dc2a287e4ed:
+    schema-model-1e0cc0df-2691-b4a4-740d-2dc2a287e4ed:
       description: Shrnutí ceny OP
       type: object
       properties:
@@ -955,7 +955,7 @@ components:
           nullable: true
           type: number
           format: double
-    54b4cfbc-7b50-e3a3-59b1-5767d78b266e:
+    schema-model-54b4cfbc-7b50-e3a3-59b1-5767d78b266e:
       description: Osoby připojené k OP
       type: object
       properties:
@@ -982,8 +982,8 @@ components:
             - cancelled
           type: string
         person:
-          $ref: '#/components/schemas/4786e4f0-4718-2eda-0663-9fbcfd33b959'
-    4786e4f0-4718-2eda-0663-9fbcfd33b959:
+          $ref: '#/components/schemas/schema-model-4786e4f0-4718-2eda-0663-9fbcfd33b959'
+    schema-model-4786e4f0-4718-2eda-0663-9fbcfd33b959:
       description: Vazba na konkrétní osobu
       type: object
       properties:
@@ -1017,13 +1017,13 @@ components:
           type: array
           description: Seznam kontaktních údajů
           items:
-            $ref: '#/components/schemas/c06ef571-cc16-7a7a-e884-48067be418f3'
+            $ref: '#/components/schemas/schema-model-c06ef571-cc16-7a7a-e884-48067be418f3'
         addresses:
           type: array
           description: Seznam připojených adres
           items:
-            $ref: '#/components/schemas/a425c9a5-f1b7-77e3-8487-893ae88d1e4d'
-    c06ef571-cc16-7a7a-e884-48067be418f3:
+            $ref: '#/components/schemas/schema-model-a425c9a5-f1b7-77e3-8487-893ae88d1e4d'
+    schema-model-c06ef571-cc16-7a7a-e884-48067be418f3:
       description: Seznam kontaktních údajů
       type: object
       properties:
@@ -1037,7 +1037,7 @@ components:
         isMain:
           description: Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
           type: boolean
-    a425c9a5-f1b7-77e3-8487-893ae88d1e4d:
+    schema-model-a425c9a5-f1b7-77e3-8487-893ae88d1e4d:
       description: Seznam připojených adres
       type: object
       properties:
@@ -1072,7 +1072,7 @@ components:
               - correspondence
               - presentation
             type: string
-    7db6f602-3d0f-4b83-ac4b-157a0b57bb08:
+    schema-model-7db6f602-3d0f-4b83-ac4b-157a0b57bb08:
       description: Soubory připojené (vygenerované) k OP
       type: object
       properties:
@@ -1089,7 +1089,7 @@ components:
         templateName:
           description: Název šablony dokumentu
           type: string
-    77419105-3a86-90de-05c3-7e256f38f6e3:
+    schema-model-77419105-3a86-90de-05c3-7e256f38f6e3:
       description: Payment policies of the business case
       type: object
       properties:
@@ -1115,7 +1115,7 @@ components:
           description: Arrears
           type: number
           format: double
-    c6067df4-d3ce-ef9f-a76c-a1372390b56b:
+    schema-model-c6067df4-d3ce-ef9f-a76c-a1372390b56b:
       description: Produkt představuje obal toho, co prodáváme
       type: object
       properties:
@@ -1138,7 +1138,7 @@ components:
           items:
             type: integer
             format: int32
-    573e26ab-85d7-c1a6-139d-7993e00c4f84:
+    schema-model-573e26ab-85d7-c1a6-139d-7993e00c4f84:
       description: Druhy zařízení
       type: object
       properties:
@@ -1149,7 +1149,7 @@ components:
         name:
           description: Název druhu zařízení
           type: string
-    a998e1ae-ed07-31b3-3b1d-96a0c78bc593:
+    schema-model-a998e1ae-ed07-31b3-3b1d-96a0c78bc593:
       description: Způsoby zajištění (vazba na číselník "commitmentModes")
       type: object
       properties:
@@ -1163,7 +1163,7 @@ components:
         code:
           description: Kód způsobu zajištění
           type: string
-    ab619b51-5818-673d-df5b-71e7a4d99319:
+    schema-model-ab619b51-5818-673d-df5b-71e7a4d99319:
       description: Typy produktů
       type: object
       properties:
@@ -1177,7 +1177,7 @@ components:
         code:
           description: Kód typu produktu
           type: string
-    18a60dd0-d87c-a788-f5fd-8745531d1145:
+    schema-model-18a60dd0-d87c-a788-f5fd-8745531d1145:
       description: Typy kontaktů
       type: object
       properties:
@@ -1191,7 +1191,7 @@ components:
         code:
           description: Kód typu kontaktu
           type: string
-    42688ed6-9411-6760-c972-8a41f1772978:
+    schema-model-42688ed6-9411-6760-c972-8a41f1772978:
       description: Osoby v systému
       type: object
       properties:
@@ -1249,13 +1249,13 @@ components:
           type: array
           description: Seznam kontaktních údajů
           items:
-            $ref: '#/components/schemas/0e19d354-1787-06a6-5384-4718d65839b3'
+            $ref: '#/components/schemas/schema-model-0e19d354-1787-06a6-5384-4718d65839b3'
         addresses:
           type: array
           description: Seznam připojených adres
           items:
-            $ref: '#/components/schemas/3cb7e51e-30a7-19b3-a235-5dbefb81f307'
-    0e19d354-1787-06a6-5384-4718d65839b3:
+            $ref: '#/components/schemas/schema-model-3cb7e51e-30a7-19b3-a235-5dbefb81f307'
+    schema-model-0e19d354-1787-06a6-5384-4718d65839b3:
       description: Seznam kontaktních údajů
       type: object
       properties:
@@ -1269,7 +1269,7 @@ components:
         isMain:
           description: Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
           type: boolean
-    3cb7e51e-30a7-19b3-a235-5dbefb81f307:
+    schema-model-3cb7e51e-30a7-19b3-a235-5dbefb81f307:
       description: Seznam připojených adres
       type: object
       properties:
@@ -1304,7 +1304,7 @@ components:
               - correspondence
               - presentation
             type: string
-    7fc97be9-b51b-f19e-0be9-ee1e66f9e55e:
+    schema-model-7fc97be9-b51b-f19e-0be9-ee1e66f9e55e:
       description: Příznaky cen
       type: object
       properties:
@@ -1318,7 +1318,7 @@ components:
         code:
           description: Kód příznaku
           type: string
-    a8a54b93-2c72-20fb-47df-89189a2b6ab5:
+    schema-model-a8a54b93-2c72-20fb-47df-89189a2b6ab5:
       description: Země
       type: object
       properties:
@@ -1332,7 +1332,7 @@ components:
         code:
           description: ISO kód země
           type: string
-    07337efc-3d93-c656-ce2d-1aa035ca1a88:
+    schema-model-07337efc-3d93-c656-ce2d-1aa035ca1a88:
       type: object
       properties:
         name:
@@ -1358,7 +1358,7 @@ components:
           nullable: true
           type: integer
           format: int32
-    c766f661-ffe1-4b25-1ce5-c06587a06431:
+    schema-model-c766f661-ffe1-4b25-1ce5-c06587a06431:
       type: object
       properties:
         id:
@@ -1392,7 +1392,7 @@ components:
           nullable: true
           type: integer
           format: int32
-    30d5338c-b92e-da36-a340-b1cc2b62a69a:
+    schema-model-30d5338c-b92e-da36-a340-b1cc2b62a69a:
       type: object
       required:
         - businessCaseId
@@ -1427,9 +1427,9 @@ components:
           type: integer
           format: int32
         term:
-          $ref: '#/components/schemas/d16b344f-d3d1-955c-6721-3265fc1d6698'
+          $ref: '#/components/schemas/schema-model-d16b344f-d3d1-955c-6721-3265fc1d6698'
         accommodationTerm:
-          $ref: '#/components/schemas/1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3'
+          $ref: '#/components/schemas/schema-model-1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3'
         personCount:
           description: Count of a persons
           nullable: true
@@ -1447,7 +1447,7 @@ components:
         services:
           description: Additional services
           type: string
-    d16b344f-d3d1-955c-6721-3265fc1d6698:
+    schema-model-d16b344f-d3d1-955c-6721-3265fc1d6698:
       description: Start and end of the trip
       type: object
       properties:
@@ -1461,7 +1461,7 @@ components:
           nullable: true
           type: string
           format: date
-    1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3:
+    schema-model-1ce7ea5d-2df1-6b4d-1e78-d6c924b9a8a3:
       description: Term of the accomodation
       type: object
       properties:
@@ -1475,7 +1475,7 @@ components:
           nullable: true
           type: string
           format: date
-    fd5476d4-23e1-7020-c241-b11cf9f0575e:
+    schema-model-fd5476d4-23e1-7020-c241-b11cf9f0575e:
       type: object
       required:
         - priceItems
@@ -1484,8 +1484,8 @@ components:
           type: array
           description: List of price items
           items:
-            $ref: '#/components/schemas/60b99674-81fd-0aac-9ef1-6d14fff68739'
-    60b99674-81fd-0aac-9ef1-6d14fff68739:
+            $ref: '#/components/schemas/schema-model-60b99674-81fd-0aac-9ef1-6d14fff68739'
+    schema-model-60b99674-81fd-0aac-9ef1-6d14fff68739:
       description: List of price items
       type: object
       required:
@@ -1543,15 +1543,15 @@ components:
             - save
             - release
           type: string
-    b60412c5-f483-45b9-c1c6-a0c5afa7bd12:
+    schema-model-b60412c5-f483-45b9-c1c6-a0c5afa7bd12:
       type: object
       properties:
         priceItems:
           type: array
           description: List of price items
           items:
-            $ref: '#/components/schemas/5be9d738-3844-de9a-570b-6a2faefa9f51'
-    5be9d738-3844-de9a-570b-6a2faefa9f51:
+            $ref: '#/components/schemas/schema-model-5be9d738-3844-de9a-570b-6a2faefa9f51'
+    schema-model-5be9d738-3844-de9a-570b-6a2faefa9f51:
       description: List of price items
       type: object
       properties:
@@ -1597,7 +1597,7 @@ components:
             - save
             - release
           type: string
-    3b26656a-2774-5526-86e8-ffdd57d7b80f:
+    schema-model-3b26656a-2774-5526-86e8-ffdd57d7b80f:
       type: object
       required:
         - invoices
@@ -1606,8 +1606,8 @@ components:
           type: array
           description: List of invoices
           items:
-            $ref: '#/components/schemas/50b366e3-c643-ac00-259c-e6d5b4a21446'
-    50b366e3-c643-ac00-259c-e6d5b4a21446:
+            $ref: '#/components/schemas/schema-model-50b366e3-c643-ac00-259c-e6d5b4a21446'
+    schema-model-50b366e3-c643-ac00-259c-e6d5b4a21446:
       description: List of invoices
       type: object
       properties:
@@ -1624,7 +1624,7 @@ components:
           description: ID of the document where invoice is stored as a printable document
           type: integer
           format: int32
-    cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7:
+    schema-model-cf8a454f-cc43-a125-ae3e-7ad1aea4a2b7:
       type: object
       required:
         - number
@@ -1636,13 +1636,13 @@ components:
           type: integer
           format: int64
         customer:
-          $ref: '#/components/schemas/96612934-87a3-c7ec-3f8a-11d257bc8490'
+          $ref: '#/components/schemas/schema-model-96612934-87a3-c7ec-3f8a-11d257bc8490'
         bookings:
           type: array
           description: List of bookings
           items:
-            $ref: '#/components/schemas/ded41841-b2b9-1904-8e1a-25338c65f0a7'
-    96612934-87a3-c7ec-3f8a-11d257bc8490:
+            $ref: '#/components/schemas/schema-model-ded41841-b2b9-1904-8e1a-25338c65f0a7'
+    schema-model-96612934-87a3-c7ec-3f8a-11d257bc8490:
       description: Contact person
       type: object
       required:
@@ -1682,8 +1682,8 @@ components:
           description: Email
           type: string
         extendedPersonData:
-          $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
-    7d3e6c0c-7044-815f-e074-932e8f18d707:
+          $ref: '#/components/schemas/schema-model-7d3e6c0c-7044-815f-e074-932e8f18d707'
+    schema-model-7d3e6c0c-7044-815f-e074-932e8f18d707:
       description: Additional data of the passenger
       type: object
       properties:
@@ -1702,7 +1702,7 @@ components:
             - child
             - infant
           type: string
-    ded41841-b2b9-1904-8e1a-25338c65f0a7:
+    schema-model-ded41841-b2b9-1904-8e1a-25338c65f0a7:
       description: Booking and it's data
       type: object
       required:
@@ -1717,8 +1717,8 @@ components:
           type: array
           description: List of passengers
           items:
-            $ref: '#/components/schemas/bf359a36-cdc7-55af-85f5-f36f0f1cb77a'
-    bf359a36-cdc7-55af-85f5-f36f0f1cb77a:
+            $ref: '#/components/schemas/schema-model-bf359a36-cdc7-55af-85f5-f36f0f1cb77a'
+    schema-model-bf359a36-cdc7-55af-85f5-f36f0f1cb77a:
       description: Passenger person
       type: object
       required:
@@ -1758,13 +1758,13 @@ components:
           description: Email
           type: string
         extendedPersonData:
-          $ref: '#/components/schemas/7d3e6c0c-7044-815f-e074-932e8f18d707'
+          $ref: '#/components/schemas/schema-model-7d3e6c0c-7044-815f-e074-932e8f18d707'
   responses:
-    a0277bd3-1a59-379b-916a-9bbfbe4a1890:
+    schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890:
       description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
-    125777c6-838e-6991-85e1-65898249a1fc:
+    schema-model-125777c6-838e-6991-85e1-65898249a1fc:
       description: Request URL was not found. Check the URL of the request or contact Magicware about support of the current API
-    1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff:
+    schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff:
       description: Authorization token is missing or invalid. Or current user does not have the required permissions
-    770b32c3-2c28-7edc-54a9-f0ea354a061b:
+    schema-model-770b32c3-2c28-7edc-54a9-f0ea354a061b:
       description: No content from response to work with
