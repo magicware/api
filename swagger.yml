@@ -4,12 +4,14 @@ openapi: '3.0.2'
 #                                  Header                                      #
 ################################################################################
 tags:
-  -  name: Authentication
+  -  name: Authentications
      description: Everything about authentication
-  -  name: Product
+  -  name: Products
      description: Everything about products
-  -  name: Business case
+  -  name: Business cases
      description: Everything about business cases
+  -  name: Offers
+     description: Searching offers
 info:
   title: M2G API documentation
   version: v1
@@ -41,7 +43,7 @@ servers:
      variables:
        URLINSTANCENAME:
          default: 'magicware'
-         description: Part of an url to the instance of the M2G system
+         description: 'Part of an url to the: instance of the M2G system'
        URLINSTANCEENVIRONMENT:
          default: 'iscontent'
          description: Part of an url to the instance of the M2G system
@@ -62,7 +64,7 @@ paths:
         
         **Authentication token is automatically set into request header**.
       tags:
-        -  Authentication
+        -  Authentications
       summary: "Login and authorize"
       requestBody:
         required: True
@@ -96,7 +98,7 @@ paths:
         ---
         The price correction currently affects adjusted product variant prices only in exports.
       tags:
-        -  Product
+        -  Products
       summary: "Re-price product variants or adjust their end price."
       security:
         -  ApiKeyAuth: []
@@ -137,7 +139,7 @@ paths:
         ---
         Get an informations about a business case.
       tags:
-        -  Business case
+        -  Business cases
       summary: "Informations about a business case."
       security:
         -  ApiKeyAuth: []
@@ -176,7 +178,7 @@ paths:
         ---
         Creates new business case. Returns extra ID and Number of created business case.
       tags:
-        -  Business case
+        -  Business cases
       summary: "Create a new business case."
       security:
         -  ApiKeyAuth: []
@@ -216,7 +218,7 @@ paths:
         ---
         Requires an existing business case.
       tags:
-        -  Business case
+        -  Business cases
       summary: "Actualize additional data of a business case."
       security:
         -  ApiKeyAuth: []
@@ -257,7 +259,7 @@ paths:
         Requires an existing business case.
       summary: "Create, modify or release the price items."
       tags:
-        -  Business case
+        -  Business cases
       security:
         -  ApiKeyAuth: []
       requestBody:
@@ -299,7 +301,7 @@ paths:
         User requesting this action has to be an organization owner of the business case.
       summary: "Get invoices attached to a business case."
       tags:
-        -  Business case
+        -  Business cases
       security:
         -  ApiKeyAuth: []
       parameters:
@@ -357,7 +359,7 @@ paths:
         User requesting this action has to be an organization owner of the business case.
       summary: "Get a printeable invoice file attached to a business case."
       tags:
-        -  Business case
+        -  Business cases
       security:
         -  ApiKeyAuth: []
       parameters:
@@ -426,7 +428,7 @@ paths:
         User requesting this action has to be an organization owner of the business case.
       summary: "Modify a passengers of a business case"
       tags:
-        -  Business case
+        -  Business cases
       security:
         -  ApiKeyAuth: []
       requestBody:
@@ -449,6 +451,260 @@ paths:
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1015</td><td>Booking ID is not specified</td></tr><tr><td style='text-align:center'>1016</td><td>Specified Booking ID doesn't exist</td></tr><tr><td style='text-align:center'>1017</td><td>Invalid persons count</td></tr><tr><td style='text-align:center'>1018</td><td>Invalid persons birth dates</td></tr><tr><td style='text-align:center'>1019</td><td>Specified country ISO code not found</td></tr><tr><td style='text-align:center'>1020</td><td>Not specified error</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/offers/search:
+    post:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur.Offers`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "Provides main interface to get offers from the is>tour"
+      security:
+        -  ApiKeyAuth: []
+      requestBody:
+        required: True
+        description:  |
+          Offers are grouped by products, terms and offer variants. Offer variants are generated for each departure station, target station, room type and board type. Optionaly, only one (cheapest) offer can be returned for each matching product.If included in search query, is>tour object ids need to be passed in the search request for all user editable entities - e.g. destinations, stations, etc...To obtain these ids, "Entity Export API" can be used.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/schema-model-a21b82f0-8560-6091-d246-21fcd9fefef6'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-9db15588-cc60-cb61-ef37-984fd0c4524d'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/destinations:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of destinations"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-63b11b18-1634-d692-d64d-e7c55e20b7b8'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/stations:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of stations"
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: path
+           name: type
+           required: True
+           schema:
+             type: string
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-09e4d580-efca-9d13-8ba0-a7584b95a54b'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/equitments:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of equipments"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-3a77bf3b-eb9a-9109-9e66-8e9546b43c2c'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/boardTypes:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of board types"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-7fb42222-bb6b-f57f-c1dc-94c9b0abeba9'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/accommodationCategories:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of accommodation categories"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-e9a714a3-0533-0c0e-ffb6-85694298e07f'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/priceFlags:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of price flags"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-120512dd-7562-0547-a36a-4210e5207053'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /satur/v1/rooms:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Satur`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Offers
+      summary: "List of rooms"
+      security:
+        -  ApiKeyAuth: []
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-120512dd-7562-0547-a36a-4210e5207053'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
           content:
             application/json:
               schema:
@@ -1759,6 +2015,341 @@ components:
           type: string
         extendedPersonData:
           $ref: '#/components/schemas/schema-model-7d3e6c0c-7044-815f-e074-932e8f18d707'
+    schema-model-a21b82f0-8560-6091-d246-21fcd9fefef6:
+      description:  |
+        Search Provides main interface to get offers from the is>tour.
+        Offers are grouped by products, terms and offer variants. Offer variants are generated for each departure station, target station, room type and board type.
+        Optionaly, only one (cheapest) offer can be returned for each matching product.
+        If included in search query, is>tour object ids need to be passed in the search request for all user editable entities - e.g. destinations, stations, etc... To obtain these ids, "Entity Export API" can be used.
+        All of the input attributes are optional and if not included, matching filter parameter will not be applied.
+      type: object
+      properties:
+        productId:
+          description: List of is>tour product ids.
+          type: array
+          items:
+            type: integer
+            format: int32
+        departureStationId:
+          description: Departure station Ids
+          type: array
+          items:
+            type: integer
+            format: int32
+        boardTypeId:
+          description: Board type Ids
+          type: array
+          items:
+            type: integer
+            format: int32
+        startDateFrom:
+          description: Min tour start date.
+          nullable: true
+          type: string
+          format: date
+        startDateTo:
+          description: Max tour start date.
+          nullable: true
+          type: string
+          format: date
+        nightsFrom:
+          description: Min number of nights of tour
+          nullable: true
+          type: integer
+          format: int32
+        nightsTo:
+          description: Max number of nights of tour.
+          nullable: true
+          type: integer
+          format: int32
+        transportTypeId:
+          description: Transport type Ids
+          type: array
+          items:
+            type: integer
+            format: int32
+        priceFrom:
+          description: Min price limit, per person.
+          nullable: true
+          type: number
+          format: double
+        priceTo:
+          description: Max price limit, per person.
+          nullable: true
+          type: number
+          format: double
+        priceFlagId:
+          description: List of price flags (Last Minute, First Minute, etc...) 
+          type: array
+          items:
+            type: integer
+            format: int32
+        destinationId:
+          description: List of destinations as entered in the is>tour
+          type: array
+          items:
+            type: integer
+            format: int32
+        accommodationCategoryId:
+          description: List of accommodation categories (number of stars)
+          type: array
+          items:
+            type: integer
+            format: int32
+        sortBy:
+          description: Sorting
+          enum:
+            - default
+            - priceup
+            - pricedown
+            - productname
+          type: string
+        pageNumber:
+          description: Number of page, starting from one.
+          nullable: true
+          type: integer
+          format: int32
+        pageSize:
+          description: Size of page, default is 20.
+          nullable: true
+          type: integer
+          format: int32
+        occupancy:
+          $ref: '#/components/schemas/schema-model-5a202704-5ee7-a969-f912-a68393591aff'
+        saleGroupId:
+          description: List of is>tour sales group ids.
+          type: array
+          items:
+            type: integer
+            format: int32
+    schema-model-5a202704-5ee7-a969-f912-a68393591aff:
+      description: Count of adult, count of children
+      type: object
+      properties:
+        adultsCount:
+          nullable: true
+          type: integer
+          format: int32
+        childrenCount:
+          nullable: true
+          type: integer
+          format: int32
+        childrenAges:
+          type: array
+          items:
+            type: integer
+            format: int32
+        type:
+          enum:
+            - simple
+            - fulladultcapacity
+            - fullcapacity
+            - exactcapacity
+          type: string
+    schema-model-9db15588-cc60-cb61-ef37-984fd0c4524d:
+      type: object
+      properties:
+        products:
+          type: array
+          description: List of products
+          items:
+            $ref: '#/components/schemas/schema-model-f26f8f79-1e9b-7485-cc83-daed1f061cd0'
+    schema-model-f26f8f79-1e9b-7485-cc83-daed1f061cd0:
+      description: List of products
+      type: object
+      properties:
+        productId:
+          description: is>tour product id
+          nullable: true
+          type: integer
+          format: int32
+        productCode:
+          description: is>tour product code.
+          type: string
+        productName:
+          description: Product name
+          type: string
+        terms:
+          type: array
+          description: List of found terms
+          items:
+            $ref: '#/components/schemas/schema-model-db434223-b5d9-f27c-6acd-e152a14b4d5b'
+    schema-model-db434223-b5d9-f27c-6acd-e152a14b4d5b:
+      description: List of found terms
+      type: object
+      properties:
+        id:
+          description: Term ID
+          nullable: true
+          type: integer
+          format: int32
+        code:
+          description: Term code
+          type: string
+        dateFrom:
+          description: Tour start date.
+          nullable: true
+          type: string
+          format: date
+        dateTo:
+          description: Tour end date.
+          nullable: true
+          type: string
+          format: date
+        nights:
+          description: Tour length (number of nights).
+          nullable: true
+          type: integer
+          format: int32
+        saleGroupId:
+          description: Hladina ID
+          nullable: true
+          type: integer
+          format: int32
+        offers:
+          type: array
+          description: List of found offers for the term.
+          items:
+            $ref: '#/components/schemas/schema-model-2665b179-5e5c-1eb5-991a-491de107f376'
+    schema-model-2665b179-5e5c-1eb5-991a-491de107f376:
+      description: List of found offers for the term.
+      type: object
+      properties:
+        departureStation:
+          $ref: '#/components/schemas/schema-model-4fb8e990-8899-7919-1e34-53b0579ba8bf'
+        returnStation:
+          $ref: '#/components/schemas/schema-model-4fb8e990-8899-7919-1e34-53b0579ba8bf'
+        boardTypeId:
+          description: Type of diet ID - board type (All inclusive, Half board, ...)
+          nullable: true
+          type: integer
+          format: int32
+        transportTypeId:
+          description: Transport type (All inclusive, Half board, ...)
+          nullable: true
+          type: integer
+          format: int32
+        priceFlagId:
+          description: Price flag (LastMinute, First Minute, ...)
+          nullable: true
+          type: integer
+          format: int32
+        roomIds:
+          description: ID of rooms, multiple only when includeGroupPrice attribute is set to true in the search request and request contains more than one roomOccupancy.
+          type: array
+          items:
+            type: integer
+            format: int32
+        firstAdultPrice:
+          description: Starting price for first adult person.
+          nullable: true
+          type: number
+          format: double
+        basePromoPrice:
+          description: Starting price for first adult person without taxes.
+          nullable: true
+          type: number
+          format: double
+        groupPrice:
+          description: Total price for the whole group. Included only when includeGroupPrice attribute is set to true in the search request.
+          nullable: true
+          type: integer
+          format: int32
+        availability:
+          description: Availability
+          type: string
+    schema-model-4fb8e990-8899-7919-1e34-53b0579ba8bf:
+      description: Departure station
+      type: object
+      properties:
+        stationId:
+          description: Station ID
+          nullable: true
+          type: integer
+          format: int32
+        datetime:
+          description: Date and time
+          nullable: true
+          type: string
+          format: date
+    schema-model-63b11b18-1634-d692-d64d-e7c55e20b7b8:
+      description:  |
+        List of destinations - Provides list of destinations as entered in the is>tour. Destinations are stored in a tree structure with each destination referencing its parent one.First 3 levels of destinations are usually structured like this: 
+        
+        World(Root level 0), 
+            Continent(Level 1), 
+                Country(Level 2), 
+                    custom levels
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        parentId:
+          type: integer
+          format: int32
+        name:
+          type: string
+    schema-model-09e4d580-efca-9d13-8ba0-a7584b95a54b:
+      description: List of stations
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        code:
+          type: string
+        type:
+          type: string
+    schema-model-3a77bf3b-eb9a-9109-9e66-8e9546b43c2c:
+      description: List of equipments - Provides list of equipment (TV, Air conditioning, Wi-fi, Wellness, etc...) as entered in the is>tour. Equipments are used to store properties of hotels or products. Optionally, equipment can be structured and can contain reference to the parent equipment.
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        parentId:
+          type: integer
+          format: int32
+        code:
+          type: string
+    schema-model-7fb42222-bb6b-f57f-c1dc-94c9b0abeba9:
+      description: List of board types - Provides list of board types (All Inclusive, Half Board, etc...) as entered in the is>tour.
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        code:
+          type: string
+    schema-model-e9a714a3-0533-0c0e-ffb6-85694298e07f:
+      description: List of accommodation categories - Provides list of accommodation categories (number of stars) as entered in the is>tour.
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        code:
+          type: string
+    schema-model-120512dd-7562-0547-a36a-4210e5207053:
+      description: List price flags - Provides list of price flags (Last Minute, First Minute, etc...) as entered in the is>tour.
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+        code:
+          type: string
   responses:
     schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890:
       description: Bad request. Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
