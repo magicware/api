@@ -12,6 +12,10 @@ tags:
      description: Everything about business cases
   -  name: Offers
      description: Searching offers
+  -  name: Booking
+     description: Booking
+  -  name: Printing
+     description: Printing or generating documents
 info:
   title: M2G API documentation
   version: v1
@@ -455,6 +459,86 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /reservations/booking/calculation:
+    post:
+      description:  |
+        #### **API-IDENTIFIER**: `Reservations.Booking.Calculation`<br /><br />**URL-ENVIRONMENT**: `is>content`, `is>tour`<br />**URL-VERSION**: `v1`<br /><br />
+        ---
+        Login and obtain the ApiKeyAuth (apiKey) authentication token.
+        
+        If the value of property `authenticationToken` is 'null', login was not successful
+        
+        **Authentication token is automatically set into request header**.
+      tags:
+        -  Booking
+      summary: "Booking calculation"
+      requestBody:
+        required: True
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/schema-model-95899351-8f41-532b-5c9d-f751b9a704b4'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-e8e3b0ba-1635-9cdd-b2f5-a9a8abc5fc98'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1021</td><td>Specified RoomID was not found</td></tr><tr><td style='text-align:center'>1022</td><td>No transport is available</td></tr><tr><td style='text-align:center'>1023</td><td>No suitable room for requested persons found</td></tr><tr><td style='text-align:center'>1024</td><td>No accommodation is available</td></tr><tr><td style='text-align:center'>1025</td><td>Specified StationID was not found</td></tr><tr><td style='text-align:center'>1026</td><td>Specified StationID is not available</td></tr><tr><td style='text-align:center'>1027</td><td>Specified additional item not found</td></tr><tr><td style='text-align:center'>1028</td><td>Specified quantity of additional item is not available</td></tr><tr><td style='text-align:center'>1029</td><td>Insuffient transport capacity</td></tr><tr><td style='text-align:center'>1030</td><td>Country not found</td></tr><tr><td style='text-align:center'>1031</td><td>TourID is not specified</td></tr><tr><td style='text-align:center'>1032</td><td>Booking api is not corretly configured</td></tr><tr><td style='text-align:center'>1033</td><td>Not specified validation error</td></tr><tr><td style='text-align:center'>1034</td><td>Invalid persons count for selected room</td></tr><tr><td style='text-align:center'>1037</td><td>Room occupancy violated (Room requires another persons count)</td></tr><tr><td style='text-align:center'>1038</td><td>Specified BoardTypeID was not found</td></tr><tr><td style='text-align:center'>1039</td><td>Specified BoardTypeID is not available</td></tr><tr><td style='text-align:center'>1040</td><td>Requested own transport is not available</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /reservations/booking/create:
+    post:
+      description:  |
+        #### **API-IDENTIFIER**: `Reservations.Booking.Calculation`<br /><br />**URL-ENVIRONMENT**: `is>content`, `is>tour`<br />**URL-VERSION**: `v1`<br /><br />
+        ---
+        Login and obtain the ApiKeyAuth (apiKey) authentication token.
+        
+        If the value of property `authenticationToken` is 'null', login was not successful
+        
+        **Authentication token is automatically set into request header**.
+      tags:
+        -  Booking
+      summary: "Booking create"
+      requestBody:
+        required: True
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/schema-model-95899351-8f41-532b-5c9d-f751b9a704b4'
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-e8e3b0ba-1635-9cdd-b2f5-a9a8abc5fc98'
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          $ref: '#/components/responses/schema-model-125777c6-838e-6991-85e1-65898249a1fc'
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1021</td><td>Specified RoomID was not found</td></tr><tr><td style='text-align:center'>1022</td><td>No transport is available</td></tr><tr><td style='text-align:center'>1023</td><td>No suitable room for requested persons found</td></tr><tr><td style='text-align:center'>1024</td><td>No accommodation is available</td></tr><tr><td style='text-align:center'>1025</td><td>Specified StationID was not found</td></tr><tr><td style='text-align:center'>1026</td><td>Specified StationID is not available</td></tr><tr><td style='text-align:center'>1027</td><td>Specified additional item not found</td></tr><tr><td style='text-align:center'>1028</td><td>Specified quantity of additional item is not available</td></tr><tr><td style='text-align:center'>1029</td><td>Insuffient transport capacity</td></tr><tr><td style='text-align:center'>1030</td><td>Country not found</td></tr><tr><td style='text-align:center'>1031</td><td>TourID is not specified</td></tr><tr><td style='text-align:center'>1032</td><td>Booking api is not corretly configured</td></tr><tr><td style='text-align:center'>1033</td><td>Not specified validation error</td></tr><tr><td style='text-align:center'>1034</td><td>Invalid persons count for selected room</td></tr><tr><td style='text-align:center'>1037</td><td>Room occupancy violated (Room requires another persons count)</td></tr><tr><td style='text-align:center'>1038</td><td>Specified BoardTypeID was not found</td></tr><tr><td style='text-align:center'>1039</td><td>Specified BoardTypeID is not available</td></tr><tr><td style='text-align:center'>1040</td><td>Requested own transport is not available</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
   /satur/v1/offers/search:
     post:
       description:  |
@@ -705,6 +789,45 @@ paths:
         '500':
           description:  |
             Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr></table>
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
+  /printing/communications/{urlToken}:
+    get:
+      description:  |
+        #### **API-IDENTIFIER**: `Printing.WkHtmlToPdf.Get`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
+      tags:
+        -  Printing
+      summary: "Print the is>content page as pdf."
+      security:
+        -  ApiKeyAuth: []
+      parameters:
+        -  in: path
+           name: urlToken
+           description: Unique url token from the api configuration, set at `is>tour`.
+           required: True
+           schema:
+             type: string
+      responses:
+        '200':
+          description:  |
+            OK
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+        '400':
+          $ref: '#/components/responses/schema-model-a0277bd3-1a59-379b-916a-9bbfbe4a1890'
+        '401':
+          $ref: '#/components/responses/schema-model-1f01a0b4-6c9c-027e-cd10-6c5b6b10e8ff'
+        '404':
+          description:  |
+            Url token provided as the path parameter does not have associated `is>tour` enabled api configuration. Or the api is not allowed at all.
+        '500':
+          description:  |
+            Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response<br /> <br /><p style='margin:0px !important'># Expected errors:</p><table style='margin:0px !important'><tr><th>Error (errorId)</th><th>Description</th></tr><tr><td style='text-align:center'>-1</td><td>Unexpected unknown error with unspecified error ID</td></tr><tr><td style='text-align:center'>1004</td><td>A fatal error has occured while the pdf was generating</td></tr></table>
           content:
             application/json:
               schema:
@@ -2015,6 +2138,215 @@ components:
           type: string
         extendedPersonData:
           $ref: '#/components/schemas/schema-model-7d3e6c0c-7044-815f-e074-932e8f18d707'
+    schema-model-95899351-8f41-532b-5c9d-f751b9a704b4:
+      type: object
+      properties:
+        tourId:
+          description: ID of product. Required
+          type: integer
+          format: int32
+        termId:
+          description: ID of term of Term reservation. Can be null for season reservation (DateFrom, DateTo has to be specified instead of TermID)
+          nullable: true
+          type: integer
+          format: int32
+        dateFrom:
+          description: Date from for Season reservation
+          nullable: true
+          type: string
+          format: date
+        dateTo:
+          description: Date to for Season reservation
+          nullable: true
+          type: string
+          format: date
+        rooms:
+          type: array
+          description: List of Room configurations. Required
+          items:
+            $ref: '#/components/schemas/schema-model-8ac117b0-5a71-fa4f-44ef-6593ba402d25'
+    schema-model-8ac117b0-5a71-fa4f-44ef-6593ba402d25:
+      description: List of Room configurations. Required
+      type: object
+      properties:
+        roomId:
+          description: ID of accommodation room. If null, room is selected by passengers birthdays
+          nullable: true
+          type: integer
+          format: int32
+        stationId:
+          description: ID of station
+          nullable: true
+          type: integer
+          format: int32
+        useOwnTransport:
+          description: In case of true and empty StationID, own transport is requested
+          type: boolean
+        boardTypeId:
+          description: ID of board type
+          nullable: true
+          type: integer
+          format: int32
+        passengerBirthDates:
+          description: Birth dates of all passengers. Required
+          type: array
+          items:
+            type: string
+            format: date
+        additionalItems:
+          type: array
+          description: Selected additional items
+          items:
+            $ref: '#/components/schemas/schema-model-0bda2b17-9b20-9470-e29b-186e446e4b35'
+    schema-model-0bda2b17-9b20-9470-e29b-186e446e4b35:
+      description: Selected additional items
+      type: object
+      properties:
+        priceItemId:
+          description: ID of selected additional item. Required
+          type: integer
+          format: int32
+        quantity:
+          description: Quantity of selected additional item. Required
+          type: integer
+          format: int32
+    schema-model-e8e3b0ba-1635-9cdd-b2f5-a9a8abc5fc98:
+      description:  |
+        
+        In case of error errorId, timestamp and message are provided. Supported error ids:
+        
+            - 1021: Specified RoomID was not found
+            - 1022: No transport is available
+            - 1023: No suitable room for requested persons found
+            - 1024: No accommodation is available
+            - 1025: Specified StationID was not found
+            - 1026: Specified StationID is not available
+            - 1027: Specified additional item not found
+            - 1028: Specified quantity of additional item is not available
+            - 1029: Insuffient transport capacity
+            - 1030: Country not found
+            - 1031: TourID is not specified
+            - 1032: Booking api is not corretly configured
+            - 1033: Not specified validation error
+            - 1034: Invalid persons count for selected room
+            - 1037: Room occupancy violated (Room requires another persons count)
+            - 1038: Specified BoardTypeID was not found
+            - 1039: Specified BoardTypeID is not available
+            - 1040: Requested own transport is not available
+        
+        
+      type: object
+      properties:
+        packagePrice:
+          description: Celková cena
+          type: number
+          format: double
+        currency:
+          description: Měna
+          type: string
+        rooms:
+          type: array
+          description: Pokoje
+          items:
+            $ref: '#/components/schemas/schema-model-534242c1-73d0-814b-6209-0395105034f1'
+    schema-model-534242c1-73d0-814b-6209-0395105034f1:
+      description: Pokoje
+      type: object
+      properties:
+        availability:
+          description:  |
+            
+            Possible values:
+                - sold_out: no capacity left
+                - on_request: capacity is on request
+                - last_few_places: last few places left
+                - available: capacity is available
+            
+          type: string
+        additionalItems:
+          type: array
+          description: List of all additional items
+          items:
+            $ref: '#/components/schemas/schema-model-0e22accf-ef62-02d1-472d-83354b20a499'
+        accommodation:
+          $ref: '#/components/schemas/schema-model-cf056d1c-e021-2101-9c04-59a060551302'
+        depature:
+          $ref: '#/components/schemas/schema-model-5af5e0d7-47d9-1dfe-f998-3c0a505c2dc9'
+        arrival:
+          $ref: '#/components/schemas/schema-model-5af5e0d7-47d9-1dfe-f998-3c0a505c2dc9'
+        priceDetail:
+          type: array
+          description: List of all price items
+          items:
+            $ref: '#/components/schemas/schema-model-0e22accf-ef62-02d1-472d-83354b20a499'
+    schema-model-0e22accf-ef62-02d1-472d-83354b20a499:
+      description: List of all additional items
+      type: object
+      properties:
+        name:
+          description: Name of item
+          type: string
+        quantity:
+          description: Items count
+          type: integer
+          format: int32
+        price:
+          description: Unit item price
+          type: number
+          format: double
+        priceItemId:
+          description: ID of price list item
+          type: integer
+          format: int32
+        currency:
+          description: Currency
+          type: string
+        type:
+          $ref: '#/components/schemas/schema-model-c67e6859-d28e-05de-be25-f71c8a5b886f'
+    schema-model-c67e6859-d28e-05de-be25-f71c8a5b886f:
+      type: object
+      properties:
+        kind:
+          description: 'Item base type. Available values: basic/mandatory/optional'
+          type: string
+        name:
+          description: Name of item type
+          type: string
+    schema-model-cf056d1c-e021-2101-9c04-59a060551302:
+      description: Accommodation
+      type: object
+      properties:
+        boardTypeId:
+          description: Board type ID
+          type: integer
+          format: int32
+        boardTypeName:
+          description: Board type name
+          type: string
+        id:
+          description: ID
+          type: integer
+          format: int32
+        name:
+          description: Name
+          type: string
+        availability:
+          description: Availability state
+          type: string
+    schema-model-5af5e0d7-47d9-1dfe-f998-3c0a505c2dc9:
+      description: Departure
+      type: object
+      properties:
+        id:
+          description: ID
+          type: integer
+          format: int32
+        name:
+          description: Name
+          type: string
+        availability:
+          description: Availability state
+          type: string
     schema-model-a21b82f0-8560-6091-d246-21fcd9fefef6:
       description:  |
         Search Provides main interface to get offers from the is>tour.
