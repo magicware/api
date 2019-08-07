@@ -793,7 +793,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/schema-model-4eac893b-52fb-4cf1-5205-3fa413483ae6'
-  /printing/communications/{urlToken}:
+  /printing/wkhtmltopdf/{urlToken}:
     get:
       description:  |
         #### **API-IDENTIFIER**: `Printing.WkHtmlToPdf.Get`<br /><br />**URL-ENVIRONMENT**: `is>content`<br />**URL-VERSION**: `v1`
@@ -2234,6 +2234,7 @@ components:
             - 1038: Specified BoardTypeID was not found
             - 1039: Specified BoardTypeID is not available
             - 1040: Requested own transport is not available
+            - 1041: Product not found
         
         
       type: object
