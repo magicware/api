@@ -809,6 +809,11 @@ paths:
            required: True
            schema:
              type: string
+        -  in: query
+           name: fileNameLangId
+           description: Lang ID of the file name for the downloaded file.
+           schema:
+             type: integer
       responses:
         '200':
           description:  |
