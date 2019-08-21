@@ -810,7 +810,7 @@ paths:
            schema:
              type: string
         -  in: query
-           name: fileNameLangId
+           name: langId
            description: Lang ID of the file name for the downloaded file.
            schema:
              type: integer
