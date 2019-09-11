@@ -1351,17 +1351,17 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: ID obchodního případu
+     description: 'ID obchodního případu'
      nullable: true
      type: integer
      format: int32
     businessCaseNumber:
-     description: Číslo obchodního případu
+     description: 'Číslo obchodního případu'
      nullable: true
      type: integer
      format: int64
     createdAfterBusinessCaseId:
-     description: Exportovat vše od ID obchodního případu
+     description: 'Exportovat vše od ID obchodního případu'
      nullable: true
      type: integer
      format: int32
@@ -1496,16 +1496,16 @@ components:
    type: object
    properties:
     login:
-     description: User name
+     description: 'User name'
      type: string
     password:
-     description: Password
+     description: 'Password'
      type: string
   schema-model-1f867fca-a4d2-be61-6f43-0422ed49c0da:
    type: object
    properties:
     authenticationToken:
-     description: If the value of property `authenticationToken` is 'null', login was not successful
+     description: 'If the value of property `authenticationToken` is 'null', login was not successful'
      nullable: true
      type: string
      format: uuid
@@ -1513,38 +1513,38 @@ components:
    type: object
    properties:
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
   schema-model-e0cae1fc-19e0-4fee-e1c9-68f5b087291a:
    type: object
    properties:
     login:
-     description: User name
+     description: 'User name'
      type: string
   schema-model-2bd9e6b2-5b89-dcf5-5644-fd3aa56ba295:
    type: object
    properties:
     dateFrom:
-     description: Date from
+     description: 'Date from'
      type: string
      format: date
   schema-model-809997b1-f741-b175-3ba7-48a82a2b7e30:
-   description: Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response
+   description: 'Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response'
    type: object
    properties:
     errorId:
-     description: Error Id
+     description: 'Error Id'
      type: integer
      format: int32
     timestamp:
-     description: Server Timestamp
+     description: 'Server Timestamp'
      type: integer
      format: int64
     message:
-     description: Internal Message
+     description: 'Internal Message'
      type: string
   schema-model-9bed5188-b1e7-496c-5a38-57369d612faa:
    type: object
@@ -1557,113 +1557,113 @@ components:
    type: object
    properties:
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     birthDate:
-     description: Datum of birth
+     description: 'Datum of birth'
      nullable: true
      type: string
      format: date
     gender:
-     description: true for male, false for female
+     description: 'true for male, false for female'
      type: boolean
   schema-model-abb92c43-452e-47d7-e0e1-173c2c966179:
    type: object
    properties:
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     birthDate:
-     description: Datum of birth
+     description: 'Datum of birth'
      nullable: true
      type: string
      format: date
     gender:
-     description: true for male, false for female
+     description: 'true for male, false for female'
      type: boolean
   schema-model-8e716480-d801-38cc-5614-489e5d90ac04:
-   description: Data required by the request are not valid (some of the required properties are missing or might have an invalid format)
+   description: 'Data required by the request are not valid (some of the required properties are missing or might have an invalid format)'
    type: object
    properties:
     validation:
      type: array
-     description: Nevalidní položky
+     description: 'Nevalidní položky'
      items:
       $ref: '#/components/schemas/schema-model-231141f1-2c73-7175-593e-636edaf6e5af'
   schema-model-231141f1-2c73-7175-593e-636edaf6e5af:
-   description: Jedna nevalidní položka vstupních dat a její validační zprávy.
+   description: 'Jedna nevalidní položka vstupních dat a její validační zprávy.'
    type: object
    properties:
     keyPath:
-     description: Vlastnost
+     description: 'Vlastnost'
      type: string
     messages:
      type: array
-     description: Zprávy
+     description: 'Zprávy'
      items:
       $ref: '#/components/schemas/schema-model-214345b0-c24d-ecd7-107f-5ffbad6710e1'
   schema-model-214345b0-c24d-ecd7-107f-5ffbad6710e1:
-   description: Validační zpráva.
+   description: 'Validační zpráva.'
    type: object
    properties:
     type:
-     description: Typ zprávy
+     description: 'Typ zprávy'
      type: string
     data:
      $ref: '#/components/schemas/schema-model-7059569e-a24a-4670-4432-369f037ea2c6'
   schema-model-7059569e-a24a-4670-4432-369f037ea2c6:
-   description: Data
+   description: 'Data'
   schema-model-cc5d2237-4380-2b78-8438-0874671431eb:
-   description: Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response
+   description: 'Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response'
    type: object
    properties:
     errorId:
-     description: Error Id
+     description: 'Error Id'
      type: integer
      format: int32
     timestamp:
-     description: Server Timestamp
+     description: 'Server Timestamp'
      type: integer
      format: int64
     message:
-     description: Internal Message
+     description: 'Internal Message'
      type: string
   schema-model-e72aac73-1981-23c6-5383-74535c7e707b:
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     birthDate:
-     description: Datum of birth
+     description: 'Datum of birth'
      nullable: true
      type: string
      format: date
     gender:
-     description: true for male, false for female
+     description: 'true for male, false for female'
      type: boolean
   schema-model-4632cca1-7ea5-7aba-7826-c28d07910b64:
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
   schema-model-2577dfcd-1128-1f96-d1ef-e9dca720fdc3:
@@ -1677,33 +1677,33 @@ components:
    type: object
    properties:
     type:
-     description: Discount type ('xForY', 'fixedAmount' or 'percentage').
+     description: 'Discount type ('xForY', 'fixedAmount' or 'percentage').'
      type: string
     amount:
-     description: For 'fixedAmount' or 'percentage' discount type only. For 'fixedAmount' - amount that should be subtracted. For 'percentage' - percentage value that should be calculated and subtracted.
+     description: 'For 'fixedAmount' or 'percentage' discount type only. For 'fixedAmount' - amount that should be subtracted. For 'percentage' - percentage value that should be calculated and subtracted.'
      nullable: true
      type: number
      format: double
     x:
-     description: For 'xForY' discount type only. X value of a discount.
+     description: 'For 'xForY' discount type only. X value of a discount.'
      nullable: true
      type: integer
      format: int32
     y:
-     description: For 'xForY' discount type only. Y value of a discount.
+     description: 'For 'xForY' discount type only. Y value of a discount.'
      nullable: true
      type: integer
      format: int32
     currency:
-     description: For 'fixedAmount' discount type only. 3 letter ISO code of currency.
+     description: 'For 'fixedAmount' discount type only. 3 letter ISO code of currency.'
      type: string
     productId:
-     description: The ID of the first product the discount is connected to.
+     description: 'The ID of the first product the discount is connected to.'
      nullable: true
      type: integer
      format: int32
     canBeUsedMultipleTimes:
-     description: For 'xForY' discount type only. A flag indicating whether the discount can be used repeatedly.
+     description: 'For 'xForY' discount type only. A flag indicating whether the discount can be used repeatedly.'
      type: boolean
     termStartDates:
      $ref: '#/components/schemas/schema-model-34838b83-6d88-efd0-9b06-94d5726c9a1d'
@@ -1714,7 +1714,7 @@ components:
     excludedDates:
      $ref: '#/components/schemas/schema-model-e95cdf53-f5c3-8199-6ebd-87d14bb1935d'
   schema-model-34838b83-6d88-efd0-9b06-94d5726c9a1d:
-   description: Collection of date ranges. Discount can be applied only on stays that are starting within any of these dates ranges.
+   description: 'Collection of date ranges. Discount can be applied only on stays that are starting within any of these dates ranges.'
    type: object
    properties:
     dates:
@@ -1733,7 +1733,7 @@ components:
      type: string
      format: date
   schema-model-cd722d5b-ba9b-7743-1ec2-c5e406fc1b2f:
-   description: Collection of date ranges. Discount can be applied only on stays that are completely within any of these date ranges.
+   description: 'Collection of date ranges. Discount can be applied only on stays that are completely within any of these date ranges.'
    type: object
    properties:
     dates:
@@ -1741,11 +1741,11 @@ components:
      items:
       $ref: '#/components/schemas/schema-model-70d42c72-7f8c-a185-54d3-c8b75b5fa91b'
   schema-model-45c4fcb6-dd94-1c4e-e5e2-4e85d17028b7:
-   description: For 'percentage' discount type only. Collection of date ranges. Discount can be calculated only for days in these date ranges.
+   description: 'For 'percentage' discount type only. Collection of date ranges. Discount can be calculated only for days in these date ranges.'
    type: object
    properties:
     minDays:
-     description: For 'percentage' discount type only. Minimum number of days of continuous (uninterrupted) stay, that must be within any of discountDates date ranges, so the discount can be applied. If not specified, min. days of stay is not limited.
+     description: 'For 'percentage' discount type only. Minimum number of days of continuous (uninterrupted) stay, that must be within any of discountDates date ranges, so the discount can be applied. If not specified, min. days of stay is not limited.'
      type: integer
      format: int32
     dates:
@@ -1753,7 +1753,7 @@ components:
      items:
       $ref: '#/components/schemas/schema-model-70d42c72-7f8c-a185-54d3-c8b75b5fa91b'
   schema-model-e95cdf53-f5c3-8199-6ebd-87d14bb1935d:
-   description: For 'percentage' discount type only. Collection of date ranges. Discount must not be calculated for days in these date ranges, but can be calculated for the other days.
+   description: 'For 'percentage' discount type only. Collection of date ranges. Discount must not be calculated for days in these date ranges, but can be calculated for the other days.'
    type: object
    properties:
     dates:
@@ -1764,56 +1764,56 @@ components:
    type: object
    properties:
     id:
-     description: Person ID
+     description: 'Person ID'
      type: integer
      format: int32
     fullName:
-     description: Full name
+     description: 'Full name'
      type: string
     businessCases:
      type: array
-     description: Seznam obchodních případů
+     description: 'Seznam obchodních případů'
      items:
       $ref: '#/components/schemas/schema-model-69d873fe-bf16-9cc7-a6b1-ab5448d0729d'
     currencies:
      type: array
-     description: Seznam používaných měn
+     description: 'Seznam používaných měn'
      items:
       $ref: '#/components/schemas/schema-model-a0dd2e5e-1e52-28db-72b0-909c91231d28'
     destinations:
      type: array
-     description: Seznam používaných destinací
+     description: 'Seznam používaných destinací'
      items:
       $ref: '#/components/schemas/schema-model-9d9f32e7-af45-76fb-69b9-de699fce6605'
     equipments:
      type: array
-     description: Seznam používaných vybavení
+     description: 'Seznam používaných vybavení'
      items:
       $ref: '#/components/schemas/schema-model-f7523931-e674-d1f5-4db2-3b4441d8864e'
     bankAccount:
-     description: Bankovní účet
+     description: 'Bankovní účet'
      type: string
   schema-model-69d873fe-bf16-9cc7-a6b1-ab5448d0729d:
-   description: Zájezd klienta, neboli obchodní případ
+   description: 'Zájezd klienta, neboli obchodní případ'
    type: object
    properties:
     id:
      type: integer
      format: int32
     number:
-     description: Číslo obchodního případu
+     description: 'Číslo obchodního případu'
      type: string
     name:
-     description: Název
+     description: 'Název'
      type: string
     paymentUrl:
-     description: URL platby
+     description: 'URL platby'
      type: string
     paymentValidationUrl:
-     description: URL validace platby
+     description: 'URL validace platby'
      type: string
     variableSymbolForPayments:
-     description: Variabilní symbol pro mobilní platby
+     description: 'Variabilní symbol pro mobilní platby'
      type: string
     dateFromUtc:
      type: string
@@ -1822,7 +1822,7 @@ components:
      type: string
      format: date
     mealPlans:
-     description: Stravy
+     description: 'Stravy'
      type: string
     persons:
      $ref: '#/components/schemas/schema-model-9a6ff728-7ae9-6501-1da1-1b9195226569'
@@ -1830,109 +1830,109 @@ components:
      $ref: '#/components/schemas/schema-model-a5858ca0-d9e1-5585-a47e-5c1d1a12c092'
     payments:
      type: array
-     description: Seznam plateb
+     description: 'Seznam plateb'
      items:
       $ref: '#/components/schemas/schema-model-63be8f7e-3671-6ebb-c526-453989052047'
     paymentPolicy:
      type: array
-     description: Seznam nesplacených platebních předpisů
+     description: 'Seznam nesplacených platebních předpisů'
      items:
       $ref: '#/components/schemas/schema-model-269662d9-c82a-69d1-adb9-93d2ba894432'
     contacts:
      type: array
-     description: Seznam kontaktních osob
+     description: 'Seznam kontaktních osob'
      items:
       $ref: '#/components/schemas/schema-model-ab1b9ffd-62d8-82bd-1012-3e86bf6cd5b1'
     documents:
      type: array
-     description: Seznam dokumentů
+     description: 'Seznam dokumentů'
      items:
       $ref: '#/components/schemas/schema-model-d0f09c26-6a89-0bc6-53f6-fa0a3430c109'
     ratings:
      type: array
-     description: Hodnocení zájezdu
+     description: 'Hodnocení zájezdu'
      items:
       $ref: '#/components/schemas/schema-model-91ec4d42-d0d3-c27f-0115-aad100c5bcc9'
     businessCaseCapacities:
      type: array
-     description: cest, ubytování, ...
+     description: 'cest, ubytování, ...'
      items:
       $ref: '#/components/schemas/schema-model-d5567b99-dd4f-85fc-9f4f-aaba0cd472d6'
   schema-model-9a6ff728-7ae9-6501-1da1-1b9195226569:
-   description: Počty osob v OP
+   description: 'Počty osob v OP'
    type: object
    properties:
     adults:
-     description: Počet dospelých
+     description: 'Počet dospelých'
      type: integer
      format: int32
     children:
-     description: Počet dětí
+     description: 'Počet dětí'
      type: integer
      format: int32
     infants:
-     description: Počet infantů
+     description: 'Počet infantů'
      type: integer
      format: int32
   schema-model-a5858ca0-d9e1-5585-a47e-5c1d1a12c092:
-   description: Je definována hodnotou a měnou.
+   description: 'Je definována hodnotou a měnou.'
    type: object
    properties:
     amount:
-     description: Výše/hodnota ceny
+     description: 'Výše/hodnota ceny'
      type: number
      format: double
     arrears:
-     description: Výše/hodnota nedoplatku ceny
+     description: 'Výše/hodnota nedoplatku ceny'
      type: number
      format: double
     currencyId:
      type: integer
      format: int32
   schema-model-63be8f7e-3671-6ebb-c526-453989052047:
-   description: Platba provedená na OP
+   description: 'Platba provedená na OP'
    type: object
    properties:
     date:
-     description: Datum provedení platby
+     description: 'Datum provedení platby'
      type: string
      format: date
     amount:
-     description: Částka
+     description: 'Částka'
      type: number
      format: double
     currencyId:
-     description: ID měny
+     description: 'ID měny'
      type: integer
      format: int32
   schema-model-269662d9-c82a-69d1-adb9-93d2ba894432:
-   description: Nesplacený platební předpis
+   description: 'Nesplacený platební předpis'
    type: object
    properties:
     date:
-     description: Datum splatnosti
+     description: 'Datum splatnosti'
      type: string
      format: date
     amount:
-     description: Nezaplacená částka
+     description: 'Nezaplacená částka'
      type: number
      format: double
     currencyId:
-     description: ID měny
+     description: 'ID měny'
      type: integer
      format: int32
   schema-model-ab1b9ffd-62d8-82bd-1012-3e86bf6cd5b1:
-   description: Kontakt je osoba (například delegát), která je přířazená do konkrétní destinace
+   description: 'Kontakt je osoba (například delegát), která je přířazená do konkrétní destinace'
    type: object
    properties:
     type:
-     description: typ kontaktní osoby
+     description: 'typ kontaktní osoby'
      type: string
     fullName:
-     description: Celé jméno
+     description: 'Celé jméno'
      type: string
     phone:
-     description: Telefon
+     description: 'Telefon'
      type: string
     email:
      type: string
@@ -1951,48 +1951,48 @@ components:
      type: number
      format: double
   schema-model-d0f09c26-6a89-0bc6-53f6-fa0a3430c109:
-   description: Libovolný soubor týkající se destinace, zájezdu a pod. Součástí API dokumentace bude URL, na kterou bude předáno ID souboru a bude vracet jeho obsah.
+   description: 'Libovolný soubor týkající se destinace, zájezdu a pod. Součástí API dokumentace bude URL, na kterou bude předáno ID souboru a bude vracet jeho obsah.'
    type: object
    properties:
     id:
      type: integer
      format: int32
     name:
-     description: Název souboru
+     description: 'Název souboru'
      type: string
     mimeType:
-     description: mime type, například text/plain
+     description: 'mime type, například text/plain'
      type: string
     size:
-     description: velikost v bytech
+     description: 'velikost v bytech'
      type: integer
      format: int64
   schema-model-91ec4d42-d0d3-c27f-0115-aad100c5bcc9:
-   description: Počty osob v OP
+   description: 'Počty osob v OP'
    type: object
    properties:
     id:
-     description: ID typu hodnocení
+     description: 'ID typu hodnocení'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     value:
-     description: Hodnota
+     description: 'Hodnota'
      nullable: true
      type: integer
      format: int32
   schema-model-d5567b99-dd4f-85fc-9f4f-aaba0cd472d6:
-   description: Seznam kapacit je v pořadí, ve kterém by měly být zobrazeno. Každá kapacita definuje v jakém časovém intervalu by měla být zobrazena. Dále pak odkazuje na jeden z podporovaných typů. Z položek 'Arrival', 'Departure' nebo 'Accommodation' by tedy měla být vyplněna vždy jen jedna!
+   description: 'Seznam kapacit je v pořadí, ve kterém by měly být zobrazeno. Každá kapacita definuje v jakém časovém intervalu by měla být zobrazena. Dále pak odkazuje na jeden z podporovaných typů. Z položek 'Arrival', 'Departure' nebo 'Accommodation' by tedy měla být vyplněna vždy jen jedna!'
    type: object
    properties:
     showFromUtc:
-     description: Od kdy má být kapacita zobrazena
+     description: 'Od kdy má být kapacita zobrazena'
      type: string
      format: date
     showToUtc:
-     description: Do kdy má být kapacita zobrazena
+     description: 'Do kdy má být kapacita zobrazena'
      type: string
      format: date
     accommodation:
@@ -2002,32 +2002,32 @@ components:
     arrival:
      $ref: '#/components/schemas/schema-model-5fbc06d7-d421-b887-47c6-d9d8861dc569'
   schema-model-4a5cc6ba-48fe-bf34-0a4c-38cc7ab5fc29:
-   description: Ubytování v cílové destinaci
+   description: 'Ubytování v cílové destinaci'
    type: object
    properties:
     type:
-     description: Typ ubytování
+     description: 'Typ ubytování'
      type: string
     name:
-     description: Název hotelu
+     description: 'Název hotelu'
      type: string
     checkIn:
-     description: Nástup do hotelu
+     description: 'Nástup do hotelu'
      nullable: true
      type: string
      format: date
     checkOut:
-     description: Opuštění hotelu
+     description: 'Opuštění hotelu'
      nullable: true
      type: string
      format: date
     destinationId:
-     description: ID destinace
+     description: 'ID destinace'
      nullable: true
      type: integer
      format: int32
     equipmentIDs:
-     description: IDčka vlastností
+     description: 'IDčka vlastností'
      type: array
      items:
       type: integer
@@ -2035,17 +2035,17 @@ components:
     contact:
      $ref: '#/components/schemas/schema-model-22063562-5c6a-3d76-38ea-6d1419a265d6'
   schema-model-22063562-5c6a-3d76-38ea-6d1419a265d6:
-   description: Kontakt je osoba (například delegát), která je přířazená do konkrétní destinace
+   description: 'Kontakt je osoba (například delegát), která je přířazená do konkrétní destinace'
    type: object
    properties:
     type:
-     description: typ kontaktní osoby
+     description: 'typ kontaktní osoby'
      type: string
     fullName:
-     description: Celé jméno
+     description: 'Celé jméno'
      type: string
     phone:
-     description: Telefon
+     description: 'Telefon'
      type: string
     email:
      type: string
@@ -2064,11 +2064,11 @@ components:
      type: number
      format: double
   schema-model-209d9406-bc37-ce9e-f7e9-8baee64c7955:
-   description: Cesta tam (do cílové destinace)
+   description: 'Cesta tam (do cílové destinace)'
    type: object
    properties:
     departureStationCode:
-     description: Kód odletové stanice
+     description: 'Kód odletové stanice'
      type: string
     startUtc:
      type: string
@@ -2082,22 +2082,22 @@ components:
      type: string
      format: date
     routeType:
-     description: Typ dopravy
+     description: 'Typ dopravy'
      enum:
       - air
       - road
      type: string
     destinationId:
-     description: ID destinace
+     description: 'ID destinace'
      nullable: true
      type: integer
      format: int32
   schema-model-5fbc06d7-d421-b887-47c6-d9d8861dc569:
-   description: Cesta zpět (z cílové destinace)
+   description: 'Cesta zpět (z cílové destinace)'
    type: object
    properties:
     departureStationCode:
-     description: Kód odletové stanice
+     description: 'Kód odletové stanice'
      type: string
     startUtc:
      type: string
@@ -2111,44 +2111,44 @@ components:
      type: string
      format: date
     routeType:
-     description: Typ dopravy
+     description: 'Typ dopravy'
      enum:
       - air
       - road
      type: string
     destinationId:
-     description: ID destinace
+     description: 'ID destinace'
      nullable: true
      type: integer
      format: int32
   schema-model-a0dd2e5e-1e52-28db-72b0-909c91231d28:
-   description: Definice měny, na kterou je ze zbytku exportu odkazováno pomocí ID.
+   description: 'Definice měny, na kterou je ze zbytku exportu odkazováno pomocí ID.'
    type: object
    properties:
     id:
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     code:
-     description: Kód
+     description: 'Kód'
      type: string
     htmlDescription:
-     description: může obsahovat HTML značky
+     description: 'může obsahovat HTML značky'
      type: string
   schema-model-9d9f32e7-af45-76fb-69b9-de699fce6605:
-   description: Definice destinace, na kterou je ze zbytku exportu odkazováno pomocí ID.
+   description: 'Definice destinace, na kterou je ze zbytku exportu odkazováno pomocí ID.'
    type: object
    properties:
     id:
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     currencyId:
-     description: ID hlavní měny
+     description: 'ID hlavní měny'
      nullable: true
      type: integer
      format: int32
@@ -2156,11 +2156,11 @@ components:
      $ref: '#/components/schemas/schema-model-df1acd8c-202e-6bd3-2476-1c6594ddd578'
     files:
      type: array
-     description: Soubory
+     description: 'Soubory'
      items:
       $ref: '#/components/schemas/schema-model-7d650b01-be11-4bd2-e929-52b60e9e39a5'
   schema-model-df1acd8c-202e-6bd3-2476-1c6594ddd578:
-   description: Textový popis
+   description: 'Textový popis'
    type: object
    properties:
     general:
@@ -2175,46 +2175,46 @@ components:
    type: object
    properties:
     name:
-     description: Název
+     description: 'Název'
      type: string
     paragraphs:
      type: array
-     description: Odstavce
+     description: 'Odstavce'
      items:
       $ref: '#/components/schemas/schema-model-557cfe61-a506-98b4-c463-ada7963b992e'
   schema-model-557cfe61-a506-98b4-c463-ada7963b992e:
-   description: Odstavec
+   description: 'Odstavec'
    type: object
    properties:
     name:
-     description: Název
+     description: 'Název'
      type: string
     text:
-     description: Text
+     description: 'Text'
      type: string
   schema-model-7d650b01-be11-4bd2-e929-52b60e9e39a5:
-   description: Soubor destinace
+   description: 'Soubor destinace'
    type: object
    properties:
     id:
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
   schema-model-f7523931-e674-d1f5-4db2-3b4441d8864e:
-   description: Definice vybavení ubytování
+   description: 'Definice vybavení ubytování'
    type: object
    properties:
     id:
-     description: ID vybavení
+     description: 'ID vybavení'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     fileId:
-     description: ID souboru ikony
+     description: 'ID souboru ikony'
      nullable: true
      type: integer
      format: int32
@@ -2228,119 +2228,119 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: Business Case ID
+     description: 'Business Case ID'
      type: integer
      format: int32
     ratings:
      type: array
-     description: Rating
+     description: 'Rating'
      items:
       $ref: '#/components/schemas/schema-model-463f732a-e021-5983-7f59-d9c15f64df61'
   schema-model-463f732a-e021-5983-7f59-d9c15f64df61:
-   description: Rating
+   description: 'Rating'
    type: object
    properties:
     id:
-     description: Type ID
+     description: 'Type ID'
      type: integer
      format: int32
     value:
-     description: %
+     description: '%'
      type: integer
      format: int32
   schema-model-c006bd90-1a3e-3028-8338-feb1d3046b64:
    type: object
    properties:
     businessCaseId:
-     description: ID obchodního případu
+     description: 'ID obchodního případu'
      type: integer
      format: int32
     communications:
      type: array
-     description: Komunikace obchodního případu
+     description: 'Komunikace obchodního případu'
      items:
       $ref: '#/components/schemas/schema-model-ef736d36-add0-2174-7884-50ff77cb2301'
     businessCaseManagerPersonRoleCbId:
-     description: Pokud je vyplněná, tak aktuální přihlášený uživatel a jeho připojená osoba bude přiřazena v této roli k obchodnímu případu
+     description: 'Pokud je vyplněná, tak aktuální přihlášený uživatel a jeho připojená osoba bude přiřazena v této roli k obchodnímu případu'
      nullable: true
      type: integer
      format: int32
     personSenderId:
-     description: ID osob odesílající komunikaci
+     description: 'ID osob odesílající komunikaci'
      type: array
      items:
       type: integer
       format: int32
     organizationRecipientId:
-     description: ID organizací přijímací komunikaci
+     description: 'ID organizací přijímací komunikaci'
      type: array
      items:
       type: integer
       format: int32
   schema-model-ef736d36-add0-2174-7884-50ff77cb2301:
-   description: Komunikace obchodního případu
+   description: 'Komunikace obchodního případu'
    type: object
    properties:
     communicationDirection:
-     description: Směr komunikace
+     description: 'Směr komunikace'
      enum:
       - fromcompany
       - tocompany
       - notset
      type: string
     activityDate:
-     description: Datum aktivity
+     description: 'Datum aktivity'
      nullable: true
      type: string
      format: date
     communicationTypeCbId:
-     description: ID typu komunikace
+     description: 'ID typu komunikace'
      nullable: true
      type: integer
      format: int32
     commitmentModeId:
-     description: ID výstupního způsobu zajištění
+     description: 'ID výstupního způsobu zajištění'
      nullable: true
      type: integer
      format: int32
     communicationResult:
-     description: Výsledek komunikace
+     description: 'Výsledek komunikace'
      type: string
     contact:
-     description: Kontakt
+     description: 'Kontakt'
      type: string
     potential:
-     description: Potenciál
+     description: 'Potenciál'
      nullable: true
      type: number
      format: double
     potentialCurrencyId:
-     description: ID měny potenciálu
+     description: 'ID měny potenciálu'
      nullable: true
      type: integer
      format: int32
     cost:
-     description: Náklad
+     description: 'Náklad'
      nullable: true
      type: number
      format: double
     costCurrencyId:
-     description: ID měny nákladu
+     description: 'ID měny nákladu'
      nullable: true
      type: integer
      format: int32
     approximateProbability:
-     description: Šance
+     description: 'Šance'
      nullable: true
      type: integer
      format: int32
     hoursSpent:
-     description: Zabralo hodin
+     description: 'Zabralo hodin'
      nullable: true
      type: number
      format: double
     reminderDate:
-     description: Datum připomenutí
+     description: 'Datum připomenutí'
      nullable: true
      type: string
      format: date
@@ -2348,27 +2348,27 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: ID obchodního případu
+     description: 'ID obchodního případu'
      type: integer
      format: int32
     communications:
      type: array
-     description: Komunikace obchodního případu
+     description: 'Komunikace obchodního případu'
      items:
       $ref: '#/components/schemas/schema-model-ef736d36-add0-2174-7884-50ff77cb2301'
     businessCaseManagerPersonRoleCbId:
-     description: ID role osoby pro manažera obchodního případu
+     description: 'ID role osoby pro manažera obchodního případu'
      nullable: true
      type: integer
      format: int32
     personSenderId:
-     description: ID osob odesílající komunikaci
+     description: 'ID osob odesílající komunikaci'
      type: array
      items:
       type: integer
       format: int32
     organizationRecipientId:
-     description: ID organizací přijímací komunikaci
+     description: 'ID organizací přijímací komunikaci'
      type: array
      items:
       type: integer
@@ -2383,105 +2383,106 @@ components:
    type: object
    properties:
     productId:
-     description: List of is>tour product ids.
+     description: 'List of is>tour product ids.'
      type: array
      items:
       type: integer
       format: int32
     departureStationId:
-     description: Departure station Ids
+     description: 'Departure station Ids'
      type: array
      items:
       type: integer
       format: int32
     boardTypeId:
-     description: Board type Ids
+     description: 'Board type Ids'
      type: array
      items:
       type: integer
       format: int32
     startDateFrom:
-     description: Min tour start date.
+     description: 'Min tour start date.'
      nullable: true
      type: string
      format: date
     startDateTo:
-     description: Max tour start date.
+     description: 'Max tour start date.'
      nullable: true
      type: string
      format: date
     nightsFrom:
-     description: Min number of nights of tour
+     description: 'Min number of nights of tour'
      nullable: true
      type: integer
      format: int32
     nightsTo:
-     description: Max number of nights of tour.
+     description: 'Max number of nights of tour.'
      nullable: true
      type: integer
      format: int32
     transportTypeId:
-     description: Transport type Ids
+     description: 'Transport type Ids'
      type: array
      items:
       type: integer
       format: int32
     priceFrom:
-     description: Min price limit, per person.
+     description: 'Min price limit, per person.'
      nullable: true
      type: number
      format: double
     priceTo:
-     description: Max price limit, per person.
+     description: 'Max price limit, per person.'
      nullable: true
      type: number
      format: double
     priceFlagId:
-     description: List of price flags (Last Minute, First Minute, etc...) 
+     description: 'List of price flags (Last Minute, First Minute, etc...) '
      type: array
      items:
       type: integer
       format: int32
     destinationId:
-     description: List of destinations as entered in the is>tour
+     description: 'List of destinations as entered in the is>tour'
      type: array
      items:
       type: integer
       format: int32
     accommodationCategoryId:
-     description: List of accommodation categories (number of stars)
+     description: 'List of accommodation categories (number of stars)'
      type: array
      items:
       type: integer
       format: int32
     sortBy:
-     description: Sorting
+     description: 'Sorting'
      enum:
       - default
       - priceup
       - pricedown
       - productname
+      - numberofnightsandpriceup
      type: string
     pageNumber:
-     description: Number of page, starting from one.
+     description: 'Number of page, starting from one.'
      nullable: true
      type: integer
      format: int32
     pageSize:
-     description: Size of page, default is 20.
+     description: 'Size of page, default is 20.'
      nullable: true
      type: integer
      format: int32
     occupancy:
      $ref: '#/components/schemas/schema-model-359159d2-4414-b68e-e0c9-f2b9088f5045'
     saleGroupId:
-     description: List of is>tour sales group ids.
+     description: 'List of is>tour sales group ids.'
      type: array
      items:
       type: integer
       format: int32
   schema-model-359159d2-4414-b68e-e0c9-f2b9088f5045:
-   description: Count of adult, count of children
+   description: 'Count of adult, count of children'
    type: object
    properties:
     adultsCount:
@@ -2509,68 +2510,68 @@ components:
    properties:
     products:
      type: array
-     description: List of products
+     description: 'List of products'
      items:
       $ref: '#/components/schemas/schema-model-6c8b6712-53e0-d531-65ff-356afea2cdb9'
   schema-model-6c8b6712-53e0-d531-65ff-356afea2cdb9:
-   description: List of products
+   description: 'List of products'
    type: object
    properties:
     productId:
-     description: is>tour product id
+     description: 'is>tour product id'
      nullable: true
      type: integer
      format: int32
     productCode:
-     description: is>tour product code.
+     description: 'is>tour product code.'
      type: string
     productName:
-     description: Product name
+     description: 'Product name'
      type: string
     terms:
      type: array
-     description: List of found terms
+     description: 'List of found terms'
      items:
       $ref: '#/components/schemas/schema-model-f30e9ebc-df76-0d04-3546-f101a1c6cedf'
   schema-model-f30e9ebc-df76-0d04-3546-f101a1c6cedf:
-   description: List of found terms
+   description: 'List of found terms'
    type: object
    properties:
     id:
-     description: Term ID
+     description: 'Term ID'
      nullable: true
      type: integer
      format: int32
     code:
-     description: Term code
+     description: 'Term code'
      type: string
     dateFrom:
-     description: Tour start date.
+     description: 'Tour start date.'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Tour end date.
+     description: 'Tour end date.'
      nullable: true
      type: string
      format: date
     nights:
-     description: Tour length (number of nights).
+     description: 'Tour length (number of nights).'
      nullable: true
      type: integer
      format: int32
     saleGroupId:
-     description: Hladina ID
+     description: 'Hladina ID'
      nullable: true
      type: integer
      format: int32
     offers:
      type: array
-     description: List of found offers for the term.
+     description: 'List of found offers for the term.'
      items:
       $ref: '#/components/schemas/schema-model-3f66215f-66d6-299d-1788-35e13c70132c'
   schema-model-3f66215f-66d6-299d-1788-35e13c70132c:
-   description: List of found offers for the term.
+   description: 'List of found offers for the term.'
    type: object
    properties:
     departureStation:
@@ -2578,69 +2579,69 @@ components:
     returnStation:
      $ref: '#/components/schemas/schema-model-a18fb171-2aa6-2afe-8e48-0025f911e444'
     boardTypeId:
-     description: Type of diet ID - board type (All inclusive, Half board, ...)
+     description: 'Type of diet ID - board type (All inclusive, Half board, ...)'
      nullable: true
      type: integer
      format: int32
     transportTypeId:
-     description: Transport type (All inclusive, Half board, ...)
+     description: 'Transport type (All inclusive, Half board, ...)'
      nullable: true
      type: integer
      format: int32
     priceFlagId:
-     description: Price flag (LastMinute, First Minute, ...)
+     description: 'Price flag (LastMinute, First Minute, ...)'
      nullable: true
      type: integer
      format: int32
     roomIds:
-     description: ID of rooms, multiple only when includeGroupPrice attribute is set to true in the search request and request contains more than one roomOccupancy.
+     description: 'ID of rooms, multiple only when includeGroupPrice attribute is set to true in the search request and request contains more than one roomOccupancy.'
      type: array
      items:
       type: integer
       format: int32
     firstAdultPrice:
-     description: Starting price for first adult person.
+     description: 'Starting price for first adult person.'
      nullable: true
      type: number
      format: double
     basePromoPrice:
-     description: Starting price for first adult person without taxes.
+     description: 'Starting price for first adult person without taxes.'
      nullable: true
      type: number
      format: double
     groupPrice:
-     description: Total price for the whole group. Included only when includeGroupPrice attribute is set to true in the search request.
+     description: 'Total price for the whole group. Included only when includeGroupPrice attribute is set to true in the search request.'
      nullable: true
      type: integer
      format: int32
     availability:
-     description: Availability
+     description: 'Availability'
      type: string
   schema-model-1e00410f-5d2b-3518-1ef2-1127c5071e2f:
-   description: Departure station
+   description: 'Departure station'
    type: object
    properties:
     stationId:
-     description: Station ID
+     description: 'Station ID'
      nullable: true
      type: integer
      format: int32
     datetime:
-     description: Date and time
+     description: 'Date and time'
      nullable: true
      type: string
      format: date
   schema-model-a18fb171-2aa6-2afe-8e48-0025f911e444:
-   description: Return station
+   description: 'Return station'
    type: object
    properties:
     stationId:
-     description: Station ID
+     description: 'Station ID'
      nullable: true
      type: integer
      format: int32
     datetime:
-     description: Date and time
+     description: 'Date and time'
      nullable: true
      type: string
      format: date
@@ -2648,14 +2649,14 @@ components:
    type: object
    properties:
     reservationNumber:
-     description: Reservation number in 3rd party reservation system.
+     description: 'Reservation number in 3rd party reservation system.'
      type: string
     dateFrom:
-     description: Tour start date.
+     description: 'Tour start date.'
      type: string
      format: date
     dateTo:
-     description: Tour end date.
+     description: 'Tour end date.'
      type: string
      format: date
     clientPerson:
@@ -2667,7 +2668,7 @@ components:
     accommodation:
      $ref: '#/components/schemas/schema-model-cea366b9-2024-575d-fff4-df62cc752fe6'
     accommodationCategory:
-     description: Accommodation category
+     description: 'Accommodation category'
      type: string
     boardType:
      type: string
@@ -2766,17 +2767,17 @@ components:
    type: object
    properties:
     resultCode:
-     description: Result code - success = 1, error = 2.
+     description: 'Result code - success = 1, error = 2.'
      type: integer
      format: int32
     errorMessage:
-     description: Error message
+     description: 'Error message'
      type: string
   schema-model-6a78cb41-e2ba-ed35-bd9d-f49dfc902196:
    type: object
    properties:
     businessCaseNumber:
-     description: Číslo Obchodního případu
+     description: 'Číslo Obchodního případu'
      nullable: true
      type: integer
      format: int64
@@ -2785,7 +2786,7 @@ components:
    properties:
     businessCases:
      type: array
-     description: Obchodní případy
+     description: 'Obchodní případy'
      items:
       $ref: '#/components/schemas/schema-model-1c9fa054-7bac-2180-b09c-f219ab790554'
   schema-model-1c9fa054-7bac-2180-b09c-f219ab790554:
@@ -2795,45 +2796,45 @@ components:
    type: object
    properties:
     id:
-     description: Id OP
+     description: 'Id OP'
      type: integer
      format: int32
     number:
-     description: Číslo OP
+     description: 'Číslo OP'
      type: integer
      format: int64
     note:
-     description: Poznámka
+     description: 'Poznámka'
      type: string
     commitmentModeId:
-     description: Vazba na číselník "commitmentModes" určující stav OP (Rezervace, Prodej..)
+     description: 'Vazba na číselník "commitmentModes" určující stav OP (Rezervace, Prodej..)'
      nullable: true
      type: integer
      format: int32
     currency:
-     description: Kód měny OP
+     description: 'Kód měny OP'
      type: string
     dateCreated:
-     description: Datum začátku OP
+     description: 'Datum začátku OP'
      type: string
      format: date
     dateFrom:
-     description: Datum od
+     description: 'Datum od'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Datum do
+     description: 'Datum do'
      nullable: true
      type: string
      format: date
     firstExpirationDate:
-     description: Datum první expirace
+     description: 'Datum první expirace'
      nullable: true
      type: string
      format: date
     cancellationMode:
-     description: Určuje způsob zrušení OP, není-li nastaveno, OP není zrušeno
+     description: 'Určuje způsob zrušení OP, není-li nastaveno, OP není zrušeno'
      nullable: true
      enum:
       - notset
@@ -2846,219 +2847,219 @@ components:
      $ref: '#/components/schemas/schema-model-705853c1-19ed-81c3-0d10-92e5111ea8a3'
     products:
      type: array
-     description: Produkty OP
+     description: 'Produkty OP'
      items:
       $ref: '#/components/schemas/schema-model-973c85bc-a5ee-355c-57a4-1e9be3c99e41'
     priceItems:
      type: array
-     description: Cenové položky OP
+     description: 'Cenové položky OP'
      items:
       $ref: '#/components/schemas/schema-model-1d1c16c1-eaa3-07af-5071-561a89e95e0f'
     priceSummary:
      $ref: '#/components/schemas/schema-model-666b00a4-6843-e61e-48db-9388af5fcf34'
     paymentPolicies:
      type: array
-     description: Platební předpisy
+     description: 'Platební předpisy'
      items:
       $ref: '#/components/schemas/schema-model-d3028108-6146-3d34-d6ed-701b65f2043b'
     businessCasePersons:
      type: array
-     description: Osoby připojené k OP
+     description: 'Osoby připojené k OP'
      items:
       $ref: '#/components/schemas/schema-model-c4175b40-b556-c4e8-96e2-327bd9f313f6'
   schema-model-ce540899-fca1-ce8c-e073-cb9b1d5c24ed:
-   description: Vlastník (organizace) OP
+   description: 'Vlastník (organizace) OP'
    type: object
    properties:
     organizationId:
-     description: ID organizace vlastníka
+     description: 'ID organizace vlastníka'
      nullable: true
      type: integer
      format: int32
     organizationName:
-     description: Název organizace vlastníka
+     description: 'Název organizace vlastníka'
      type: string
     organizationRegNumber:
-     description: IČO organizace vlastníka
+     description: 'IČO organizace vlastníka'
      type: string
     personId:
-     description: ID osoby vlastníka (vazba na osobu)
+     description: 'ID osoby vlastníka (vazba na osobu)'
      nullable: true
      type: integer
      format: int32
   schema-model-705853c1-19ed-81c3-0d10-92e5111ea8a3:
-   description: Zákazník (organizace) OP
+   description: 'Zákazník (organizace) OP'
    type: object
    properties:
     organizationId:
-     description: ID organizace zákazníka
+     description: 'ID organizace zákazníka'
      nullable: true
      type: integer
      format: int32
     organizationName:
-     description: ID organizace zákazníka
+     description: 'ID organizace zákazníka'
      type: string
     organizationRegNumber:
-     description: ID organizace zákazníka
+     description: 'ID organizace zákazníka'
      type: string
     personId:
-     description: ID organizace zákazníka (vazba na osobu)
+     description: 'ID organizace zákazníka (vazba na osobu)'
      nullable: true
      type: integer
      format: int32
   schema-model-973c85bc-a5ee-355c-57a4-1e9be3c99e41:
-   description: Produkt představuje obal toho, co prodáváme
+   description: 'Produkt představuje obal toho, co prodáváme'
    type: object
    properties:
     id:
-     description: ID produktu
+     description: 'ID produktu'
      type: integer
      format: int32
     name:
-     description: Název produktu
+     description: 'Název produktu'
      type: string
     termName:
-     description: Název objednaného termínu produktu
+     description: 'Název objednaného termínu produktu'
      type: string
     dateFrom:
-     description: Začátek pobytu (datum od z připojeného produktu)
+     description: 'Začátek pobytu (datum od z připojeného produktu)'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Konec pobytu (datum do z připojeného produktu)
+     description: 'Konec pobytu (datum do z připojeného produktu)'
      nullable: true
      type: string
      format: date
   schema-model-1d1c16c1-eaa3-07af-5071-561a89e95e0f:
-   description: Cenové položky OP
+   description: 'Cenové položky OP'
    type: object
    properties:
     id:
-     description: ID cenové položky
+     description: 'ID cenové položky'
      type: integer
      format: int32
     currency:
-     description: Měna cenové položky
+     description: 'Měna cenové položky'
      type: string
     isCancelled:
-     description: Zda byla cenová položka stornována
+     description: 'Zda byla cenová položka stornována'
      type: boolean
     name:
-     description: Název cenové položky
+     description: 'Název cenové položky'
      type: string
     unitCount:
-     description: Počet jednotek
+     description: 'Počet jednotek'
      type: integer
      format: int32
     unitPrice:
-     description: Jednotková cena
+     description: 'Jednotková cena'
      nullable: true
      type: number
      format: double
     totalPrice:
-     description: Celková cena včetně odečtených slev
+     description: 'Celková cena včetně odečtených slev'
      nullable: true
      type: number
      format: double
     commision:
-     description: Celková provize na ceníkové položce
+     description: 'Celková provize na ceníkové položce'
      type: number
      format: double
     businessCasePersonId:
-     description: ID osoby v OP, které cenová položka patří
+     description: 'ID osoby v OP, které cenová položka patří'
      nullable: true
      type: integer
      format: int32
     priceFlagId:
-     description: ID příznaku (LastMinute, ...) cen z číselníku priceFlags
+     description: 'ID příznaku (LastMinute, ...) cen z číselníku priceFlags'
      nullable: true
      type: integer
      format: int32
     commitmentModeId:
-     description: Vazba na číselník "commitmentModes" určující stav cenové položky
+     description: 'Vazba na číselník "commitmentModes" určující stav cenové položky'
      nullable: true
      type: integer
      format: int32
     discounts:
      type: array
-     description: Aplikované slevy
+     description: 'Aplikované slevy'
      items:
       $ref: '#/components/schemas/schema-model-067eefbc-a623-e0c4-b5d8-14cdd2be7955'
   schema-model-067eefbc-a623-e0c4-b5d8-14cdd2be7955:
-   description: Aplikované slevy
+   description: 'Aplikované slevy'
    type: object
    properties:
     id:
-     description: ID slevy
+     description: 'ID slevy'
      nullable: true
      type: integer
      format: int32
     name:
-     description: Název slevy
+     description: 'Název slevy'
      type: string
     amount:
-     description: Částka slevy
+     description: 'Částka slevy'
      type: number
      format: double
   schema-model-666b00a4-6843-e61e-48db-9388af5fcf34:
-   description: Shrnutí ceny OP
+   description: 'Shrnutí ceny OP'
    type: object
    properties:
     totalPrice:
-     description: Celková cena OP
+     description: 'Celková cena OP'
      nullable: true
      type: number
      format: double
     payments:
-     description: Suma plateb za OP
+     description: 'Suma plateb za OP'
      nullable: true
      type: number
      format: double
     commission:
-     description: Provize za OP
+     description: 'Provize za OP'
      nullable: true
      type: number
      format: double
   schema-model-d3028108-6146-3d34-d6ed-701b65f2043b:
-   description: Platební předpisy
+   description: 'Platební předpisy'
    type: object
    properties:
     date:
-     description: Datum
+     description: 'Datum'
      nullable: true
      type: string
      format: date
     amount:
-     description: Částka
+     description: 'Částka'
      nullable: true
      type: number
      format: double
     arrears:
-     description: Nedoplatek
+     description: 'Nedoplatek'
      nullable: true
      type: number
      format: double
     currency:
-     description: Měna
+     description: 'Měna'
      type: string
   schema-model-c4175b40-b556-c4e8-96e2-327bd9f313f6:
-   description: Osoby připojené k OP
+   description: 'Osoby připojené k OP'
    type: object
    properties:
     id:
-     description: ID osoby OP
+     description: 'ID osoby OP'
      type: integer
      format: int32
     order:
-     description: Pořadí osoby OP
+     description: 'Pořadí osoby OP'
      type: integer
      format: int32
     isContactPerson:
-     description: Určuje zda je osoba v OP kontaktérem
+     description: 'Určuje zda je osoba v OP kontaktérem'
      type: boolean
     role:
-     description: Role osoby v OP
+     description: 'Role osoby v OP'
      nullable: true
      enum:
       - notset
@@ -3071,29 +3072,29 @@ components:
     person:
      $ref: '#/components/schemas/schema-model-9139ae62-8e8b-18a7-03a7-2a2eaa523020'
   schema-model-9139ae62-8e8b-18a7-03a7-2a2eaa523020:
-   description: Vazba na konkrétní osobu
+   description: 'Vazba na konkrétní osobu'
    type: object
    properties:
     id:
-     description: Id osoby v systému
+     description: 'Id osoby v systému'
      type: integer
      format: int32
     firstName:
-     description: Jméno osoby
+     description: 'Jméno osoby'
      type: string
     middleName:
-     description: Prostřední jméno osoby
+     description: 'Prostřední jméno osoby'
      type: string
     lastname:
-     description: Příjmení osoby
+     description: 'Příjmení osoby'
      type: string
     birthDate:
-     description: Datum narození
+     description: 'Datum narození'
      nullable: true
      type: string
      format: date
     sex:
-     description: Pohlaví osoby
+     description: 'Pohlaví osoby'
      nullable: true
      enum:
       - notset
@@ -3102,54 +3103,54 @@ components:
      type: string
     contacts:
      type: array
-     description: Seznam kontaktních údajů
+     description: 'Seznam kontaktních údajů'
      items:
       $ref: '#/components/schemas/schema-model-d6b1c2f7-13ff-af3f-504c-666bc302309f'
     addresses:
      type: array
-     description: Seznam připojených adres
+     description: 'Seznam připojených adres'
      items:
       $ref: '#/components/schemas/schema-model-b2a8651b-14d0-176e-0da0-245c7a2a88de'
   schema-model-d6b1c2f7-13ff-af3f-504c-666bc302309f:
-   description: Seznam kontaktních údajů
+   description: 'Seznam kontaktních údajů'
    type: object
    properties:
     contactTypeId:
-     description: ID z číselníku typu kontaktů "contactTypes"
+     description: 'ID z číselníku typu kontaktů "contactTypes"'
      type: integer
      format: int32
     value:
-     description: Hodnota kontaktu - text spojení
+     description: 'Hodnota kontaktu - text spojení'
      type: string
     isMain:
-     description: Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní
+     description: 'Určuje, je-li kontakt v dané skupině se stejným contactTypeId hlavní'
      type: boolean
   schema-model-b2a8651b-14d0-176e-0da0-245c7a2a88de:
-   description: Seznam připojených adres
+   description: 'Seznam připojených adres'
    type: object
    properties:
     street:
-     description: Ulice
+     description: 'Ulice'
      type: string
     number:
-     description: Číslo orientační
+     description: 'Číslo orientační'
      type: string
     houseNumber:
-     description: Číslo popisné
+     description: 'Číslo popisné'
      type: string
     city:
-     description: Město
+     description: 'Město'
      type: string
     zip:
-     description: Psč
+     description: 'Psč'
      type: string
     countryId:
-     description: Id z číselníku zemí "countries"
+     description: 'Id z číselníku zemí "countries"'
      nullable: true
      type: integer
      format: int32
     flags:
-     description: Příznaky adresy
+     description: 'Příznaky adresy'
      type: array
      items:
       enum:
@@ -3163,24 +3164,24 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: ID of a business case
+     description: 'ID of a business case'
      type: integer
      format: int32
     customer:
      $ref: '#/components/schemas/schema-model-54adc998-eb9c-48a2-a64d-78af1bf8272e'
     totalAmount:
-     description: Amount to pay
+     description: 'Amount to pay'
      type: number
      format: double
   schema-model-54adc998-eb9c-48a2-a64d-78af1bf8272e:
-   description: Informations about the payment customer
+   description: 'Informations about the payment customer'
    type: object
    properties:
     customerIP:
-     description: ID address of the customer
+     description: 'ID address of the customer'
      type: string
     email:
-     description: Email address of the customer
+     description: 'Email address of the customer'
      type: string
   schema-model-828454d5-6f80-50f2-bdb4-6ed9a00842c7:
    type: object
@@ -3192,206 +3193,206 @@ components:
    properties:
     data:
      type: array
-     description: Data
+     description: 'Data'
      items:
       $ref: '#/components/schemas/schema-model-8cb44b0d-6dc2-92b6-f649-64e2ccb0d4fe'
   schema-model-8cb44b0d-6dc2-92b6-f649-64e2ccb0d4fe:
-   description: Data
+   description: 'Data'
    type: object
    properties:
     season:
-     description: Sezóna
+     description: 'Sezóna'
      type: string
     product:
-     description: Identifikátor produktu
+     description: 'Identifikátor produktu'
      type: string
     termsSerial:
-     description: Název term seriálu
+     description: 'Název term seriálu'
      type: string
     terms:
      type: array
-     description: Seznam termínů
+     description: 'Seznam termínů'
      items:
       $ref: '#/components/schemas/schema-model-c02ac8b6-e823-1faa-7702-565602a6d2b5'
   schema-model-c02ac8b6-e823-1faa-7702-565602a6d2b5:
-   description: Seznam termínů
+   description: 'Seznam termínů'
    type: object
    properties:
     dateFrom:
-     description: Datum od
+     description: 'Datum od'
      type: string
      format: date
     nights:
-     description: Počet nocí
+     description: 'Počet nocí'
      type: integer
      format: int32
     prices:
      type: array
-     description: Seznam cen
+     description: 'Seznam cen'
      items:
       $ref: '#/components/schemas/schema-model-0e1bdb26-d045-68ab-e51d-ed37c5bd559a'
   schema-model-0e1bdb26-d045-68ab-e51d-ed37c5bd559a:
-   description: Seznam cen
+   description: 'Seznam cen'
    type: object
    properties:
     priceListItem:
-     description: Centrání název cp
+     description: 'Centrání název cp'
      type: string
     roomType:
-     description: Typ pokoje
+     description: 'Typ pokoje'
      type: string
     boardType:
-     description: Strava
+     description: 'Strava'
      type: string
     originalPrice:
-     description: Původní cena
+     description: 'Původní cena'
      nullable: true
      type: number
      format: double
     amount:
-     description: Částka
+     description: 'Částka'
      nullable: true
      type: number
      format: double
     priceFlag:
-     description: Příznak ceny
+     description: 'Příznak ceny'
      type: string
   schema-model-c0d63ab6-1b80-93f3-2920-5f0223403da2:
    type: object
    properties:
     product:
-     description: Produkt
+     description: 'Produkt'
      type: string
     termsSerial:
-     description: Term seriál
+     description: 'Term seriál'
      type: string
     dateFrom:
-     description: Datum od
+     description: 'Datum od'
      type: string
      format: date
     nights:
-     description: Počet nocí
+     description: 'Počet nocí'
      type: integer
      format: int32
     priceListItem:
-     description: Mezinárodní název CP
+     description: 'Mezinárodní název CP'
      type: string
     roomType:
-     description: Název pro grupování
+     description: 'Název pro grupování'
      type: string
     boardType:
-     description: Kód stravy
+     description: 'Kód stravy'
      type: string
     season:
-     description: Sezóna
+     description: 'Sezóna'
      type: string
   schema-model-66c88aa8-1f4f-455a-fb25-cfb6e8faea64:
    type: object
    properties:
     amount:
-     description: The value of a price correction
+     description: 'The value of a price correction'
      type: number
      format: double
     dateFrom:
-     description: Date From
+     description: 'Date From'
      type: string
      format: date
     nights:
-     description: Count of nights
+     description: 'Count of nights'
      type: integer
      format: int32
     departureTransportFacilityId:
-     description: ID of a depature transport facility
+     description: 'ID of a depature transport facility'
      nullable: true
      type: integer
      format: int32
     departureStationId:
-     description: ID of a departure station
+     description: 'ID of a departure station'
      nullable: true
      type: integer
      format: int32
     returnArrivalStationId:
-     description: ID of an arrival station
+     description: 'ID of an arrival station'
      nullable: true
      type: integer
      format: int32
     productId:
-     description: ID of a product
+     description: 'ID of a product'
      type: integer
      format: int32
     priceListCategoryCbId:
-     description: Codebook ID of a price list category
+     description: 'Codebook ID of a price list category'
      nullable: true
      type: integer
      format: int32
     boardTypeCbId:
-     description: Codebook ID of a board type
+     description: 'Codebook ID of a board type'
      nullable: true
      type: integer
      format: int32
     saleGroupId:
-     description: ID of a sale group
+     description: 'ID of a sale group'
      nullable: true
      type: integer
      format: int32
     facilityUnitPlanId:
-     description: ID of a facility unit plan
+     description: 'ID of a facility unit plan'
      type: integer
      format: int32
   schema-model-627c8156-399a-483c-bff5-f6037e60d5a9:
    type: object
    properties:
     number:
-     description: Number of the business case
+     description: 'Number of the business case'
      type: integer
      format: int64
     customer:
      $ref: '#/components/schemas/schema-model-dcb783f9-084e-eeb9-c65e-c206b8487175'
     bookings:
      type: array
-     description: List of bookings
+     description: 'List of bookings'
      items:
       $ref: '#/components/schemas/schema-model-239a92e1-d74e-6971-daee-01e50d83830e'
   schema-model-dcb783f9-084e-eeb9-c65e-c206b8487175:
-   description: Contact person
+   description: 'Contact person'
    type: object
    properties:
     birthDate:
-     description: Birth date
+     description: 'Birth date'
      nullable: true
      type: string
      format: date
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     middleName:
-     description: Middle name
+     description: 'Middle name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     nationality:
-     description: Nationality. Country ISO Code (ISO 3)
+     description: 'Nationality. Country ISO Code (ISO 3)'
      type: string
     street:
-     description: Street
+     description: 'Street'
      type: string
     city:
-     description: City
+     description: 'City'
      type: string
     zipCode:
-     description: ZIP code
+     description: 'ZIP code'
      type: string
     phone:
-     description: Phone number
+     description: 'Phone number'
      type: string
     email:
-     description: Email
+     description: 'Email'
      type: string
     extendedPersonData:
      $ref: '#/components/schemas/schema-model-f5c2928e-0dbc-82d7-680b-62e5ac1762c7'
   schema-model-f5c2928e-0dbc-82d7-680b-62e5ac1762c7:
-   description: Additional data of the passenger
+   description: 'Additional data of the passenger'
    type: object
    properties:
     ageCategory:
@@ -3410,53 +3411,53 @@ components:
       - infant
      type: string
   schema-model-239a92e1-d74e-6971-daee-01e50d83830e:
-   description: Booking and it's data
+   description: 'Booking and it's data'
    type: object
    properties:
     bookingId:
-     description: Booking ID
+     description: 'Booking ID'
      nullable: true
      type: integer
      format: int32
     passengers:
      type: array
-     description: List of passengers
+     description: 'List of passengers'
      items:
       $ref: '#/components/schemas/schema-model-61832953-0547-adfb-9901-93c581d10e10'
   schema-model-61832953-0547-adfb-9901-93c581d10e10:
-   description: Passenger person
+   description: 'Passenger person'
    type: object
    properties:
     birthDate:
-     description: Birth date
+     description: 'Birth date'
      type: string
      format: date
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     middleName:
-     description: Middle name
+     description: 'Middle name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     nationality:
-     description: Nationality. Country ISO Code (ISO 3)
+     description: 'Nationality. Country ISO Code (ISO 3)'
      type: string
     street:
-     description: Street
+     description: 'Street'
      type: string
     city:
-     description: City
+     description: 'City'
      type: string
     zipCode:
-     description: ZIP code
+     description: 'ZIP code'
      type: string
     phone:
-     description: Phone number
+     description: 'Phone number'
      type: string
     email:
-     description: Email
+     description: 'Email'
      type: string
     extendedPersonData:
      $ref: '#/components/schemas/schema-model-f5c2928e-0dbc-82d7-680b-62e5ac1762c7'
@@ -3464,25 +3465,25 @@ components:
    type: object
    properties:
     name:
-     description: Project name.
+     description: 'Project name.'
      type: string
     customerId:
-     description: ID of a customer.
+     description: 'ID of a customer.'
      nullable: true
      type: integer
      format: int32
     businessCaseKindCbId:
-     description: ID of a business case kind.
+     description: 'ID of a business case kind.'
      nullable: true
      type: integer
      format: int32
     costCenterId:
-     description: ID of a cost center.
+     description: 'ID of a cost center.'
      nullable: true
      type: integer
      format: int32
     ownerId:
-     description: ID of an owner.
+     description: 'ID of an owner.'
      nullable: true
      type: integer
      format: int32
@@ -3490,33 +3491,33 @@ components:
    type: object
    properties:
     id:
-     description: ID of new business case
+     description: 'ID of new business case'
      type: integer
      format: int32
     number:
-     description: Number of new business case
+     description: 'Number of new business case'
      type: integer
      format: int64
     name:
-     description: Project name
+     description: 'Project name'
      type: string
     customerId:
-     description: ID of a customer.
+     description: 'ID of a customer.'
      nullable: true
      type: integer
      format: int32
     businessCaseKindCbId:
-     description: ID of a business case kind.
+     description: 'ID of a business case kind.'
      nullable: true
      type: integer
      format: int32
     costCenterId:
-     description: ID of a cost center.
+     description: 'ID of a cost center.'
      nullable: true
      type: integer
      format: int32
     ownerId:
-     description: ID of an owner.
+     description: 'ID of an owner.'
      nullable: true
      type: integer
      format: int32
@@ -3524,31 +3525,31 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: ID of the business case that additional data are for
+     description: 'ID of the business case that additional data are for'
      type: integer
      format: int32
     destinationId:
-     description: ID of a destination
+     description: 'ID of a destination'
      nullable: true
      type: integer
      format: int32
     productTypeId:
-     description: ID of a product type
+     description: 'ID of a product type'
      nullable: true
      type: integer
      format: int32
     accommodationCategoryCbId:
-     description: ID of an accommodation
+     description: 'ID of an accommodation'
      nullable: true
      type: integer
      format: int32
     boardTypeCbId:
-     description: ID of a board
+     description: 'ID of a board'
      nullable: true
      type: integer
      format: int32
     transportTypeCbId:
-     description: ID of a transportation type
+     description: 'ID of a transportation type'
      nullable: true
      type: integer
      format: int32
@@ -3557,47 +3558,47 @@ components:
     accommodationTerm:
      $ref: '#/components/schemas/schema-model-9cb5c711-3e34-ac5b-5c09-d1c70eb75eb7'
     personCount:
-     description: Count of a persons
+     description: 'Count of a persons'
      nullable: true
      type: integer
      format: int32
     hotelName:
-     description: Name of a hotel
+     description: 'Name of a hotel'
      type: string
     roomKind:
-     description: Kind of a room
+     description: 'Kind of a room'
      type: string
     departurePlace:
-     description: Departure place
+     description: 'Departure place'
      type: string
     services:
-     description: Additional services
+     description: 'Additional services'
      type: string
   schema-model-0a5a1cbd-c795-1330-01fd-3ef693ca9d58:
-   description: Start and end of the trip
+   description: 'Start and end of the trip'
    type: object
    properties:
     dateFrom:
-     description: Date from
+     description: 'Date from'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Date to
+     description: 'Date to'
      nullable: true
      type: string
      format: date
   schema-model-9cb5c711-3e34-ac5b-5c09-d1c70eb75eb7:
-   description: Term of the accomodation
+   description: 'Term of the accomodation'
    type: object
    properties:
     dateFrom:
-     description: Date from
+     description: 'Date from'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Date to
+     description: 'Date to'
      nullable: true
      type: string
      format: date
@@ -3605,84 +3606,84 @@ components:
    type: object
    properties:
     number:
-     description: Číslo Obchodního případu
+     description: 'Číslo Obchodního případu'
      nullable: true
      type: integer
      format: int32
   schema-model-67b73e94-4ff5-e249-5f82-18f963a17b19:
-   description: Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response
+   description: 'Internal server error - request has ended as a fatal error. Check the `message` property for more detail information about the occured error in the response'
    type: object
    properties:
     errorId:
-     description: Error Id
+     description: 'Error Id'
      type: integer
      format: int32
     timestamp:
-     description: Server Timestamp
+     description: 'Server Timestamp'
      type: integer
      format: int64
     message:
-     description: Internal Message
+     description: 'Internal Message'
      type: string
   schema-model-1a93f90b-62c5-b443-4d19-472172eaddf4:
    type: object
    properties:
     documentTemplates:
      type: array
-     description: Seznam šablon
+     description: 'Seznam šablon'
      items:
       $ref: '#/components/schemas/schema-model-55c91686-b848-3450-0aef-5bdb1be2cd5b'
   schema-model-55c91686-b848-3450-0aef-5bdb1be2cd5b:
-   description: Seznam šablon
+   description: 'Seznam šablon'
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     type:
-     description: Type
+     description: 'Type'
      type: string
   schema-model-1b039809-4587-aeee-703e-335f0603f2e5:
    type: object
    properties:
     documents:
      type: array
-     description: Seznam tisk. dokumentů
+     description: 'Seznam tisk. dokumentů'
      items:
       $ref: '#/components/schemas/schema-model-096a9a06-5456-dc4a-2908-7788d72cdcf9'
   schema-model-096a9a06-5456-dc4a-2908-7788d72cdcf9:
-   description: Seznam tisk. dokumentů
+   description: 'Seznam tisk. dokumentů'
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     mimeType:
-     description: MimeType
+     description: 'MimeType'
      type: string
     size:
-     description: size
+     description: 'size'
      type: integer
      format: int32
   schema-model-53acf486-ced0-e6af-52bf-54c39f56a35c:
    type: object
    properties:
     printTemplateIDs:
-     description: ID tiskových dokumentů k vygenervání
+     description: 'ID tiskových dokumentů k vygenervání'
      type: array
      items:
       type: integer
       format: int32
     number:
-     description: Číslo Obchodního případu
+     description: 'Číslo Obchodního případu'
      nullable: true
      type: integer
      format: int32
@@ -3690,7 +3691,7 @@ components:
    type: object
    properties:
     id:
-     description: ID tiskového dokumentu OP
+     description: 'ID tiskového dokumentu OP'
      type: integer
      format: int32
   schema-model-42abfbd2-faf6-6855-a042-23be9c9d472c:
@@ -3698,11 +3699,11 @@ components:
    properties:
     priceItems:
      type: array
-     description: List of price items
+     description: 'List of price items'
      items:
       $ref: '#/components/schemas/schema-model-f36a09da-38f6-be4c-53aa-f86d959df1b9'
   schema-model-f36a09da-38f6-be4c-53aa-f86d959df1b9:
-   description: List of price items
+   description: 'List of price items'
    type: object
    properties:
     id:
@@ -3713,31 +3714,31 @@ components:
      type: integer
      format: int32
     businessCaseId:
-     description: ID of a business case
+     description: 'ID of a business case'
      type: integer
      format: int32
     priceListItemId:
-     description: ID of a price list item
+     description: 'ID of a price list item'
      nullable: true
      type: integer
      format: int32
     commitmentModeId:
-     description: ID of a commitment mode
+     description: 'ID of a commitment mode'
      type: integer
      format: int32
     name:
-     description: Name of a price item
+     description: 'Name of a price item'
      type: string
     amount:
-     description: The value of a price item amount
+     description: 'The value of a price item amount'
      type: number
      format: double
     currencyId:
-     description: ID of a currency
+     description: 'ID of a currency'
      type: integer
      format: int32
     accountingId:
-     description: ID of an accounting
+     description: 'ID of an accounting'
      nullable: true
      type: integer
      format: int32
@@ -3758,11 +3759,11 @@ components:
    properties:
     priceItems:
      type: array
-     description: List of price items
+     description: 'List of price items'
      items:
       $ref: '#/components/schemas/schema-model-cc875e47-5772-0d3c-d5d9-3d4962424bfc'
   schema-model-cc875e47-5772-0d3c-d5d9-3d4962424bfc:
-   description: List of price items
+   description: 'List of price items'
    type: object
    properties:
     id:
@@ -3773,36 +3774,36 @@ components:
      type: integer
      format: int32
     businessCaseId:
-     description: ID of a business case
+     description: 'ID of a business case'
      type: integer
      format: int32
     priceListItemId:
-     description: ID of a price list item
+     description: 'ID of a price list item'
      nullable: true
      type: integer
      format: int32
     commitmentModeId:
-     description: ID of a commitment mode
+     description: 'ID of a commitment mode'
      type: integer
      format: int32
     name:
-     description: Name of a price item
+     description: 'Name of a price item'
      type: string
     amount:
-     description: The value of a price item amount
+     description: 'The value of a price item amount'
      type: number
      format: double
     currencyId:
-     description: ID of a currency
+     description: 'ID of a currency'
      type: integer
      format: int32
     accountingId:
-     description: ID of an accounting
+     description: 'ID of an accounting'
      nullable: true
      type: integer
      format: int32
     operation:
-     description: The operation with a price item, that you intended to do
+     description: 'The operation with a price item, that you intended to do'
      enum:
       - save
       - release
@@ -3811,17 +3812,17 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: ID of a business case
+     description: 'ID of a business case'
      nullable: true
      type: integer
      format: int32
     businessCaseNumber:
-     description: Number of a business case
+     description: 'Number of a business case'
      nullable: true
      type: integer
      format: int64
     type:
-     description: Requested invoice type
+     description: 'Requested invoice type'
      enum:
       - proforma
      type: string
@@ -3830,49 +3831,49 @@ components:
    properties:
     invoices:
      type: array
-     description: List of invoices
+     description: 'List of invoices'
      items:
       $ref: '#/components/schemas/schema-model-1945949d-d765-29f9-7323-d50b5a62fadf'
   schema-model-1945949d-d765-29f9-7323-d50b5a62fadf:
-   description: List of invoices
+   description: 'List of invoices'
    type: object
    properties:
     variableSymbol:
-     description: Variable symbol of the invoice
+     description: 'Variable symbol of the invoice'
      nullable: true
      type: integer
      format: int64
     value:
-     description: Value of the invoice
+     description: 'Value of the invoice'
      type: number
      format: double
     accountingDocId:
-     description: ID of the document where invoice is stored as a printable document
+     description: 'ID of the document where invoice is stored as a printable document'
      type: integer
      format: int32
   schema-model-48dfcc03-a71a-ec83-5fca-df2cea94c116:
    type: object
    properties:
     businessCaseId:
-     description: ID of a business case
+     description: 'ID of a business case'
      nullable: true
      type: integer
      format: int32
     businessCaseNumber:
-     description: Number of a business case
+     description: 'Number of a business case'
      nullable: true
      type: integer
      format: int64
     accountingDocId:
-     description: ID of an accounting document
+     description: 'ID of an accounting document'
      type: integer
      format: int32
   schema-model-b536e229-78e6-92e7-5e1b-5f1623aa9142:
-   description: GET požadavek musí v hlavičce obsahovat autentizační token X-API-Authentication-Token (získaný po ověření uživatele).
+   description: 'GET požadavek musí v hlavičce obsahovat autentizační token X-API-Authentication-Token (získaný po ověření uživatele).'
    type: object
    properties:
     dateFrom:
-     description: Datum začátku obchodního případu
+     description: 'Datum začátku obchodního případu'
      type: string
      format: date
   schema-model-4dc282b3-a352-9287-a5c1-c87b2cb5c8f9:
@@ -3885,102 +3886,102 @@ components:
    properties:
     clients:
      type: array
-     description: Seznam klientů
+     description: 'Seznam klientů'
      items:
       $ref: '#/components/schemas/schema-model-a980bf77-4268-144d-74cc-2856fa835bcf'
   schema-model-a980bf77-4268-144d-74cc-2856fa835bcf:
-   description: Seznam klientů
+   description: 'Seznam klientů'
    type: object
    properties:
     firstName:
-     description: Křestní jméno
+     description: 'Křestní jméno'
      type: string
     lastName:
-     description: Příjmení
+     description: 'Příjmení'
      type: string
     dateOfBirth:
-     description: Datum narození
+     description: 'Datum narození'
      nullable: true
      type: string
      format: date
     endDate:
-     description: Ukončení OP
+     description: 'Ukončení OP'
      nullable: true
      type: string
      format: date
     businessCaseNumber:
-     description: Číslo OP
+     description: 'Číslo OP'
      type: string
   schema-model-4f774fd3-0fd9-09a3-c925-52778124e4ed:
    type: object
    properties:
     tourId:
-     description: ID of product. Required
+     description: 'ID of product. Required'
      type: integer
      format: int32
     termId:
-     description: ID of term of Term reservation. Can be null for season reservation (DateFrom, DateTo has to be specified instead of TermID)
+     description: 'ID of term of Term reservation. Can be null for season reservation (DateFrom, DateTo has to be specified instead of TermID)'
      nullable: true
      type: integer
      format: int32
     dateFrom:
-     description: Date from for Season reservation
+     description: 'Date from for Season reservation'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Date to for Season reservation
+     description: 'Date to for Season reservation'
      nullable: true
      type: string
      format: date
     rooms:
      type: array
-     description: List of Room configurations. Required
+     description: 'List of Room configurations. Required'
      items:
       $ref: '#/components/schemas/schema-model-b75fd343-2f9f-6458-dc39-316ae9e1bb5a'
   schema-model-b75fd343-2f9f-6458-dc39-316ae9e1bb5a:
-   description: List of Room configurations. Required
+   description: 'List of Room configurations. Required'
    type: object
    properties:
     roomId:
-     description: ID of accommodation room. If null, room is selected by passengers birthdays
+     description: 'ID of accommodation room. If null, room is selected by passengers birthdays'
      nullable: true
      type: integer
      format: int32
     stationId:
-     description: ID of station
+     description: 'ID of station'
      nullable: true
      type: integer
      format: int32
     useOwnTransport:
-     description: In case of true and empty StationID, own transport is requested
+     description: 'In case of true and empty StationID, own transport is requested'
      type: boolean
     boardTypeId:
-     description: ID of board type
+     description: 'ID of board type'
      nullable: true
      type: integer
      format: int32
     passengerBirthDates:
-     description: Birth dates of all passengers. Required
+     description: 'Birth dates of all passengers. Required'
      type: array
      items:
       type: string
       format: date
     additionalItems:
      type: array
-     description: Selected additional items
+     description: 'Selected additional items'
      items:
       $ref: '#/components/schemas/schema-model-416236c4-0455-b24b-22f1-952c1d652aa2'
   schema-model-416236c4-0455-b24b-22f1-952c1d652aa2:
-   description: Selected additional items
+   description: 'Selected additional items'
    type: object
    properties:
     priceItemId:
-     description: ID of selected additional item. Required
+     description: 'ID of selected additional item. Required'
      type: integer
      format: int32
     quantity:
-     description: Quantity of selected additional item. Required
+     description: 'Quantity of selected additional item. Required'
      type: integer
      format: int32
   schema-model-a91b1a9c-7727-41bf-006a-31637538ea76:
@@ -4012,19 +4013,19 @@ components:
    type: object
    properties:
     packagePrice:
-     description: Celková cena
+     description: 'Celková cena'
      type: number
      format: double
     currency:
-     description: Měna
+     description: 'Měna'
      type: string
     rooms:
      type: array
-     description: Pokoje
+     description: 'Pokoje'
      items:
       $ref: '#/components/schemas/schema-model-7e7c20ba-0f1f-6927-3f5b-183eb57effff'
   schema-model-7e7c20ba-0f1f-6927-3f5b-183eb57effff:
-   description: Pokoje
+   description: 'Pokoje'
    type: object
    properties:
     availability:
@@ -4039,7 +4040,7 @@ components:
      type: string
     additionalItems:
      type: array
-     description: List of all additional items
+     description: 'List of all additional items'
      items:
       $ref: '#/components/schemas/schema-model-bd286a1c-6c5a-4e30-bd41-66499cf540be'
     accommodation:
@@ -4050,30 +4051,30 @@ components:
      $ref: '#/components/schemas/schema-model-5445c56b-1cea-3175-dd0c-2461576e482b'
     priceDetail:
      type: array
-     description: List of all price items
+     description: 'List of all price items'
      items:
       $ref: '#/components/schemas/schema-model-55f46350-7d42-c651-b08d-56640d73d5d1'
   schema-model-bd286a1c-6c5a-4e30-bd41-66499cf540be:
-   description: List of all additional items
+   description: 'List of all additional items'
    type: object
    properties:
     name:
-     description: Name of item
+     description: 'Name of item'
      type: string
     quantity:
-     description: Items count
+     description: 'Items count'
      type: integer
      format: int32
     price:
-     description: Unit item price
+     description: 'Unit item price'
      type: number
      format: double
     priceItemId:
-     description: ID of price list item
+     description: 'ID of price list item'
      type: integer
      format: int32
     currency:
-     description: Currency
+     description: 'Currency'
      type: string
     type:
      $ref: '#/components/schemas/schema-model-8c75064c-f62e-9970-0486-c038d80d7d68'
@@ -4084,64 +4085,64 @@ components:
      description: 'Item base type. Available values: basic/mandatory/optional'
      type: string
     name:
-     description: Name of item type
+     description: 'Name of item type'
      type: string
   schema-model-e28b1ab1-0bdb-098b-ec13-0375b34a16a5:
-   description: Accommodation
+   description: 'Accommodation'
    type: object
    properties:
     boardTypeId:
-     description: Board type ID
+     description: 'Board type ID'
      type: integer
      format: int32
     boardTypeName:
-     description: Board type name
+     description: 'Board type name'
      type: string
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     name:
-     description: Name
+     description: 'Name'
      type: string
     availability:
-     description: Availability state
+     description: 'Availability state'
      type: string
   schema-model-5445c56b-1cea-3175-dd0c-2461576e482b:
-   description: Departure
+   description: 'Departure'
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     name:
-     description: Name
+     description: 'Name'
      type: string
     availability:
-     description: Availability state
+     description: 'Availability state'
      type: string
   schema-model-55f46350-7d42-c651-b08d-56640d73d5d1:
-   description: List of all price items
+   description: 'List of all price items'
    type: object
    properties:
     name:
-     description: Name of item
+     description: 'Name of item'
      type: string
     quantity:
-     description: Items count
+     description: 'Items count'
      type: integer
      format: int32
     price:
-     description: Unit item price
+     description: 'Unit item price'
      type: number
      format: double
     priceItemId:
-     description: ID of price list item
+     description: 'ID of price list item'
      type: integer
      format: int32
     currency:
-     description: Currency
+     description: 'Currency'
      type: string
     type:
      $ref: '#/components/schemas/schema-model-8c75064c-f62e-9970-0486-c038d80d7d68'
@@ -4151,64 +4152,64 @@ components:
     customer:
      $ref: '#/components/schemas/schema-model-2c4b6e09-935f-1c53-d9ee-cf6af9b6351d'
     tourId:
-     description: ID of product. Required
+     description: 'ID of product. Required'
      type: integer
      format: int32
     termId:
-     description: ID of term of Term reservation. Can be null for season reservation (DateFrom, DateTo has to be specified instead of TermID)
+     description: 'ID of term of Term reservation. Can be null for season reservation (DateFrom, DateTo has to be specified instead of TermID)'
      nullable: true
      type: integer
      format: int32
     dateFrom:
-     description: Date from for Season reservation
+     description: 'Date from for Season reservation'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Date to for Season reservation
+     description: 'Date to for Season reservation'
      nullable: true
      type: string
      format: date
     rooms:
      type: array
-     description: List of Room configurations. Required
+     description: 'List of Room configurations. Required'
      items:
       $ref: '#/components/schemas/schema-model-b75fd343-2f9f-6458-dc39-316ae9e1bb5a'
   schema-model-2c4b6e09-935f-1c53-d9ee-cf6af9b6351d:
-   description: Contact person. Required
+   description: 'Contact person. Required'
    type: object
    properties:
     birthDate:
-     description: Birth date
+     description: 'Birth date'
      nullable: true
      type: string
      format: date
     firstName:
-     description: First name
+     description: 'First name'
      type: string
     middleName:
-     description: Middle name
+     description: 'Middle name'
      type: string
     lastName:
-     description: Last name
+     description: 'Last name'
      type: string
     nationality:
-     description: Nationality. Country ISO Code (ISO 3)
+     description: 'Nationality. Country ISO Code (ISO 3)'
      type: string
     street:
-     description: Street
+     description: 'Street'
      type: string
     city:
-     description: City
+     description: 'City'
      type: string
     zipCode:
-     description: ZIP code
+     description: 'ZIP code'
      type: string
     phone:
-     description: Phone number
+     description: 'Phone number'
      type: string
     email:
-     description: Email
+     description: 'Email'
      type: string
     extendedPersonData:
      $ref: '#/components/schemas/schema-model-f5c2928e-0dbc-82d7-680b-62e5ac1762c7'
@@ -4241,31 +4242,31 @@ components:
    type: object
    properties:
     number:
-     description: Business case number
+     description: 'Business case number'
      type: string
     expirationDate:
-     description: Expiration date of reservation
+     description: 'Expiration date of reservation'
      nullable: true
      type: string
      format: date
     packagePrice:
-     description: Total business case price
+     description: 'Total business case price'
      type: number
      format: double
     currency:
-     description: Currency
+     description: 'Currency'
      type: string
     rooms:
      type: array
-     description: Business case bookings
+     description: 'Business case bookings'
      items:
       $ref: '#/components/schemas/schema-model-a8d94185-6941-7920-0297-cbfb068d5ed4'
   schema-model-a8d94185-6941-7920-0297-cbfb068d5ed4:
-   description: Business case bookings
+   description: 'Business case bookings'
    type: object
    properties:
     bookingId:
-     description: ID of business case booking
+     description: 'ID of business case booking'
      type: integer
      format: int32
     accommodation:
@@ -4276,24 +4277,24 @@ components:
      $ref: '#/components/schemas/schema-model-5445c56b-1cea-3175-dd0c-2461576e482b'
     priceDetail:
      type: array
-     description: List of all price items
+     description: 'List of all price items'
      items:
       $ref: '#/components/schemas/schema-model-55f46350-7d42-c651-b08d-56640d73d5d1'
   schema-model-0a96c08b-eba0-dcc7-dcbf-964f5f6489d7:
    type: object
    properties:
     dateFrom:
-     description: Datum od
+     description: 'Datum od'
      nullable: true
      type: string
      format: date
     dateTo:
-     description: Datum do
+     description: 'Datum do'
      nullable: true
      type: string
      format: date
     businessCaseId:
-     description: ID op
+     description: 'ID op'
      nullable: true
      type: integer
      format: int64
@@ -4302,38 +4303,38 @@ components:
    properties:
     groups:
      type: array
-     description: Obchodní případy
+     description: 'Obchodní případy'
      items:
       $ref: '#/components/schemas/schema-model-27978d15-2490-c654-b2bb-559d016a0a17'
     persons:
      type: array
-     description: Osoby
+     description: 'Osoby'
      items:
       $ref: '#/components/schemas/schema-model-939c1b5e-9ea6-d0c4-c129-5bf8d49b6bdd'
     transports:
      type: array
-     description: Doprava
+     description: 'Doprava'
      items:
       $ref: '#/components/schemas/schema-model-700d9e9b-2e9e-fdb8-dc31-014ee630d765'
     resorts:
      type: array
-     description: Ubytování
+     description: 'Ubytování'
      items:
       $ref: '#/components/schemas/schema-model-7693d236-fe57-fc3d-d4c0-9f1dde4f12d3'
   schema-model-27978d15-2490-c654-b2bb-559d016a0a17:
-   description: Popisuje jeden obchodní případ, Kontakty kontaktní osoby, rezervované stravy a další služby. Osoby jsou definovány jako reference pomocí ID do kolekce osob.
+   description: 'Popisuje jeden obchodní případ, Kontakty kontaktní osoby, rezervované stravy a další služby. Osoby jsou definovány jako reference pomocí ID do kolekce osob.'
    type: object
    properties:
     id:
-     description: ID obchodního případu
+     description: 'ID obchodního případu'
      type: integer
      format: int32
     remarks:
-     description: Poznámka
+     description: 'Poznámka'
      type: string
     services:
      type: array
-     description: Doplňkové služby
+     description: 'Doplňkové služby'
      items:
       $ref: '#/components/schemas/schema-model-9ab9da1b-0774-b2ca-f422-c5ddb03bb897'
     persons:
@@ -4342,122 +4343,122 @@ components:
       $ref: '#/components/schemas/schema-model-0fc98f04-3c5d-e23f-c341-82eb029a8992'
     shortNotes:
      type: array
-     description: Seznam poznámek
+     description: 'Seznam poznámek'
      items:
       $ref: '#/components/schemas/schema-model-5b969df2-e67c-9137-a289-bd8de015a87a'
   schema-model-9ab9da1b-0774-b2ca-f422-c5ddb03bb897:
-   description: Cokoli, co si může člověk doobjednat...
+   description: 'Cokoli, co si může člověk doobjednat...'
    type: object
    properties:
     name:
-     description: Název
+     description: 'Název'
      type: string
   schema-model-5b969df2-e67c-9137-a289-bd8de015a87a:
-   description: Poznámka
+   description: 'Poznámka'
    type: object
    properties:
     id:
-     description: ID
+     description: 'ID'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     content:
-     description: Obsah
+     description: 'Obsah'
      type: string
   schema-model-939c1b5e-9ea6-d0c4-c129-5bf8d49b6bdd:
-   description: Popisuje detail osoby.
+   description: 'Popisuje detail osoby.'
    type: object
    properties:
     id:
-     description: ID osoby
+     description: 'ID osoby'
      type: integer
      format: int32
     firstName:
-     description: Křestní jméno
+     description: 'Křestní jméno'
      type: string
     lastName:
-     description: Příjmení
+     description: 'Příjmení'
      type: string
     birthDate:
-     description: Datum narození
+     description: 'Datum narození'
      nullable: true
      type: string
      format: date
     groupId:
-     description: obchodního případu
+     description: 'obchodního případu'
      type: integer
      format: int32
     isContactPerson:
-     description: Kontaktér
+     description: 'Kontaktér'
      type: boolean
     countryName:
-     description: Země
+     description: 'Země'
      type: string
     countryIsoCode:
-     description: ISO země
+     description: 'ISO země'
      type: string
     boardType:
-     description: Způsod stravování
+     description: 'Způsod stravování'
      type: string
     contacts:
      $ref: '#/components/schemas/schema-model-a402aad6-239f-73f4-63af-0d27566f9a6e'
   schema-model-a402aad6-239f-73f4-63af-0d27566f9a6e:
-   description: Kontakt
+   description: 'Kontakt'
    type: object
    properties:
     phone:
-     description: Mobil
+     description: 'Mobil'
      type: string
     email:
-     description: Email
+     description: 'Email'
      type: string
   schema-model-700d9e9b-2e9e-fdb8-dc31-014ee630d765:
-   description: Popisuje hromadnou dopravu, kterou jsou lidé přepraveni do cílové destinace nebo zpět z zní.
+   description: 'Popisuje hromadnou dopravu, kterou jsou lidé přepraveni do cílové destinace nebo zpět z zní.'
    type: object
    properties:
     id:
-     description: ID cesty/letu
+     description: 'ID cesty/letu'
      type: integer
      format: int32
     kind:
-     description: 'Road' nebo 'Air'
+     description: ''Road' nebo 'Air''
      type: string
     direction:
-     description: 'Incoming' pro dopravu TAM nebo 'Outgoing' pro dopravu ZPĚT
+     description: ''Incoming' pro dopravu TAM nebo 'Outgoing' pro dopravu ZPĚT'
      type: string
     routeDepartureDate:
-     description: Datum a čas odletu/odjezdu letu/jízdy
+     description: 'Datum a čas odletu/odjezdu letu/jízdy'
      type: string
      format: date
     routeArrivalDate:
-     description: Datum a čas příletu/příjezdu letu/jízdy
+     description: 'Datum a čas příletu/příjezdu letu/jízdy'
      type: string
      format: date
     number:
-     description: Kód linky
+     description: 'Kód linky'
      type: string
     stations:
      type: array
-     description: Stanice linky
+     description: 'Stanice linky'
      items:
       $ref: '#/components/schemas/schema-model-c10f2c50-d818-bb7b-8a81-49b5a54f9def'
   schema-model-c10f2c50-d818-bb7b-8a81-49b5a54f9def:
-   description: Popisuje jednu stanici dopravy.
+   description: 'Popisuje jednu stanici dopravy.'
    type: object
    properties:
     name:
-     description: Název
+     description: 'Název'
      type: string
     code:
-     description: Kód
+     description: 'Kód'
      type: string
     type:
-     description: Typ
+     description: 'Typ'
      type: string
     personIDs:
-     description: Čárkou oddělený seznam osob
+     description: 'Čárkou oddělený seznam osob'
      type: array
      items:
       type: integer
@@ -4467,54 +4468,54 @@ components:
      items:
       $ref: '#/components/schemas/schema-model-0fc98f04-3c5d-e23f-c341-82eb029a8992'
   schema-model-7693d236-fe57-fc3d-d4c0-9f1dde4f12d3:
-   description: Popisuje jeden hotel, ve kterém jsou v různých termínech ubytovaní lidé.
+   description: 'Popisuje jeden hotel, ve kterém jsou v různých termínech ubytovaní lidé.'
    type: object
    properties:
     id:
-     description: ID ubytovacího zařízení
+     description: 'ID ubytovacího zařízení'
      type: integer
      format: int32
     name:
-     description: Název
+     description: 'Název'
      type: string
     productName:
-     description: Název produktu
+     description: 'Název produktu'
      type: string
     terms:
      type: array
-     description: vnichž jsou lidé ubytovaní
+     description: 'vnichž jsou lidé ubytovaní'
      items:
       $ref: '#/components/schemas/schema-model-cdd23c59-eda3-2148-cfe3-d95d9e5b798a'
   schema-model-cdd23c59-eda3-2148-cfe3-d95d9e5b798a:
-   description: Termín ubytování v konkrétním hotelu.
+   description: 'Termín ubytování v konkrétním hotelu.'
    type: object
    properties:
     dateFrom:
-     description: Začátek termínu
+     description: 'Začátek termínu'
      type: string
      format: date
     dateTo:
-     description: Konec termínu
+     description: 'Konec termínu'
      type: string
      format: date
     rooms:
      type: array
-     description: Seznam pokojů
+     description: 'Seznam pokojů'
      items:
       $ref: '#/components/schemas/schema-model-c4c6122c-3c5b-028b-7fb4-7f818f57a2ad'
   schema-model-c4c6122c-3c5b-028b-7fb4-7f818f57a2ad:
-   description: Popisuje pokoj, ve kterém jsou ubytovaní lidé
+   description: 'Popisuje pokoj, ve kterém jsou ubytovaní lidé'
    type: object
    properties:
     id:
-     description: jednoznačné v rámci termínu
+     description: 'jednoznačné v rámci termínu'
      type: integer
      format: int32
     name:
-     description: Název pokoje
+     description: 'Název pokoje'
      type: string
     personIDs:
-     description: čárkou oddělený seznam
+     description: 'čárkou oddělený seznam'
      type: array
      items:
       type: integer
@@ -4527,17 +4528,17 @@ components:
    type: object
    properties:
     businessCaseId:
-     description: BusinessCaseID
+     description: 'BusinessCaseID'
      type: integer
      format: int32
     id:
-     description: Id poznámky
+     description: 'Id poznámky'
      type: integer
      format: int32
     name:
-     description: Name
+     description: 'Name'
      type: string
     content:
-     description: Content
+     description: 'Content'
      type: string
  responses:
