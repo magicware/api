@@ -2863,6 +2863,8 @@ components:
     schema-model-ee1966c0-40d5-0c5f-d698-67bf4c60708e:
       type: object
       properties:
+        orderId:
+          type: string
         redirectURL:
           type: string
   responses:
