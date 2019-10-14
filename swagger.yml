@@ -59,6 +59,32 @@ servers:
 #                                  Paths                                       #
 ################################################################################
 paths:
+ /api/v1/reservations/businesscases/duplications:
+  post:
+   description: |
+    **Identifier**: `Reservations.BusinessCases.Duplicate`
+    <br />
+    **URL environment**: `is>Content`
+    
+   tags:
+    - Business cases
+   summary: "Duplikace OP"
+   security:
+    - ApiKeyAuth: []
+   parameters:
+    - in: query
+      name: Number
+      description: Číslo Obchodního případu
+      schema:
+       type: integer
+   responses:
+    '200':
+     description: |
+      No content
+     content:
+      text/plain:
+       schema:
+        type: string
   /administration/user/login:
     post:
       description:  |
